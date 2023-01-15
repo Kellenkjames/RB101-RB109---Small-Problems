@@ -41,4 +41,12 @@ __________________________________________________
 
 N / A
 
+__________________________________________________
+
+* A - Algorithm
+
+- Iterate over string as many times as the integer:
+  - for each iteration, print out the string
+end
+
 =end 
