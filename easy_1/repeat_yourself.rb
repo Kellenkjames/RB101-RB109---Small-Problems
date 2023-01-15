@@ -27,14 +27,6 @@ Hello
 Hello
 # => nil 
 
-repeat('Bitcoin', 5)
-Bitcoin
-Bitcoin
-Bitcoin
-Bitcoin
-Bitcoin
-# => nil 
-
 __________________________________________________
 
 * D - Data Structure
