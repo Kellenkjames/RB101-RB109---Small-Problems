@@ -35,4 +35,10 @@ Bitcoin
 Bitcoin
 # => nil 
 
+__________________________________________________
+
+* D - Data Structure
+
+N / A
+
 =end 
