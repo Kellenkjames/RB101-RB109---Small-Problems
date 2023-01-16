@@ -38,7 +38,7 @@ __________________________________________________
 
 - Initialize an empty variable called "str"
 - Initialize a counter variable and set equal to 0
-- While counter is less than integer:
+- While counter is less than size:
   - If counter is even
     - append '1' to the empty string
   - Else
@@ -57,11 +57,11 @@ __________________________________________________
 
 #* C - Code
 
-def stringy(number)
+def stringy(size)
 str = ''
 counter = 0
 
-while counter < number
+while counter < size
   counter.even? ? str << '1' : str << '0'
   counter += 1
   break if counter > str.size
