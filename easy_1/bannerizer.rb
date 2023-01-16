@@ -38,4 +38,9 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
+
+- Create the structure of the box using print statements
+- Invoke the string argument inside the box
+
 =end
