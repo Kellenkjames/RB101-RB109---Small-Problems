@@ -37,8 +37,8 @@ __________________________________________________
 * A - Algorithm
 
 Initialize a variable called "bonus" and set equal to 0:
-- If boolean is true
-  - bonus = integer /  2
+- If bonus is true
+  - number /  2
 - Else
   - bonus = 0
 end
@@ -53,10 +53,8 @@ __________________________________________________
 
 #* C - Code
 
-def calculate_bonus(number, boolean)
-  bonus = 0
-  boolean ? bonus = number / 2 : bonus = 0
-  bonus
+def calculate_bonus(number, bonus)
+  bonus ? (number / 2) : 0
 end
 
 puts calculate_bonus(2800, true) == 1400
