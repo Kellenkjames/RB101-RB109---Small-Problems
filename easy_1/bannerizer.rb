@@ -61,7 +61,7 @@ __________________________________________________
 def print_in_box(message)
   horizontal_rule = '+'    + '-' * (message.size + 2)               +                          '+'
   vertical_rule     =      '|' + ' ' * (message.size + 2)               +                           '|'
-  message           =      '|' +  (' ') +  message + (' ')                +                            '|'
+  message           =      '|' + ' ' +  message + ' '                      +                            '|'
   
   puts horizontal_rule
   puts vertical_rule
