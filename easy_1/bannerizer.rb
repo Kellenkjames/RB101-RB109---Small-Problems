@@ -41,6 +41,27 @@ __________________________________________________
 * A - Algorithm
 
 - Create the structure of the box using print statements
-- Invoke the string argument inside the box
+  - Interpolate the text within the puts statement
+
+__________________________________________________
 
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+def print_in_box(text)
+  puts ""
+  puts "+---+"
+  puts " "
+  puts "|   |"
+  puts " "
+  puts "|   |"
+  puts " "
+  puts "|   |"
+  puts " "
+  puts "+---+"
+end
+
+print_in_box('')
