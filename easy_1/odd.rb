@@ -41,10 +41,10 @@ __________________________________________________
 * A - Algorithm
 
 - If a number divided by 2 leaves a remainder of 1
-    - Number is odd, 
+    - number is odd
       - return true
   - Else
-    - Number is even
+    - number is even
       - return false
   end
 
