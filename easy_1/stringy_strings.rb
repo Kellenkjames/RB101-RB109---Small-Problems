@@ -30,22 +30,44 @@ __________________________________________________
 
 * D - Data Structure
 
-Array: []
+N / A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty array and store in a variable
-- Iterate as many times as the integer:
-  - for each "even" iteration 
-    - append '1' to the empty array
-  - for each "odd" iteration
-    - append '0' to the empty array
-  - break if arr.length == integer
+- Initialize an empty variable called "str"
+- Initialize a counter variable and set equal to 0
+- While counter is less than integer:
+  - If counter is even
+    - append '1' to the empty string
+  - Else
+    - append '0' to the empty string
+  -end
+- break if counter > str.size
+
+return str
 end
 
-return arr 
+__________________________________________________
 
+* C - Code
 
 =end
+
+#_________________________________________________
+
+def stringy(number)
+str = ''
+counter = 0
+
+while counter < number
+  counter.even? ? str << '1' : str << '0'
+  counter += 1
+  break if counter > str.size
+end
+
+str
+end
+
+p stringy(6)
