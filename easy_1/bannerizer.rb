@@ -41,16 +41,14 @@ __________________________________________________
 * A - Algorithm
 
 - Initialize a variable named horizontal_rule and set equal to:
-  - '+' + multiply '-' * (message.size + 2) + '+'
-- Initialize a variable named vertical_rule and set equal to:
-  - '|' + multiply ' ' * (message.size + 2) + '|'
-- Reassign local variable "message" to the following:
-  - '|' + ' ' + message + ' ' + '|'
+  - '+' + ('-' * (message.size + 2)) + '+'
+- Initialize a variable named empty_line and set equal to:
+  - '|' + (' ' * (message.size + 2)) + '|'
 
 - Print horizontal_rule
-- Print vertical_rule
+- Print empty_line
 - Print message
-- Print vertical_rule
+- Print empty_line
 - Print horizontal_rule
 __________________________________________________
 
@@ -61,14 +59,13 @@ __________________________________________________
 #* C - Code
 
 def print_in_box(message)
-  horizontal_rule = '+'    + '-' * (message.size + 2)               +                          '+'
-  vertical_rule     =      '|' + ' ' * (message.size + 2)               +                           '|'
-  message           =      '|' + ' ' +  message + ' '                      +                            '|'
+  horizontal_rule = '+' + ('-' * (message.size + 2)) + '+'
+  empty_line = '|' + (' ' * (message.size + 2)) + '|'
   
   puts horizontal_rule
-  puts vertical_rule
-  puts message
-  puts vertical_rule
+  puts empty_line
+  puts "| #{message} |"
+  puts empty_line
   puts horizontal_rule
 end
 
