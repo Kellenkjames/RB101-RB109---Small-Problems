@@ -40,11 +40,12 @@ __________________________________________________
 
 * A - Algorithm
 
-- Create the structure of the box using print statements
-  - If argument equals empty string
-    - Print smaller box
-  - Else
-    - Print larger box
+- If text equals empty string
+  - Print empty banner
+    - Subprocess: empty box will be a helper method that will accept no arguments
+- Else
+  - Print filled banner
+    - Subprocess: filled box will be a helper method that will accept text as an argument
 end
 
 __________________________________________________
