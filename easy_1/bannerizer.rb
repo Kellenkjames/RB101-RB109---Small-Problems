@@ -59,10 +59,16 @@ __________________________________________________
 #* C - Code
 
 def print_in_box(message)
-  horizontal_rule = "+" + "-" * (message.size + 2) + "+"
+  horizontal_rule = '+'    + '-' * (message.size + 2)              +                          '+'
+  vertical_rule     =      '|' + ' ' * (message.size + 2)               +                           '|'
+  message           =      '|' +  (' ' * 1) +  message + (' ' * 1)      +                            '|'
+  
   puts horizontal_rule
-  vertical_rule = "|" + " " * (message.size + 2) + "|"
   puts vertical_rule
+  puts message
+  puts vertical_rule
+  puts horizontal_rule
 end
 
 print_in_box('To boldly go where no one has gone before.')
+
