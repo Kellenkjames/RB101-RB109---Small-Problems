@@ -55,8 +55,7 @@ __________________________________________________
 
 #* C - Code
 
-def print_in_box(text)
-  if text == ''
+def empty_box
     puts ""
     puts "+---+"
     puts " "
@@ -67,6 +66,11 @@ def print_in_box(text)
     puts "|   |"
     puts ""
     puts "+---+"
+end
+
+def print_in_box(text)
+  if text == ''
+    
   else
     puts ""
     puts "+--------------------------------------------+"
