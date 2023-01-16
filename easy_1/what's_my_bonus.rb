@@ -12,16 +12,15 @@ PROBLEM: Write a method that takes two arguments, a positive integer and a boole
           - Explicit Requirements:
             - Accepts two arguments: a positive integer and a boolean
             - Calculates the bonus for a given salary
-            - If the boolean is true, the bonus should be half of the salary
-              - Otherwise, the bonus should be 0
-            
+              - If the boolean is true, the bonus should be half of the salary
+                - Otherwise, the bonus should be 0
+          
           - Implicit Requirements:
             - Integer cannot be zero or negative
 
+__________________________________________________
 
-
-
-
+* E - Examples / Test Cases
 
 
 
