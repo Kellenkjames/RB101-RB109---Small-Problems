@@ -56,7 +56,7 @@ __________________________________________________
 # _________________________________________________
 
 def is_odd?(number)
-  number.abs.odd? ? true : false
+  number.abs % 2 == 1 ? true : false
 end
 
 puts is_odd?(2)    # => false
