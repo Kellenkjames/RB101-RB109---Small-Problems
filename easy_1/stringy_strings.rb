@@ -34,5 +34,18 @@ Array: []
 
 __________________________________________________
 
+* A - Algorithm
+
+- Initialize an empty array and store in a variable
+- Iterate as many times as the integer:
+  - for each "even" iteration 
+    - append '1' to the empty array
+  - for each "odd" iteration
+    - append '0' to the empty array
+  - break if arr.length == integer
+end
+
+return arr 
+
 
 =end
