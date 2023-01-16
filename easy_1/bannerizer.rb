@@ -40,14 +40,16 @@ __________________________________________________
 
 * A - Algorithm
 
-- If text equals empty string
-  - Print empty banner
-    - Subprocess: empty box will be a helper method that will accept no arguments
-- Else
-  - Print filled banner
-    - Subprocess: filled box will be a helper method that will accept text as an argument
-end
+- Initialize a variable named horizontal_rule and assign the following:
+  - Length of horizontal should be the length of the message + 2 characters
+- Initialize a variable named vertical_rule and assign the following:
+  - Height ot vertical_rile should be "|"
 
+- Print horizontal_rule
+- Print vertical_rule
+- Print message
+- Print vertical_rule
+- Print horizontal_rule
 __________________________________________________
 
 =end
@@ -56,35 +58,9 @@ __________________________________________________
 
 #* C - Code
 
-def show_empty_box
-    puts ""
-    puts "+---+"
-    puts " "
-    puts "|   |"
-    puts ""
-    puts "|   |"
-    puts ""
-    puts "|   |"
-    puts ""
-    puts "+---+"
-end
-
-def show_filled_box(text)
-    puts ""
-    puts "+--------------------------------------------+"
-    puts " "
-    puts "|                                            |"
-    puts ""
-    puts "| #{text} |"
-    puts ""
-    puts "|                                            |"
-    puts ""
-    puts "+--------------------------------------------+"
-end
-
-def print_in_box(text)
-  text == '' ? show_empty_box : show_filled_box(text)
+def print_in_box(message)
+  horizontal_rule = "+" + "-" * (message.size + 2) + "+"
+  puts horizontal_rule
 end
 
 print_in_box('To boldly go where no one has gone before.')
-
