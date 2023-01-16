@@ -59,9 +59,9 @@ __________________________________________________
 #* C - Code
 
 def print_in_box(message)
-  horizontal_rule = '+'    + '-' * (message.size + 2)              +                          '+'
+  horizontal_rule = '+'    + '-' * (message.size + 2)               +                          '+'
   vertical_rule     =      '|' + ' ' * (message.size + 2)               +                           '|'
-  message           =      '|' +  (' ' * 1) +  message + (' ' * 1)      +                            '|'
+  message           =      '|' +  (' ') +  message + (' ')                +                            '|'
   
   puts horizontal_rule
   puts vertical_rule
