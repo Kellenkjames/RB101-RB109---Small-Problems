@@ -34,5 +34,15 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
+
+Initialize a variable called "bonus" and set equal to 0:
+- If boolean is true
+  - bonus = integer /  2
+- Else
+  - bonus = 0
+end
+
+bonus
 
 =end
