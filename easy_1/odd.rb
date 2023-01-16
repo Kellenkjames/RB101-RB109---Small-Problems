@@ -30,5 +30,11 @@ puts is_odd?(-8)   # => false
 puts is_odd?(0)    # => false
 puts is_odd?(7)    # => true
 
+__________________________________________________
+
+* D - Data Structure
+
+N / A
+
 
 =end 
