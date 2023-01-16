@@ -30,13 +30,13 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+Array []
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty variable called "str"
+- Initialize an empty array called arr
 - Initialize a counter variable and set equal to 0
 - While counter is less than size:
   - If counter is even
@@ -46,7 +46,7 @@ __________________________________________________
   -end
 - break if counter > str.size
 
-return str
+arr.join
 end
 
 __________________________________________________
@@ -58,16 +58,16 @@ __________________________________________________
 #* C - Code
 
 def stringy(size)
-str = ''
+arr = []
 counter = 0
 
 while counter < size
-  counter.even? ? str << '1' : str << '0'
+  counter.even? ? arr << 1 : arr << 0
   counter += 1
-  break if counter > str.size
+  break if counter > arr.size
 end
 
-str
+arr.join
 end
 
 puts stringy(6) == '101010'
