@@ -41,9 +41,9 @@ __________________________________________________
 * A - Algorithm
 
 - Initialize a variable named horizontal_rule and set equal to:
-  - '+' + ('-' * (message.size + 2)) + '+'
+  - "+#{'-' * (message.size + 2)}+"
 - Initialize a variable named empty_line and set equal to:
-  - '|' + (' ' * (message.size + 2)) + '|'
+  - "|#{' ' * (message.size + 2)}|"
 
 - Print horizontal_rule
 - Print empty_line
@@ -59,8 +59,8 @@ __________________________________________________
 #* C - Code
 
 def print_in_box(message)
-  horizontal_rule = '+' + ('-' * (message.size + 2)) + '+'
-  empty_line = '|' + (' ' * (message.size + 2)) + '|'
+  horizontal_rule = "+#{'-' * (message.size + 2)}+"
+  empty_line = "|#{' ' * (message.size + 2)}|"
   
   puts horizontal_rule
   puts empty_line
