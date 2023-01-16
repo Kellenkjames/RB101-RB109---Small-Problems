@@ -41,10 +41,27 @@ __________________________________________________
 * A - Algorithm
 
 - Find the absolute value of the integer:
+- Reassign number to number.abs
   - If the integer's absolute value is odd
     - return true
   - Else
     - return false
   end
 
-=end 
+__________________________________________________
+
+* C - Code
+
+=end
+
+# _________________________________________________
+
+def is_odd?(number)
+  number.abs.odd? true : false
+end
+
+puts is_odd?(2)
+
+
+
+
