@@ -36,11 +36,10 @@ __________________________________________________
 
 * A - Algorithm
 
-Initialize a variable called "bonus" and set equal to 0:
 - If bonus is true
-  - number /  2
+  - salary /  2
 - Else
-  - bonus = 0
+  - return 0
 end
 
 bonus
@@ -53,8 +52,8 @@ __________________________________________________
 
 #* C - Code
 
-def calculate_bonus(number, bonus)
-  bonus ? (number / 2) : 0
+def calculate_bonus(salary, bonus)
+  bonus ? (salary / 2) : 0
 end
 
 puts calculate_bonus(2800, true) == 1400
