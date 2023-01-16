@@ -22,6 +22,17 @@ __________________________________________________
 
 * E - Examples / Test Cases
 
+puts calculate_bonus(2800, true) == 1400
+puts calculate_bonus(1000, false) == 0
+puts calculate_bonus(50000, true) == 25000
+
+__________________________________________________
+
+* D - Data Structure
+
+N / A
+
+__________________________________________________
 
 
 =end
