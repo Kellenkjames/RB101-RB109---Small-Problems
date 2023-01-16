@@ -40,10 +40,12 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable named horizontal_rule and assign the following:
-  - Length of horizontal should be the length of the message + 2 characters
-- Initialize a variable named vertical_rule and assign the following:
-  - Height ot vertical_rile should be "|"
+- Initialize a variable named horizontal_rule and set equal to:
+  - '+' + multiply '-' * (message.size + 2) + '+'
+- Initialize a variable named vertical_rule and set equal to:
+  - '|' + multiply ' ' * (message.size + 2) + '|'
+- Reassign local variable "message" to the following:
+  - '|' + ' ' + message + ' ' + '|'
 
 - Print horizontal_rule
 - Print vertical_rule
@@ -72,3 +74,12 @@ end
 
 print_in_box('To boldly go where no one has gone before.')
 
+=begin
+
++--------------------------------------------+
+|                                                                             |
+| To boldly go where no one has gone before. |
+|                                                                            |
++--------------------------------------------+
+
+=end
