@@ -40,11 +40,12 @@ __________________________________________________
 
 * A - Algorithm
 
-- Find the absolute value of the integer:
-  - If the integer's absolute value is odd
-    - return true
+- If a number divided by 2 leaves a remainder of 1
+    - Number is odd, 
+      - return true
   - Else
-    - return false
+    - Number is even
+      - return false
   end
 
 __________________________________________________
