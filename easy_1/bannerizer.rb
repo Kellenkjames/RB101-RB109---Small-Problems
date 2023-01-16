@@ -61,6 +61,8 @@ __________________________________________________
 def print_in_box(message)
   horizontal_rule = "+" + "-" * (message.size + 2) + "+"
   puts horizontal_rule
+  vertical_rule = "|" + " " * (message.size + 2) + "|"
+  puts vertical_rule
 end
 
 print_in_box('To boldly go where no one has gone before.')
