@@ -41,7 +41,11 @@ __________________________________________________
 * A - Algorithm
 
 - Create the structure of the box using print statements
-  - Interpolate the text within the puts statement
+  - If argument equals empty string
+    - Print smaller box
+  - Else
+    - Print larger box
+end
 
 __________________________________________________
 
@@ -52,16 +56,30 @@ __________________________________________________
 #* C - Code
 
 def print_in_box(text)
-  puts ""
-  puts "+---+"
-  puts " "
-  puts "|   |"
-  puts " "
-  puts "|   |"
-  puts " "
-  puts "|   |"
-  puts " "
-  puts "+---+"
+  if text == ''
+    puts ""
+    puts "+---+"
+    puts " "
+    puts "|   |"
+    puts ""
+    puts "|   |"
+    puts ""
+    puts "|   |"
+    puts ""
+    puts "+---+"
+  else
+    puts ""
+    puts "+--------------------------------------------+"
+    puts " "
+    puts "|                                            |"
+    puts ""
+    puts "| #{text} |"
+    puts ""
+    puts "|                                            |"
+    puts ""
+    puts "+--------------------------------------------+"
+  end
 end
 
-print_in_box('')
+print_in_box('To boldly go where no one has gone before.')
+
