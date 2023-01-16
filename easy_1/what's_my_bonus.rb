@@ -45,4 +45,18 @@ end
 
 bonus
 
+__________________________________________________
+
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+def calculate_bonus(number, boolean)
+  bonus = 0
+  boolean ? bonus = number / 2 : bonus = 0
+  bonus
+end
+
+puts calculate_bonus(2800, true) == 1400
