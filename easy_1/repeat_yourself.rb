@@ -7,10 +7,10 @@
 PROBLEM: Write a method that takes two arguments, a string and a positive integer, and prints the string as many times as the integer indicates.
 
 - input(s): string, integer
-- output: string 
+- output: string
 - rules:
-        Explicit requirements: 
-        - integer must be positive 
+        Explicit requirements:
+        - integer must be positive
         - string must be printed as many times as the integer indicates
 
         Implicit requirements:
@@ -50,7 +50,7 @@ __________________________________________________
 # _________________________________________________
 
 def repeat(string, number)
-  number.times { |n| puts "#{string}"}
+  number.times { |n| puts "#{string}" }
 end
 
 repeat('Hello', 3)
