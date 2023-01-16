@@ -55,7 +55,7 @@ __________________________________________________
 
 #* C - Code
 
-def empty_box
+def show_empty_box
     puts ""
     puts "+---+"
     puts " "
@@ -68,10 +68,7 @@ def empty_box
     puts "+---+"
 end
 
-def print_in_box(text)
-  if text == ''
-    
-  else
+def show_filled_box(text)
     puts ""
     puts "+--------------------------------------------+"
     puts " "
@@ -82,7 +79,10 @@ def print_in_box(text)
     puts "|                                            |"
     puts ""
     puts "+--------------------------------------------+"
-  end
+end
+
+def print_in_box(text)
+  text == '' ? show_empty_box : show_filled_box(text)
 end
 
 print_in_box('To boldly go where no one has gone before.')
