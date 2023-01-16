@@ -9,11 +9,11 @@ PROBLEM: Write a method that takes two arguments, a string and a positive intege
 - input(s): string, integer
 - output: string
 - rules:
-        Explicit requirements:
+        Explicit Requirements:
         - integer must be positive
         - string must be printed as many times as the integer indicates
 
-        Implicit requirements:
+        Implicit Requirements:
         - integer cannot be negative or a floating point
         - string will be printed (not returned)
 
