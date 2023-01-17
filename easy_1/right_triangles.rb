@@ -23,6 +23,33 @@ Write a method that takes a positive integer, n, as an argument, and displays a 
         - integer represents:
           - total row count
           - count of stars in the first row
-      
+
+__________________________________________________
+
+* E - Examples / Test Cases
+
+triangle(5)
+
+    *
+   **
+  ***
+ ****
+*****
+
+triangle(9)
+
+        *
+       **
+      ***
+     ****
+    *****
+   ******
+  *******
+ ********
+*********
+
+__________________________________________________
+
+
 
 =end
