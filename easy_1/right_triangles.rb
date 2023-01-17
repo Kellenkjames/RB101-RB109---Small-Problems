@@ -73,4 +73,25 @@ __________________________________________________
     end
 end
 
+__________________________________________________
+
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+def triangle(number)
+  arr = []
+  counter = 0
+
+  while counter < number
+    counter += 1
+    sub_arr = '*' * counter
+    arr << sub_arr
+  end 
+  
+  puts arr
+end
+
+triangle(5)
