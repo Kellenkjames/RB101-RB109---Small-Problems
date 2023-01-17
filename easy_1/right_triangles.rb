@@ -54,6 +54,23 @@ __________________________________________________
 
 Nested Array[ [] ]
 
+__________________________________________________
 
+* A - Algorithm
+
+- Initialize an empty array and assign to variable named arr
+- Initialize a counter variable and set equal to 0
+- Iterate as many times as the integer:
+  - for each iteration:
+    - counter += 1
+    - if counter == 1
+      - sub_arr = [" ", (counter) * (*)]
+      - arr << sub_arr
+    - else
+      - sub_arr = (counter) * (*)
+      - arr << sub_arr
+      - break if counter > arr.size
+    end
+end
 
 =end
