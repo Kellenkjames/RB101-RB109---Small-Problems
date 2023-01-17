@@ -23,6 +23,7 @@ rules:
 
         - Clarifying Questions:
           - Should the player be asked to play again?
+          - Do we need any string validation? 
 
 __________________________________________________
 
@@ -43,6 +44,19 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
 
+- Ask the user to enter a noun:
+  - assign the value to a variable called noun
+- Ask the user to enter a verb:
+  - assign the value to a variable called verb
+- Ask the user to enter an adjective:
+  - assign the value to a variable called adjective
+- Ask the user to enter an adverb:
+  - assign the value to a variable called adverb
 
-=end 
+print madlib: Do you #{verb} your #{adjective} #{noun} quickly? That's hilarious!
+
+__________________________________________________
+
+=end
