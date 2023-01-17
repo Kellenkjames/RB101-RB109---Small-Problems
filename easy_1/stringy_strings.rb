@@ -64,7 +64,6 @@ counter = 0
 while counter < size
   counter.even? ? arr << 1 : arr << 0
   counter += 1
-  break if counter > arr.size
 end
 
 arr.join
