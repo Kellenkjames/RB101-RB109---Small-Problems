@@ -28,4 +28,21 @@ __________________________________________________
 
 * E - Examples / Test Cases
 
+Enter a noun: dog
+Enter a verb: walk
+Enter an adjective: blue
+Enter an adverb: quickly
+
+Do you walk your blue dog quickly? That's hilarious!
+
+__________________________________________________
+
+* D - Data Structue
+
+N / A
+
+__________________________________________________
+
+
+
 =end 
