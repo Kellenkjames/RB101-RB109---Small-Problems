@@ -20,8 +20,7 @@ Write a method that takes a positive integer, n, as an argument, and displays a 
 
         Implicit Requirements:
         - integer must be positive
-        - integer represents:
-          - total row count
+        - integer represents total row count
 
 __________________________________________________
 
@@ -53,31 +52,41 @@ __________________________________________________
 
 Array(5)
 
-[
-  ["", "", "", "", *]          4 spaces,    1 star
-  ["", "", "", *, *]           3 spaces,    2 stars
-  ["", "", *, *, *]            2 spaces,    3 stars
-  ["", *, *, *, *]             1 space,      4 stars
-  [*, *, *, *, *]              0 spaces,    5 stars
-]
+["", "", "", "", *]          4 spaces,    1 star
+["", "", "", *, *]           3 spaces,    2 stars
+["", "", *, *, *]            2 spaces,    3 stars
+["", *, *, *, *]             1 space,      4 stars
+[*, *, *, *, *]              0 spaces,    5 stars
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty array and assign to variable called arr
-- Iterate as many times as the number argument:
-  - print stars for each row:
-    - rows = '*' * number
-    - arr << rows
-  - Iterate over the arr:
-    - Replace stars with empty spaces (descending order)
-    - 
+Initially, we will generate the left-sided triangle (default) with the first loop and then convert it to a right-side triangle with the help of the second loop.  
 
+- Initialize empty array and assign to variable named arr
+- Initialize variable named counter_one and set equal to 0
+- Initialize a loop method:
+  - for each iteration:
+    - counter_one += 1
+    - sides = '*' * counter_one
+    - arr << sides
+    - break if counter_one == number
 end
 
-arr
-end
+- Initialize variable named counter_two and set equal to 0
+- Initialize variable named empty_spaces and assign to the number (input)
+- Initialize a loop method:
+  - for each iteration:
+    - empty_spaces -= 1
+    - diagonals = ' ' * empty_spaces
+    - arr[counter_two].prepend(diagonals)
+    - counter_two += 1
+    - break if counter_two == number
+end 
+
+return arr
+end 
 
 __________________________________________________
 
@@ -90,25 +99,27 @@ __________________________________________________
 def triangle(number)
   arr = []
   
-  counter = 0
+  counter_one = 0
   loop do
-    counter += 1
-    rows = '*' * counter
-    arr << rows
-    break if counter == number
+    counter_one += 1
+    sides = '*' * counter_one
+    arr << sides
+    break if counter_one == number
   end
 
   counter_two = 0
   empty_spaces = number
   loop do
     empty_spaces -= 1
-    empty_spaces_multiplier = ' ' * empty_spaces
-    arr[counter_two].prepend(empty_spaces_multiplier)
+    diagonals = ' ' * empty_spaces
+    
+    arr[counter_two].prepend(diagonals)
     counter_two += 1
+    
     break if counter_two == number
   end
 
-puts arr
+arr
 end
 
-triangle(5)
+puts triangle(5)
