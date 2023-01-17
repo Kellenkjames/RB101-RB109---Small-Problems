@@ -52,7 +52,13 @@ __________________________________________________
 
 * D - Data Structure
 
-Nested Array[ [] ]
+Array(5) 
+
+["", "", "", "", *]          4 spaces,    1 star
+["", "", "", *, *]           3 spaces,    2 stars
+["", "", *, *, *]            2 spaces,    3 stars
+["", *, *, *, *]             1 space,      4 stars
+[*, *, *, *, *]              0 spaces,    5 stars
 
 __________________________________________________
 
@@ -60,17 +66,9 @@ __________________________________________________
 
 - Initialize an empty array and assign to variable named arr
 - Initialize a counter variable and set equal to 0
-- Iterate as many times as the integer:
-  - for each iteration:
-    - counter += 1
-    - if counter == 1
-      - sub_arr = [" ", (counter) * (*)]
-      - arr << sub_arr
-    - else
-      - sub_arr = (counter) * (*)
-      - arr << sub_arr
-      - break if counter > arr.size
-    end
+- Initialize a 
+- While counter < number:
+    
 end
 
 __________________________________________________
@@ -82,16 +80,7 @@ __________________________________________________
 #* C - Code
 
 def triangle(number)
-  arr = []
-  counter = 0
-
-  while counter < number
-    counter += 1
-    sub_arr = '*' * counter
-    arr << sub_arr
-  end 
   
-  puts arr
 end
 
 triangle(5)
