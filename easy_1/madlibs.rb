@@ -77,4 +77,5 @@ adjective = gets.chomp
 puts "Enter an adverb:"
 adverb = gets.chomp
 
-puts "Do you #{verb} your #{adjective} #{noun} quickly? That's hilarious!"
+madlib = "Do you #{verb} your #{adjective} #{noun} quickly? That's hilarious!"
+puts madlib
