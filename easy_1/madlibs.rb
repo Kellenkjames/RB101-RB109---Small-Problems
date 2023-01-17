@@ -2,10 +2,28 @@
 
 =begin
 
-* P [Understand the Problem]
+* P - [Understanding the Problem]
 
-PROBLEM
+PROBLEM: Mad libs are a simple game where you create a story template with blanks for words. You, or another player, then construct a list of words and place them into the story, creating an often silly or funny story as a result.
 
+Create a simple mad-lib program that prompts for a noun, a verb, an adverb, and an adjective and injects those into a story that you create.
 
+inputs: string
+output: string
+rules:
+        - Explicit Requirements:
+          - prompt user for a:
+            - noun
+            - verb
+            - adverb
+            - adjective
+
+        - Implicit Requirements:
+          - Non strings objects will not be accepted
+
+        - Clarifying Questions:
+          - Should the player be asked to play again?
+
+__________________________________________________
 
 =end 
