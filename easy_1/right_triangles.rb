@@ -50,6 +50,10 @@ triangle(9)
 
 __________________________________________________
 
+* D - Data Structure
+
+Nested Array[ [] ]
+
 
 
 =end
