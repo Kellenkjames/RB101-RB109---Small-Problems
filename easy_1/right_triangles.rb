@@ -120,4 +120,4 @@ def triangle(number)
 arr
 end
 
-puts triangle(5)
+triangle(5)
