@@ -41,11 +41,11 @@ __________________________________________________
 * A - Algorithm
 
 - Initialize variable named middle_char_index_one and assign to string.length / 2 
-- Initialize variable named middle_char_index_two and assign to (string.length / 2) + 1
+- Initialize variable named middle_char_index_two and assign to (string.length / 2) - 1
 - If string has an odd length:
-  - middle_char_index_one
+  - string[middle_char_index_one]
 - Else
-  - middle_char_index one + middle_char_index_two
+  - string[middle_char_index_two] + string[middle_char_index one]
   end
 
 __________________________________________________
@@ -58,12 +58,18 @@ __________________________________________________
 
 def center_of(string)
   middle_char_index_one = string.length / 2
-  middle_char_index_two = (string.length / 2) + 1
-
-  if string.length.odd? 
-    middle_char_index_one
+  middle_char_index_two = (string.length / 2) - 1
+  
+  if string.length.odd?
+    string[middle_char_index_one]
   else
-    middle_char_index_one + middle_char_index_two
+    string[middle_char_index_two] + string[middle_char_index_one]
   end
   
 end
+
+p center_of('I love ruby') == 'e'
+p center_of('Launch School') == ' '
+p center_of('Launch') == 'un'
+p center_of('Launchschool') == 'hs'
+p center_of('x') == 'x'
