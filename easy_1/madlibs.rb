@@ -81,4 +81,4 @@ sentence_1 = "Do you #{verb} your #{adjective} #{noun} #{adverb}? That's hilario
 sentence_2 = "The #{adjective} #{noun} #{verb}s #{adverb} over the lazy dog."
 sentence_3 = "The #{noun} #{adverb} #{verb}s up #{adjective} Khali's turle."
 
-puts [sentence_1, sentence_2, sentence_3].sample
+[sentence_1, sentence_2, sentence_3].sample
