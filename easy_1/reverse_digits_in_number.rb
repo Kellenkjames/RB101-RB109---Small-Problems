@@ -40,10 +40,9 @@ __________________________________________________
 
 * A - Algorithm
 
-- Take the number input and chain together the following methods:
-  - convert to string
-  - reverse the string
-  - convert to integer
+- Initialize a variable called string and assign to number converted to string
+- Initialize a variable called reversed_string and assign string with reverse method inoked
+- Convert reversed_string to integer
 end
 
 __________________________________________________
@@ -56,12 +55,14 @@ __________________________________________________
 #* C - Code
 
 def reversed_number(number)
-  number.to_s.reverse.to_i
+  string = number.to_s
+  reversed_string = string.reverse
+  reversed_string.to_i
 end
 
 p reversed_number(12345) == 54321
 p reversed_number(12213) == 31221
 p reversed_number(456) == 654
-p reversed_number(12000) == 21
+p reversed_number(12000) == 21 # No leading zeros in return value!
 p reversed_number(12003) == 30021
 p reversed_number(1) == 1
