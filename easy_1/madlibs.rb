@@ -13,10 +13,10 @@ output: string
 rules:
         - Explicit Requirements:
           - Prompt user for the following:
-            - noun
-            - verb
-            - adverb
-            - adjective
+            - Noun
+            - Verb
+            - Adverb
+            - Adjective
 
         - Implicit Requirements:
           - Non strings objects will not be accepted
