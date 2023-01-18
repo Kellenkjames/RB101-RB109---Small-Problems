@@ -4,17 +4,17 @@
 
 * P - [Understanding the Problem]
 
-PROBLEM: Write a method that takes a positive integer as an argument and returns that number with its digits reversed.
+Problem: Write a method that takes a positive integer as an argument and returns that number with its digits reversed.
 
 input: integer
 output: integer
 rules:
         - Explicit Requirements:
-          - integer must be positive
-          - return integer with its digits reversed
+          - Integer must be positive
+          - Return integer with its digits reversed
 
         - Implicit Requirements:
-          - ignore arguments with leading zeros
+          - Ignore arguments with leading zeros
 
         - Clarifying Questions:
           - Are we returning the same object or a new object?
@@ -60,9 +60,9 @@ def reversed_number(number)
   reversed_string.to_i
 end
 
-p reversed_number(12345) == 54321
-p reversed_number(12213) == 31221
-p reversed_number(456) == 654
-p reversed_number(12000) == 21 # No leading zeros in return value!
-p reversed_number(12003) == 30021
-p reversed_number(1) == 1
+reversed_number(12345) == 54321
+reversed_number(12213) == 31221
+reversed_number(456) == 654
+reversed_number(12000) == 21 # No leading zeros in return value!
+reversed_number(12003) == 30021
+reversed_number(1) == 1
