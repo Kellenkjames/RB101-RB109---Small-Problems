@@ -38,5 +38,19 @@ Array []
 
 __________________________________________________
 
+* A - Algorithm
+
+- Initialize and empty array and assign to a variable called revese_arr
+- Initialize a local variable called numbers and assign to the values of invoking split on the integer
+- Iterate over each value in numbers in reverse order
+  - for each iteration:
+    - push the current value to the reverse_arr
+  end
+
+reverse_arr.join.to_i 
+end
+
+__________________________________________________
+
 
 =end
