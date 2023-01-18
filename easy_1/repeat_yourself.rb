@@ -4,18 +4,18 @@
 
 * P - [Understanding the] Problem
 
-PROBLEM: Write a method that takes two arguments, a string and a positive integer, and prints the string as many times as the integer indicates.
+Problem: Write a method that takes two arguments, a string and a positive integer, and prints the string as many times as the integer indicates.
 
 - input(s): string, integer
 - output: string
 - rules:
         Explicit Requirements:
-        - integer must be positive
-        - string must be printed as many times as the integer indicates
+        - Integer must be positive
+        - String must be printed as many times as the integer indicates
 
         Implicit Requirements:
-        - integer cannot be negative or a floating point
-        - string will be printed (not returned)
+        - Integer cannot be negative or a floating point
+        - String will be printed (not returned)
 
 __________________________________________________
 
