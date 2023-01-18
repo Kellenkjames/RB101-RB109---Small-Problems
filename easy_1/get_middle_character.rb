@@ -36,4 +36,16 @@ __________________________________________________
 
 N / A
 
+__________________________________________________
+
+* A - Algorithm
+
+- If string has odd length
+  - middle_character = string.length / 2
+- Else
+  - middle_character_one = string.length / 2
+  - middle_character_two = (string.length / 2) + 1
+  - middle_characters = middle_character_one + middle_character_two
+end
+
 =end
