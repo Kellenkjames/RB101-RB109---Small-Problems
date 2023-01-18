@@ -10,15 +10,15 @@ input: string
 output: string
 rules:
         - Explicit Requirements:
-          - method takes a non-empty string argument
-          - returns the middle characters of the argument
-          - if the argument has an odd length
-            - return exactly one character
-          - otherwise, argument has an even length
-            - return exactly two characters
+          - Method takes a non-empty string argument
+          - Returns the middle characters of the argument
+          - If the argument has an odd length
+            - Return exactly one character
+          - Otherwise, argument has an even length
+            - Return exactly two characters
 
         - Implicit Requirements:
-            - argument must be a non-empty string
+            - Argument must be a non-empty string
 
 __________________________________________________
 
