@@ -30,8 +30,13 @@ reversed_number(12000) == 21    #* No leading zeros in return value!
 reversed_number(12003) == 30021
 reversed_number(1) == 1
 
+__________________________________________________
 
+* D - Data Structure
 
+Array []
+
+__________________________________________________
 
 
 =end
