@@ -40,12 +40,30 @@ __________________________________________________
 
 * A - Algorithm
 
-- If string has odd length
-  - middle_character = string.length / 2
+- Initialize variable named middle_char_index_one and assign to string.length / 2 
+- Initialize variable named middle_char_index_two and assign to (string.length / 2) + 1
+- If string has an odd length:
+  - middle_char_index_one
 - Else
-  - middle_character_one = string.length / 2
-  - middle_character_two = (string.length / 2) + 1
-  - middle_characters = middle_character_one + middle_character_two
-end
+  - middle_char_index one + middle_char_index_two
+  end
+
+__________________________________________________
 
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+def center_of(string)
+  middle_char_index_one = string.length / 2
+  middle_char_index_two = (string.length / 2) + 1
+
+  if string.length.odd? 
+    middle_char_index_one
+  else
+    middle_char_index_one + middle_char_index_two
+  end
+  
+end
