@@ -4,7 +4,7 @@
 
 * P - [Understanding the Problem]
 
-PROBLEM: Mad libs are a simple game where you create a story template with blanks for words. You, or another player, then construct a list of words and place them into the story, creating an often silly or funny story as a result.
+Problem: Mad libs are a simple game where you create a story template with blanks for words. You, or another player, then construct a list of words and place them into the story, creating an often silly or funny story as a result.
 
 Create a simple mad-lib program that prompts for a noun, a verb, an adverb, and an adjective and injects those into a story that you create.
 
@@ -12,7 +12,7 @@ inputs: string
 output: string
 rules:
         - Explicit Requirements:
-          - prompt user for a:
+          - Prompt user for the following:
             - noun
             - verb
             - adverb
@@ -47,15 +47,15 @@ __________________________________________________
 * A - Algorithm
 
 - Ask the user to enter a noun:
-  - assign the value to a variable called noun
+  - Assign the value to a variable called noun
 - Ask the user to enter a verb:
-  - assign the value to a variable called verb
+  - Assign the value to a variable called verb
 - Ask the user to enter an adjective:
-  - assign the value to a variable called adjective
+  - Assign the value to a variable called adjective
 - Ask the user to enter an adverb:
-  - assign the value to a variable called adverb
+  - Assign the value to a variable called adverb
 
-print madlib: Do you #{verb} your #{adjective} #{noun} quickly? That's hilarious!
+Do you #{verb} your #{adjective} #{noun} quickly? That's hilarious!
 
 __________________________________________________
 
