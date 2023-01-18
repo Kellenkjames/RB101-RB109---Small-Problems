@@ -7,7 +7,7 @@
 PROBLEM: Write a method that takes a positive integer as an argument and returns that number with its digits reversed.
 
 input: integer
-output: boolean
+output: integer
 rules:
         - Explicit Requirements:
           - integer must be positive
@@ -34,23 +34,34 @@ __________________________________________________
 
 * D - Data Structure
 
-Array []
+N / A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize and empty array and assign to a variable called revese_arr
-- Initialize a local variable called numbers and assign to the values of invoking split on the integer
-- Iterate over each value in numbers in reverse order
-  - for each iteration:
-    - push the current value to the reverse_arr
-  end
-
-reverse_arr.join.to_i 
+- Take the number input and chain together the following methods:
+  - convert to string
+  - reverse the string
+  - convert to integer
 end
 
 __________________________________________________
 
 
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+def reversed_number(number)
+  number.to_s.reverse.to_i
+end
+
+p reversed_number(12345) == 54321
+p reversed_number(12213) == 31221
+p reversed_number(456) == 654
+p reversed_number(12000) == 21
+p reversed_number(12003) == 30021
+p reversed_number(1) == 1
