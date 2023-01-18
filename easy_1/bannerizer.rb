@@ -4,7 +4,7 @@
 
 * P - [Understand the] Problem
 
-PROBLEM: Write a method that will take a short line of text, and print it within a box.
+Problem: Write a method that will take a short line of text, and print it within a box.
 
 input: string
 output: string (within a box)
@@ -14,7 +14,7 @@ rules:
           - Print it within a box
 
         - Implicit Requirements:
-          - The input should always fit in your terminal window
+          - Input should always fit in your terminal window
 
         - Clarifying Questions:
           - Do we need to worry about any other objects that are not strings? 
@@ -71,12 +71,3 @@ end
 
 print_in_box('To boldly go where no one has gone before.')
 
-=begin
-
-+--------------------------------------------+
-|                                                                             |
-| To boldly go where no one has gone before. |
-|                                                                            |
-+--------------------------------------------+
-
-=end
