@@ -2,25 +2,23 @@
 
 =begin
 
-* P - [Understand the] Problem
+* P - [Understanding the Problem]
 
-PROBLEM:
-
-Write a method that takes a positive integer, n, as an argument, and displays a right triangle whose rows each have n stars. The hypotenuse of the triangle (the diagonal side in the images below)should have one end at the lower-left of the triangle, and the other end at the upper-right.
+Problem: Write a method that takes a positive integer, n, as an argument, and displays a right triangle whose rows each have n stars. The hypotenuse of the triangle (the diagonal side in the images below)should have one end at the lower-left of the triangle, and the other end at the upper-right.
 
 - input: integer
 - output: string
 - rules:
         Explicit Requirements:
-        - method takes a positive integer, n, as an argument
-        - displays a right triangle whose "rows" each have "n" stars
-        - hypotenuse of the triangle (diagonal side) should have:
-          - one end at the lower-left of the triangle
-          - other end at the upper-right
+        - Method takes a positive integer, n, as an argument
+        - Displays a right triangle whose "rows" each have "n" stars
+        - Hypotenuse of the triangle (diagonal side) should have:
+          - One end at the lower-left of the triangle
+          - Other end at the upper-right
 
         Implicit Requirements:
-        - integer must be positive
-        - integer represents total row count
+        - Integer must be positive
+        - Integer represents total row count
 
 __________________________________________________
 
