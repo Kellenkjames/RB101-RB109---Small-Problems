@@ -54,7 +54,7 @@ __________________________________________________
 
 #* C - Code
 
-puts 'What is your name?'
+print 'What is your name? '
 name = gets.chomp
 
 if name.include?('!')
