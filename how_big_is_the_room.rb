@@ -15,5 +15,6 @@ rules:
 
         - Implicit Requirements:
           - User input (string) needs to be converted to an integer
+          - 1 square meter == 10.7639 square feet
 
 =end
