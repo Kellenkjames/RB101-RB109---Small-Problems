@@ -44,6 +44,9 @@ __________________________________________________
 #* C - Code
 
 age = rand(20..200)
-puts "Teddy is #{age} years old!"
+puts 'What is your name?'
+name = gets.chomp
 
+name.empty? ? name = 'Teddy' : name
+puts "#{name} is #{age} years old!"
 
