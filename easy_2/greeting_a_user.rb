@@ -41,6 +41,7 @@ __________________________________________________
 - name = gets.chomp
 
 - If name.include?('!')
+  name = name.chop
   print "HELLO #{name.chop.upcase}. WHY ARE WE SCREAMING?"
 - Else
   print "Hello #{name}."
@@ -58,7 +59,8 @@ print 'What is your name? '
 name = gets.chomp
 
 if name.include?('!')
-  puts "HELLO #{name.chop.upcase}. WHY ARE WE SCREAMING?"
+  name = name.chop
+  puts "HELLO #{name.upcase}. WHY ARE WE SCREAMING?"
 else
   puts "Hello #{name}."
 end
