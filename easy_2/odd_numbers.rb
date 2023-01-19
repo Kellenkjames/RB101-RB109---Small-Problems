@@ -35,5 +35,21 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
+
+- Iterate over the range of integers using the each method
+  - If number is odd
+    - print output
+  -end
+
+__________________________________________________
+
 
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+
+
