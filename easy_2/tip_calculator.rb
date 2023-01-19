@@ -33,5 +33,26 @@ __________________________________________________
 
 N / A
 
+__________________________________________________
 
-=end 
+* A - Algorithm
+
+- Prompt user for the bill amount
+- bill_amount = gets.chomp.to_f
+
+- Prompt user for the tip percentage
+- tip_rate = gets.chomp.to_f
+
+- tip_amount = (bill * tip_percentage).round(1)
+- total = (bill + tip_amount).round(1)
+
+puts "The tip is #{tip_amount}"
+puts "The total is #{total}"
+
+__________________________________________________
+
+
+=end
+
+#_________________________________________________
+
