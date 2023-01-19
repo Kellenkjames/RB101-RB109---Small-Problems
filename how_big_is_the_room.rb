@@ -35,4 +35,16 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
+
+- Prompt user to enter the length of the room in meters:
+- length_of_room = gets.chomp.to_i
+- Prompt user to enter the width of the room in meters:
+- width_of_room = gets.chomp.to_i
+
+- square_meters = length_of_room * width_of_room
+- square_feet = square_meters * 10.7639
+
+puts "The area of the room is #{square_meters} square meters (#{square_feet) square feet)."
+
 =end
