@@ -13,8 +13,13 @@ rules:
           - Generate a random number between 20 and 200
 
         - Implicit Requirements:
-          - method doesn't need to return a value (only needs to print)
+          - Method doesn't need to return a value (only needs to print)
 
 __________________________________________________
+
+* E - Examples / Test Cases
+
+Teddy is 69 years old!
+
 
 =end 
