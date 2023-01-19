@@ -29,4 +29,25 @@ HELLO BOB. WHY ARE WE SCREAMING?
 
 __________________________________________________
 
+* D - Data Structure
+
+N / A
+
+__________________________________________________
+
+* A - Algorithm 
+
+- Prompt user for their name
+- name = gets.chomp
+
+- If name includes !
+  print "Hello name"
+- Else
+  print "HELLO NAME. WHY ARE WE SCREAMING?"
+end
+
+__________________________________________________
+
 =end
+
+#_________________________________________________
