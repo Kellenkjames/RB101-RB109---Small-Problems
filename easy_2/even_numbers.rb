@@ -29,4 +29,26 @@ __________________________________________________
 
 __________________________________________________
 
+* D - Data Structure
+
+N / A
+
+__________________________________________________
+
+* A - Algorithm
+
+- Iterate over the range of numbers using select method
+  - If number is even
+    - print each number on a separate line
+  end
+
+__________________________________________________
+
+
 =end
+
+#_________________________________________________
+
+#* C - Code
+
+(1..99).select { |number| puts number if number.even? }
