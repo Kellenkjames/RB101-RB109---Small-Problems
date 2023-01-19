@@ -25,7 +25,15 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A 
+N / A
+
+__________________________________________________
+
+* A - Algorithm
+
+- Initialize a variable called age and assign to rand(20..200)
+
+puts "Teddy is #{age} years old!"
 
 
 =end 
