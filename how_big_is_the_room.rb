@@ -37,15 +37,16 @@ __________________________________________________
 
 * A - Algorithm
 
+- Initialize a constant variable called SQMETERS_TO_SQFEET and assignt the value 10.7639
 - Prompt user to enter the length of the room in meters:
-- length_of_room = gets.chomp.to_f
+- length = gets.chomp.to_f
 - Prompt user to enter the width of the room in meters:
-- width_of_room = gets.chomp.to_f
+- width = gets.chomp.to_f
 
-- square_meters = length_of_room * width_of_room
-- square_feet = square_meters * 10.7639
+- room_size = length_of_room * width_of_room
+- square_feet = room_size * SQMETERS_TO_SQFEET
 
-puts "The area of the room is #{square_meters} square meters (#{square_feet} square feet)."
+puts "The area of the room is #{room_size.round(2)} square meters (#{square_feet.round(2)} square feet)."
 
 __________________________________________________
 
@@ -53,13 +54,16 @@ __________________________________________________
 
 #_________________________________________________
 
-puts 'Enter the length of the room in meters:'
-length_of_room = gets.chomp.to_f
+SQMETERS_TO_SQFEET = 10.7639
 
-puts 'Enter the width of the room in meters:'
-width_of_room = gets.chomp.to_f
+puts '==> Enter the length of the room in meters:'
+length = gets.chomp.to_f
 
-square_meters = length_of_room * width_of_room
-square_feet = square_meters * 10.7639
+puts '==> Enter the width of the room in meters:'
+width = gets.chomp.to_f
 
-puts "The area of the room is #{square_meters} square meters (#{square_feet} square feet)."
+room_size = length * width
+square_feet = room_size * SQMETERS_TO_SQFEET
+
+puts "The area of the room is #{room_size.round(2)} square meters (#{square_feet.round(2)} square feet)."
+
