@@ -32,8 +32,20 @@ __________________________________________________
 * A - Algorithm
 
 - Initialize a variable called age and assign to rand(20..200)
+- puts "Teddy is #{age} years old!"
 
-puts "Teddy is #{age} years old!"
+__________________________________________________
 
 
-=end 
+=end
+
+#_________________________________________________
+
+#* C - Code
+
+def random_age
+  age = rand(20..200)
+  puts "Teddy is #{age} years old!"
+end
+
+random_age
