@@ -43,8 +43,8 @@ __________________________________________________
 - Prompt user for the tip percentage
 - tip_rate = gets.chomp.to_f
 
-- tip_amount = (bill * tip_percentage).round(1)
-- total = (bill + tip_amount).round(1)
+- tip_amount = ((bill_amount * tip_rate) / 100).round(2)
+- total = (bill_amount + tip_amount).round(2)
 
 puts "The tip is #{tip_amount}"
 puts "The total is #{total}"
@@ -56,3 +56,16 @@ __________________________________________________
 
 #_________________________________________________
 
+#* - Code 
+
+puts 'What is the bill?'
+bill_amount = gets.chomp.to_f
+
+puts 'What is the tip percentage?'
+tip_rate = gets.chomp.to_f
+
+tip_amount = ((bill_amount * tip_rate) / 100).round(2)
+total = (bill_amount + tip_amount).round(2)
+
+puts "==> The tip is $#{tip_amount}"
+puts "==> The total is $#{total}"
