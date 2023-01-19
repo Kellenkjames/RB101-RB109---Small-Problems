@@ -16,6 +16,17 @@ rules:
 
         - Implicit Requirements:
           - Non-string objects are not allowed
-        
+
+__________________________________________________
+
+* E - Examples / Test Cases
+
+What is your name? Bob
+Hello Bob.
+
+What is your name? Bob!
+HELLO BOB. WHY ARE WE SCREAMING?
+
+__________________________________________________
 
 =end
