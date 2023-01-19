@@ -43,9 +43,7 @@ __________________________________________________
 
 #* C - Code
 
-def random_age
-  age = rand(20..200)
-  puts "Teddy is #{age} years old!"
-end
+age = rand(20..200)
+puts "Teddy is #{age} years old!"
 
-random_age
+
