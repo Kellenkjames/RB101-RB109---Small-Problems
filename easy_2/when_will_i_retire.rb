@@ -11,10 +11,10 @@ output: string
 rules:
         - Explicit Requirements
           -  Display when the user will retire
-          - Display how many years he / she has to work till retirement
+          -  Display how many years he / she has to work till retirement
 
         - Implicit Requirements
-          - User inputer (strings) will need to be converted to integers
+          - User inputs (strings) will need to be converted to integers
 
 __________________________________________________
 
@@ -34,8 +34,23 @@ N / A
 
 __________________________________________________
 
+* A - Algorithm
 
+- require 'date' object
 
+- Prompt the user for their age
+- current_age = gets.chomp.to_i
 
+- Prompt: Ask the user at what age would they like to retire
+- retirement_age = gets.chomp.to_i
+
+current_year = Date.year.today
+working_years_left = retirement_age - current_age
+retirement_year = current_year + working_years_left
+
+puts "It's #{current_year}. You will retire in #{retirement_year}"
+puts "You only have #{working_years_left} of work to go!"
+
+__________________________________________________
 
 =end
