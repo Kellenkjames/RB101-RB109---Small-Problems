@@ -36,7 +36,7 @@ __________________________________________________
 
 * A - Algorithm
 
-- require 'date' object
+- require 'Date'
 
 - Prompt the user for their age
 - current_age = gets.chomp.to_i
@@ -44,13 +44,35 @@ __________________________________________________
 - Prompt: Ask the user at what age would they like to retire
 - retirement_age = gets.chomp.to_i
 
-current_year = Date.year.today
+current_year = Date.today.year
+
 working_years_left = retirement_age - current_age
 retirement_year = current_year + working_years_left
 
-puts "It's #{current_year}. You will retire in #{retirement_year}"
-puts "You only have #{working_years_left} of work to go!"
+puts "It's #{current_year}. You will retire in #{retirement_year}."
+puts "You only have #{working_years_left} years of work to go!"
 
 __________________________________________________
 
 =end
+
+# _________________________________________________
+
+#* C - Code
+
+require 'Date'
+
+puts 'What is your age?'
+current_age = gets.chomp.to_i
+
+puts 'At what age would you like to retire?'
+retirement_age = gets.chomp.to_i
+
+current_year = Date.today.year
+
+working_years_left = retirement_age - current_age
+retirement_year = current_year + working_years_left
+
+puts "It's #{current_year}. You will retire in #{retirement_year}."
+puts "You only have #{working_years_left} years of work to go!"
+
