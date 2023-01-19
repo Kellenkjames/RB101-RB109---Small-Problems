@@ -17,9 +17,15 @@ rules:
         - Implicit Requirements:
           - User input (strings) need to be converted to integers
 
-        
+__________________________________________________
 
+* E - Examples / Test Case
 
+What is the bill? 200
+What is the tip percentage? 15
+
+The tip is $30.0
+The total is $230.0
 
 
 =end 
