@@ -27,5 +27,11 @@ What is the tip percentage? 15
 The tip is $30.0
 The total is $230.0
 
+__________________________________________________
+
+* D - Data Structure
+
+N / A
+
 
 =end 
