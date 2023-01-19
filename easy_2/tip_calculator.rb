@@ -19,7 +19,7 @@ rules:
 
 __________________________________________________
 
-* E - Examples / Test Case
+* E - Examples / Test Cases
 
 What is the bill? 200
 What is the tip percentage? 15
@@ -38,13 +38,13 @@ __________________________________________________
 * A - Algorithm
 
 - Prompt user for the bill amount
-- bill_amount = gets.chomp.to_f
+- bill = gets.chomp.to_f
 
 - Prompt user for the tip percentage
 - percentage = gets.chomp.to_f
 
-- tip = ((bill_amount * percentage) / 100).round(2)
-- total = (bill_amount + tip).round(2)
+- tip = ((bill * percentage) / 100).round(2)
+- total = (bill + tip).round(2)
 
 puts "The tip is $#{tip}"
 puts "The total is $#{total}"
@@ -59,13 +59,13 @@ __________________________________________________
 #* - Code 
 
 puts 'What is the bill?'
-bill_amount = gets.chomp.to_f
+bill = gets.chomp.to_f
 
 puts 'What is the tip percentage?'
 percentage = gets.chomp.to_f
 
-tip = ((bill_amount * percentage) / 100).round(2)
-total = (bill_amount + tip).round(2)
+tip = ((bill * percentage) / 100).round(2)
+total = (bill + tip).round(2)
 
 puts "==> The tip is $#{tip}"
 puts "==> The total is $#{total}"
