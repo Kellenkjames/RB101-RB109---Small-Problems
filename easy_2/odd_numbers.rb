@@ -13,8 +13,8 @@ rules:
           - Print all odd numbers from 1 to 99 (inclusive)
           - Each number needs to be on it's own separate line
 
-        - Implicit Requirements
-          - Include the numbers on the outer bounds of the range
+        - Implicit Requirements:
+          - Include the numbers on the outer bounds of the range, i.e., 1 and 99
 
 __________________________________________________
 
