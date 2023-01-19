@@ -35,15 +35,15 @@ N / A
 
 __________________________________________________
 
-* A - Algorithm 
+* A - Algorithm
 
 - Prompt user for their name
 - name = gets.chomp
 
-- If name includes !
-  print "Hello name"
+- If name.include?('!')
+  print "HELLO #{name.chop.upcase}. WHY ARE WE SCREAMING?"
 - Else
-  print "HELLO NAME. WHY ARE WE SCREAMING?"
+  print "Hello #{name}."
 end
 
 __________________________________________________
@@ -51,3 +51,14 @@ __________________________________________________
 =end
 
 #_________________________________________________
+
+#* C - Code
+
+puts 'What is your name?'
+name = gets.chomp
+
+if name.include?('!')
+  puts "HELLO #{name.chop.upcase}. WHY ARE WE SCREAMING?"
+else
+  puts "Hello #{name}."
+end
