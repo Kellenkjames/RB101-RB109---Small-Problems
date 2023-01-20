@@ -71,6 +71,8 @@ __________________________________________________
 
 #* C - Code
 
+integer = nil
+
 loop do
   puts '>> Please enter an integer greater than 0:'
   integer = gets.chomp.to_i
@@ -82,16 +84,15 @@ loop do
   answer = gets.chomp.downcase
   
   if answer == 's'
-    (1.."#{integer}").to_a.sum
+    sum = (1..integer).inject(:+)
+    puts "The sum of the integers between 1 and #{integer} is #{sum}."
+    break
   elsif answer == 'p'
-    (1.."#{integer}").to_a.product
+    product = (1..integer).inject(:*)
+    puts "The product of the integers between 1 and #{integer} is #{product}."
+    break
   else
     puts ">> Enter 's' to compute the sum or 'p' to compute the product."
   end
   
-  break if answer %w(s, p)
 end
-
-
-
-
