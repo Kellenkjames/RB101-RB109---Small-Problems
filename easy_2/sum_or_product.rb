@@ -25,11 +25,37 @@ __________________________________________________
 
 >> Please enter an integer greater than 0:
 5
->> Enter 's' to compute the sum, 'p' to compute the product. 
+>> Enter 's' to compute the sum, 'p' to compute the product.
 s
 The sum of the integers between 1 and 5 is 15.
 
 __________________________________________________
 
+* D - Data Structure
 
-=end 
+Array []
+
+__________________________________________________
+
+* A - Algorithm
+
+- Initialize an empty array and assign to a variable named arr
+- Prompt the user to enter an integer greater than 0:
+- integer = gets.chomp.to_i
+
+- Prompt the user to either enter 's' to compute the sum, or 'p' to compute the product
+- If user enters 's'
+  - compute the sum
+- Elsif user enters 'p'
+  - compute the product
+- Else
+  - prompt the user to enter a valid string ('s', or 'p')
+- end
+
+puts "The sum of the integers between 1 and 5 is 15"
+
+__________________________________________________
+
+=end
+
+#_________________________________________________
