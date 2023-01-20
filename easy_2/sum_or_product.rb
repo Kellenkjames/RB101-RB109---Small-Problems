@@ -34,34 +34,33 @@ __________________________________________________
 
 * D - Data Structure
 
-Array [1, 2, 3]
+N / A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty array and assign to variable named arr
 - integer = nil
 
-- Prompt the user to enter an integer greater than 0
-- Keep asking the user for input until integer is greater than 0
-  - If integer is greater than 0
-    - break from loop
+1. Keep asking the user for valid input, i.e., integer > 0
+  - Convert string to integer and store in variable called integer
+    - If integer > 0
+      - break from loop
   - Else
-    - ask user again to enter an integer greater than 0
+    - Ask user to enter a valid input, i.e., integer > 0
   -end
 
-- Prompt the user to either enter 's' to compute the sum, or 'p' to compute the product
-- Repeat until user either enter 's' or 'p' 
-  - If user enters 's'
-    - compute the sum
-  - Elsif user enters 'p'
-    - compute the product
-  - Else
-    - prompt the user to enter a valid string ('s', or 'p')
-- end
-
-puts "The sum of the integers between 1 and 5 is 15"
+2. Keep asking the user for valid input, i.e., must enter 's' or 'p'
+  - Convert response to downcase and store in variable called answer
+  - If answer == 's'
+    - Find the sum of (1..integer) and store in variable called sum
+    - Print "The sum of the integers between 1 and #{integer} is #{sum}."
+    - break
+  - Elsif answer == 'p' 
+    - Find the product of (1..integer) and store in variable called product
+    - Print "The product of the integers between 1 and #{integer} is #{product}."
+    - break
+end
 
 __________________________________________________
 
@@ -91,8 +90,6 @@ loop do
     product = (1..integer).inject(:*)
     puts "The product of the integers between 1 and #{integer} is #{product}."
     break
-  else
-    puts ">> Enter 's' to compute the sum or 'p' to compute the product."
   end
   
 end
