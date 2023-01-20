@@ -6,7 +6,7 @@
 
 Problem: Write a program that asks the user to enter an integer greater than 0, then asks if the user wants to determine the sum or product of all numbers between 1 and the entered integer.
 
-input: string
+input: integer, string
 output: string
 rules:
         - Explicit Requirements:
@@ -25,6 +25,7 @@ __________________________________________________
 
 >> Please enter an integer greater than 0:
 5
+
 >> Enter 's' to compute the sum, 'p' to compute the product.
 s
 The sum of the integers between 1 and 5 is 15.
@@ -33,31 +34,31 @@ __________________________________________________
 
 * D - Data Structure
 
-Array []
+Array [1, 2, 3]
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty array and assign to a variable named arr
-- integer = nil 
+- Initialize an empty array and assign to variable named arr
+- integer = nil
 
 - Prompt the user to enter an integer greater than 0
-- Keep asking the user for input until integer is greater than 5
-  - If integer is greater than 5
-    - break from loop (continue)
+- Keep asking the user for input until integer is greater than 0
+  - If integer is greater than 0
+    - break from loop
   - Else
-    - ask user again
+    - ask user again to enter an integer greater than 0
   -end
 
 - Prompt the user to either enter 's' to compute the sum, or 'p' to compute the product
 - Repeat until user either enter 's' or 'p' 
-- If user enters 's'
-  - compute the sum
-- Elsif user enters 'p'
-  - compute the product
-- Else
-  - prompt the user to enter a valid string ('s', or 'p')
+  - If user enters 's'
+    - compute the sum
+  - Elsif user enters 'p'
+    - compute the product
+  - Else
+    - prompt the user to enter a valid string ('s', or 'p')
 - end
 
 puts "The sum of the integers between 1 and 5 is 15"
@@ -70,30 +71,25 @@ __________________________________________________
 
 #* C - Code
 
-arr = []
-
 loop do
   puts '>> Please enter an integer greater than 0:'
   integer = gets.chomp.to_i
-  
-  break if integer > 5
-  
-  loop do
-    puts ">> Please 's' to compute the sum, 'p' to compute the product."
-    answer = gets.chomp.downcase
-    
-    if answer == 's'
-      # compute_the sum
-    elsif answer == 'p'
-      # compute_the product
-    else
-      puts ">> Please enter 's' to compute the sum or 'p' to compute the product."
-    end
-    
-    break if answer %w(s, p)
-  end
+  break if integer > 0
+end
 
-  answer
+loop do
+  puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+  answer = gets.chomp.downcase
+  
+  if answer == 's'
+    (1.."#{integer}").to_a.sum
+  elsif answer == 'p'
+    (1.."#{integer}").to_a.product
+  else
+    puts ">> Enter 's' to compute the sum or 'p' to compute the product."
+  end
+  
+  break if answer %w(s, p)
 end
 
 
