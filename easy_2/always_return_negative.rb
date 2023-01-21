@@ -38,9 +38,9 @@ __________________________________________________
 
 * A - Algorithm
 
-- If the number is positive
-  - return the negative of that number
-- Elsif number is 0 || number is negative
+- If number is greater than 0
+  - return negative version of that number
+- Else
   - return the orginal number
 -end
 
@@ -53,11 +53,7 @@ __________________________________________________
 #* C - Code
 
 def negative(number)
-  if number.positive?
-    -number
-  elsif number == 0 || number.negative? 
-    number
-  end
+  number > 0 ? -number : number
 end
 
 negative(5) == -5
