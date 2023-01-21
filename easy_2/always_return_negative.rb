@@ -52,3 +52,14 @@ __________________________________________________
 
 #* C - Code
 
+def negative(number)
+  if number.positive?
+    -number
+  elsif number == 0 || number.negative? 
+    number
+  end
+end
+
+puts negative(5) == -5
+puts negative(-3) == -3
+puts negative(0) == 0      # There's no such thing as -0 in ruby
