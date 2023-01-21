@@ -32,9 +32,17 @@ __________________________________________________
 
 * D - Data Structure
 
+N / A
+
 __________________________________________________
 
 * A - Algorithm
+
+- If the number is positive
+  - return the negative of that number
+- Elsif number is 0 || number is negative
+  - return the orginal number
+-end
 
 __________________________________________________
 
