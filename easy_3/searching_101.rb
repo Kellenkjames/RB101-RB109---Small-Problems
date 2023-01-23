@@ -41,10 +41,37 @@ __________________________________________________
 
 * D - Data Structure
 
+Array []
+
 __________________________________________________
 
 * A - Algorithm
 
+- Initialize a variable called `arr` and assign to an empty array []
+
+- Ask the user to enter the 1st number:
+  - first_number = gets.chomp.to_i
+  - arr << first_number
+- Ask the user to enter the 2nd number:
+  - second_number = gets.chomp.to_i
+  - arr << second_number
+- Ask the user to enter the 3rd number:
+  - third_number = gets.chomp.to_i
+  - arr << third_number
+- Ask the user to enter the 4th number:
+  - fourth_number = gets.chomp.to_i
+  - arr << fourth_number
+- Ask the user to enter the 5th number:
+  - fifth_number = gets.chomp.to_i
+  - arr << fifth_number
+- Ask the user to enter the last number: 
+  - last_number = gets.chomp.to_i
+
+- If `arr` includes `last_number`
+  print The number `last_number` appears in `arr`
+- Else
+  print The number `last_number` does not appear in `arr`
+end
 __________________________________________________
 
 =end
