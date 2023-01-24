@@ -17,7 +17,7 @@ rules:
           - Spaces should not be counted as a character
 
         - Clarifying Questions:
-          - Can the string contain non-alphabetical characters
+          - Can the string contain non-alphabetical characters? 
 
 __________________________________________________
 
@@ -33,9 +33,26 @@ __________________________________________________
 
 * D - Data Structure
 
+Array []
+
 __________________________________________________
 
 * A - Algorithm
+
+- Initialize a variable called chars and assign an empty array []
+
+- Prompt the user to write a word or multiple words:
+  - words = gets.chomp.downcase
+
+- Iterate over each character words
+  - For each iteration:
+    - Delete spaces " "
+    - chars << char
+  - end
+
+  - chars.count
+
+  print "There are chars.count in in #{words}"
 
 __________________________________________________
 
@@ -45,3 +62,15 @@ __________________________________________________
 
 #* C - Code
 
+chars = []
+
+print 'Please write word or multiple words: '
+words = gets.chomp.downcase
+
+modified_words = words.delete " " 
+
+modified_words.each_char do |char|
+  chars << char
+end
+
+puts "There are #{chars.count} characters in #{words}."
