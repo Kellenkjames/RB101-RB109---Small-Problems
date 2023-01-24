@@ -33,27 +33,16 @@ __________________________________________________
 
 * D - Data Structure
 
-Array []
+N / A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called chars and assign to an empty array []
-
 - Prompt the user to write a word or multiple words:
-  - words = gets.chomp
-
-- chars_no_spaces = words.delete " "
-
-- Iterate over each character in words
-  - For each iteration
-    - chars << char
-  - end
-
-- chars.count
-
-print "There are #{chars.count} characters in #{words}."
+- input = gets.chomp
+- number_of_characters = input.delete(' ').size
+- print "There are #{number_of_characters} characters in #{input}."
 
 __________________________________________________
 
@@ -63,12 +52,7 @@ __________________________________________________
 
 #* C - Code
 
-chars = []
-
 print 'Please write word or multiple words: '
-words = gets.chomp
-
-chars_no_spaces = words.delete " "
-
-chars_no_spaces.each_char { |char| chars << char }
-puts "There are #{chars.count} characters in #{words}."
+input = gets.chomp
+number_of_characters = input.delete(' ').size
+puts "There are #{number_of_characters} characters in \"#{input}\"."
