@@ -53,12 +53,12 @@ __________________________________________________
 - Prompt the user to enter the second number:
   - second_number = gets.chomp.to_i
 
-print first_number + second_number
-print first_number - second_number
-print first_number * second_number
-print first_number / second_number
-print first_number % second_number
-print first_number ** second_number
+puts "==> #{first_number} + #{second_number} = #{first_number + second_number}"
+puts "==> #{first_number} - #{second_number} = #{first_number - second_number}"
+puts "==> #{first_number} * #{second_number} = #{first_number * second_number}"
+puts "==> #{first_number} / #{second_number} = #{first_number / second_number}"
+puts "==> #{first_number} % #{second_number} = #{first_number % second_number}"
+puts "==> #{first_number} ** #{second_number} = #{first_number ** second_number}"
 
 __________________________________________________
 
@@ -68,3 +68,15 @@ __________________________________________________
 
 #* C - Code
 
+puts "==> Enter the first number:"
+first_number = gets.chomp.to_i
+
+puts "==> Enter the second number:"
+second_number = gets.chomp.to_i
+
+puts "==> #{first_number} + #{second_number} = #{first_number + second_number}"
+puts "==> #{first_number} - #{second_number} = #{first_number - second_number}"
+puts "==> #{first_number} * #{second_number} = #{first_number * second_number}"
+puts "==> #{first_number} / #{second_number} = #{first_number / second_number}"
+puts "==> #{first_number} % #{second_number} = #{first_number % second_number}"
+puts "==> #{first_number} ** #{second_number} = #{first_number ** second_number}"
