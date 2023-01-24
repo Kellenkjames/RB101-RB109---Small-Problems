@@ -48,17 +48,22 @@ __________________________________________________
 
 * A - Algorithm
 
+- Create a helper method to handle the prompt message:
+  - Method will accept one argument (msg)
+  - puts "==> #{msg}"
+- end
+
 - Prompt the user to enter the first number:
   - first_number = gets.chomp.to_i
 - Prompt the user to enter the second number:
   - second_number = gets.chomp.to_i
 
-puts "==> #{first_number} + #{second_number} = #{first_number + second_number}"
-puts "==> #{first_number} - #{second_number} = #{first_number - second_number}"
-puts "==> #{first_number} * #{second_number} = #{first_number * second_number}"
-puts "==> #{first_number} / #{second_number} = #{first_number / second_number}"
-puts "==> #{first_number} % #{second_number} = #{first_number % second_number}"
-puts "==> #{first_number} ** #{second_number} = #{first_number ** second_number}"
+prompt("#{first_number} + #{second_number} = #{first_number + second_number}")
+prompt("#{first_number} - #{second_number} = #{first_number - second_number}")
+prompt("#{first_number} * #{second_number} = #{first_number * second_number}")
+prompt("#{first_number} / #{second_number} = #{first_number / second_number}")
+prompt("#{first_number} % #{second_number} = #{first_number % second_number}")
+prompt("#{first_number} ** #{second_number} = #{first_number**second_number}")
 
 __________________________________________________
 
@@ -68,15 +73,19 @@ __________________________________________________
 
 #* C - Code
 
-puts "==> Enter the first number:"
+def prompt(msg)
+  puts "==> #{msg}"
+end
+
+prompt("Enter the first number:")
 first_number = gets.chomp.to_i
 
-puts "==> Enter the second number:"
+prompt("Enter the second number:")
 second_number = gets.chomp.to_i
 
-puts "==> #{first_number} + #{second_number} = #{first_number + second_number}"
-puts "==> #{first_number} - #{second_number} = #{first_number - second_number}"
-puts "==> #{first_number} * #{second_number} = #{first_number * second_number}"
-puts "==> #{first_number} / #{second_number} = #{first_number / second_number}"
-puts "==> #{first_number} % #{second_number} = #{first_number % second_number}"
-puts "==> #{first_number} ** #{second_number} = #{first_number ** second_number}"
+prompt("#{first_number} + #{second_number} = #{first_number + second_number}")
+prompt("#{first_number} - #{second_number} = #{first_number - second_number}")
+prompt("#{first_number} * #{second_number} = #{first_number * second_number}")
+prompt("#{first_number} / #{second_number} = #{first_number / second_number}")
+prompt("#{first_number} % #{second_number} = #{first_number % second_number}")
+prompt("#{first_number} ** #{second_number} = #{first_number**second_number}")
