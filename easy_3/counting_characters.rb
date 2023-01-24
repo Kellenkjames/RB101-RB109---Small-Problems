@@ -39,20 +39,21 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called chars and assign an empty array []
+- Initialize a variable called chars and assign to an empty array []
 
 - Prompt the user to write a word or multiple words:
-  - words = gets.chomp.downcase
+  - words = gets.chomp
 
-- Iterate over each character words
-  - For each iteration:
-    - Delete spaces " "
+- chars_no_spaces = words.delete " "
+
+- Iterate over each character in words
+  - For each iteration
     - chars << char
   - end
 
-  - chars.count
+- chars.count
 
-  print "There are chars.count in in #{words}"
+print "There are #{chars.count} characters in #{words}."
 
 __________________________________________________
 
@@ -65,12 +66,9 @@ __________________________________________________
 chars = []
 
 print 'Please write word or multiple words: '
-words = gets.chomp.downcase
+words = gets.chomp
 
-modified_words = words.delete " " 
+chars_no_spaces = words.delete " "
 
-modified_words.each_char do |char|
-  chars << char
-end
-
+chars_no_spaces.each_char { |char| chars << char }
 puts "There are #{chars.count} characters in #{words}."
