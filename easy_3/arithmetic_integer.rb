@@ -48,6 +48,18 @@ __________________________________________________
 
 * A - Algorithm
 
+- Prompt the user to enter the first number:
+  - first_number = gets.chomp.to_i
+- Prompt the user to enter the second number:
+  - second_number = gets.chomp.to_i
+
+print first_number + second_number
+print first_number - second_number
+print first_number * second_number
+print first_number / second_number
+print first_number % second_number
+print first_number ** second_number
+
 __________________________________________________
 
 =end
