@@ -41,36 +41,31 @@ __________________________________________________
 
 * D - Data Structure
 
-Array []
+numbersay []
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called `arr` and assign to an empty array []
+- Initialize a variable called `numbers` and assign to an empty numbersay []
 
 - Ask the user to enter the 1st number:
-  - first_number = gets.chomp.to_i
-  - arr << first_number
+  - numbers << gets.chomp.to_i
 - Ask the user to enter the 2nd number:
-  - second_number = gets.chomp.to_i
-  - arr << second_number
+  - numbers << gets.chomp.to_i
 - Ask the user to enter the 3rd number:
-  - third_number = gets.chomp.to_i
-  - arr << third_number
+  - numbers << gets.chomp.to_i
 - Ask the user to enter the 4th number:
-  - fourth_number = gets.chomp.to_i
-  - arr << fourth_number
+  - numbers << gets.chomp.to_i
 - Ask the user to enter the 5th number:
-  - fifth_number = gets.chomp.to_i
-  - arr << fifth_number
-- Ask the user to enter the last number: 
+  - numbers << gets.chomp.to_i
+- Ask the user to enter the last number:
   - last_number = gets.chomp.to_i
 
-- If `arr` includes `last_number`
-  print The number `last_number` appears in `arr`
+- If `numbers` includes `last_number`
+  print The number `last_number` appears in `numbers`
 - Else
-  print The number `last_number` does not appear in `arr`
+  print The number `last_number` does not appear in `numbers`
 end
 __________________________________________________
 
@@ -80,33 +75,28 @@ __________________________________________________
 
 #* C - Code
 
-arr = []
+numbers = []
 
 puts "==> Enter the 1st number:"
-first_number = gets.chomp.to_i
-arr << first_number
+numbers << gets.chomp.to_i
 
 puts "==> Enter the 2nd number:"
-second_number = gets.chomp.to_i
-arr << second_number
+numbers << gets.chomp.to_i
 
 puts "==> Enter the 3rd number:"
-third_number = gets.chomp.to_i
-arr << third_number
+numbers << gets.chomp.to_i
 
 puts "==> Enter the 4th number:"
-fourth_number = gets.chomp.to_i
-arr << fourth_number
+numbers << gets.chomp.to_i
 
 puts "==> Enter the 5th number:"
-fifth_number = gets.chomp.to_i
-arr << fifth_number
+numbers << gets.chomp.to_i
 
 puts "==> Enter the last number:"
 last_number = gets.chomp.to_i
 
-if arr.include?(last_number)
-  puts "The number #{last_number} appears in #{arr}."
+if numbers.include?(last_number)
+  puts "The number #{last_number} appears in #{numbers}."
 else
-  puts "The number #{last_number} does not appear in #{arr}."
+  puts "The number #{last_number} does not appear in #{numbers}."
 end
