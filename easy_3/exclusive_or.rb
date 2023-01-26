@@ -39,11 +39,11 @@ __________________________________________________
 
 * A - Algorithm
 
-- If arg_one && !arg_two || !arg_one && arg_two
-  - true
-- Else
+- Define a method that accepts two arguments (value1, value2):
+  - return true if value1 && !value2
+  - return true if value2 && !value1
   - false
-- end
+- end 
 
 __________________________________________________
 
@@ -53,8 +53,10 @@ __________________________________________________
 
 #* C - Code
 
-def xor?(arg_one, arg_two)
-  (arg_one && !arg_two || !arg_one && arg_two) ? true : false
+def xor?(value1, value2)
+  return true if value1 && !value2
+  return true if value2 && !value1
+  false
 end
 
 xor?(5.even?, 4.even?) == true
