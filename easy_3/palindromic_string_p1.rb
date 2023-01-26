@@ -37,13 +37,7 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize variable called reversed_string and assign to string.reverse
-- If reversed_string == string
-  - return true
-- Else
-  - return false
-end
-
+- Return true if string is equal to string.reverse, otherwise; false
 __________________________________________________
 
 =end
@@ -53,8 +47,7 @@ __________________________________________________
 #* C - Code
 
 def palindrome?(string)
-  reversed_string = string.reverse
-  reversed_string == string ? true : false
+  string == string.reverse
 end
 
 palindrome?('madam') == true
