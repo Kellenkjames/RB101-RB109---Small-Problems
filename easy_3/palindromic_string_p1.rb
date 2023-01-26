@@ -37,11 +37,11 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize variable called reversed_string and assign to reversed string argument
+- Initialize variable called reversed_string and assign to string.reverse
 - If reversed_string == string
-  return true
+  - return true
 - Else
-  return false
+  - return false
 end
 
 __________________________________________________
@@ -52,3 +52,12 @@ __________________________________________________
 
 #* C - Code
 
+def palindrome?(string)
+  reversed_string = string.reverse
+  reversed_string == string ? true : false
+end
+
+palindrome?('madam') == true
+palindrome?('Madam') == false          # (case matters)
+palindrome?("madam i'm adam") == false # (all characters matter)
+palindrome?('356653') == true
