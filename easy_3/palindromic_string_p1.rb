@@ -38,6 +38,7 @@ __________________________________________________
 * A - Algorithm
 
 - Return true if string is equal to string.reverse, otherwise; false
+
 __________________________________________________
 
 =end
