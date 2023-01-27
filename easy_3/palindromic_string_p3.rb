@@ -37,7 +37,7 @@ __________________________________________________
 
 * A - Algorithm
 
-- num.to_s == num.to_s.reverse
+- Invoke the palindrome? method and pass number.to_s as the argument
 
 __________________________________________________
 
@@ -47,8 +47,12 @@ __________________________________________________
 
 #* C - Code
 
+def palindrome?(string)
+  string == string.reverse
+end
+
 def palindromic_number?(number)
-  number.to_s == number.to_s.reverse
+  palindrome?(number.to_s)
 end
 
 palindromic_number?(34543) == true
