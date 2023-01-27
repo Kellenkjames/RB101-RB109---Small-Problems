@@ -45,7 +45,7 @@ __________________________________________________
 - Initialize a variable called regex and assign the sequence for all non-alphanumeric characters
 - Initialize a variable called new_str and assign the following value:
   - string.gsub(regex, "").downcase
-- new_str == new_str.reverse
+- Invoke palindrome? method and pass new_str in as an argument
 
 __________________________________________________
 
@@ -55,10 +55,14 @@ __________________________________________________
 
 #* C - Code
 
+def palindrome?(string)
+  string == string.reverse
+end
+
 def real_palindrome?(string)
   regex = /[^a-zA-Z0-9]/
   new_str = string.gsub(regex, "").downcase
-  new_str == new_str.reverse
+  palindrome?(new_str)
 end
 
 real_palindrome?('madam') == true
