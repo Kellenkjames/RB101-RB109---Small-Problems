@@ -36,9 +36,15 @@ __________________________________________________
 
 * D - Data Structure
 
+N/A
+
 __________________________________________________
 
 * A - Algorithm
+
+- Initialize a variable called new_str:
+- remove characters that are non-alphabetic, i.e, 0-9, !, etc. and assign obj to new_str
+- new_str == new_str.upcase
 
 __________________________________________________
 
@@ -48,3 +54,14 @@ __________________________________________________
 
 #* C - Code
 
+def uppercase?(string)
+  new_str = string.delete('^a-zA-Z')
+  new_str == new_str.upcase
+end
+
+uppercase?('t') == false
+uppercase?('T') == true
+uppercase?('Four Score') == false
+uppercase?('FOUR SCORE') == true
+uppercase?('4SCORE!') == true
+uppercase?('') == true
