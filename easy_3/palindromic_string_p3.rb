@@ -10,7 +10,7 @@ input: integer
 output: boolean
 rules:
         - Explicit Requirements:
-          - Method returns true if its integer argument is palindromic, false otherwise. 
+          - Method returns true if its integer argument is palindromic, false otherwise.
 
         - Implicit Requirements:
           - Method will only accept one integer argument
@@ -22,13 +22,22 @@ __________________________________________________
 
 * E - Examples / Test Cases
 
+palindromic_number?(34543) == true
+palindromic_number?(123210) == false
+palindromic_number?(22) == true
+palindromic_number?(5) == true
+
 __________________________________________________
 
 * D - Data Structure
 
+N / A
+
 __________________________________________________
 
 * A - Algorithm
+
+- num.to_s == num.to_s.reverse
 
 __________________________________________________
 
