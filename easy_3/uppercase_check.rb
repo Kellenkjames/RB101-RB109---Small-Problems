@@ -42,9 +42,7 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called new_str:
-- remove characters that are non-alphabetic, i.e, 0-9, !, etc. and assign obj to new_str
-- new_str == new_str.upcase
+- string == string.upcase
 
 __________________________________________________
 
@@ -55,8 +53,7 @@ __________________________________________________
 #* C - Code
 
 def uppercase?(string)
-  new_str = string.delete('^a-zA-Z')
-  new_str == new_str.upcase
+  string == string.upcase
 end
 
 uppercase?('t') == false
