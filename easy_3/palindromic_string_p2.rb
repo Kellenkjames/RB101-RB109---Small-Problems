@@ -42,8 +42,10 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called new_str and assign to the downcased version of string argument
-- Return true if new_str == new_str.reverse
+- Initialize a variable called regex and assign the sequence for all non-alphanumeric characters
+- Initialize a variable called new_str and assign the following value:
+  - string.gsub(regex, "").downcase
+- new_str == new_str.reverse
 
 __________________________________________________
 
@@ -53,3 +55,15 @@ __________________________________________________
 
 #* C - Code
 
+def real_palindrome?(string)
+  regex = /[^a-zA-Z0-9]/
+  new_str = string.gsub(regex, "").downcase
+  new_str == new_str.reverse
+end
+
+real_palindrome?('madam') == true
+real_palindrome?('Madam') == true           # (case does not matter)
+real_palindrome?("Madam, I'm Adam")
+real_palindrome?('356653') == true
+real_palindrome?('356a653') == true
+real_palindrome?('123ab321') == false
