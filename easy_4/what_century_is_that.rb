@@ -53,43 +53,32 @@ __________________________________________________
 - Initialize a local variable called century and assign to`nil`
 - Initialize a local variable called year_to_str and assign to return value of year.to_s
 
-- if year.between?(1, 100)
-  century = 1
-- elsif year.between?(101, 200)
-  century = 2
-- elsif year.between?(201, 300)
-  century = 3
-- elsif year.between?(301, 400)
-  century = 4
-- elsif year.between?(401, 500)
-  century = 5
-- elsif year.between?(501, 600)
-  century = 6
-- elsif year.between?(601, 700)
-  century = 7
-- elsif year.between?(701, 800)
-  century = 8
-- elsif year.between?(801, 900)
-  century = 9
-- elsif year.between?(901, 1000)
-  century = 10
+# 1st - 10th century
+if `year_to_str`.size.between?(1, 3)
+  century = year + 99
+  century[0] 
 end
 
-#* What sequnce do we see here? 
+#* Can we see any sequence patterns? 
 - With the exception of the first century, every new century ends with `01`
-- From centuries 1-10 (excluding the end of the 10th century, `1000`) the input is between 1-3 digits
 
-- We need to do some manual work until we reach the 11th century
-
+1st century:
+Input size between 1 and 3 
 century(1) == 1
 century(33) == 1
 century(100) == 1
 
+2nd century:
+Input size 3
 century(101) == 2
 century(136) == 2
 century(200) == 2
 
-
+3rd century
+Input size 3
+century(201) == 3
+century(244) == 3
+century(300) == 3
 
 __________________________________________________
 
