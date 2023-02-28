@@ -1,5 +1,3 @@
-
-
 =begin
 
 * P - [Understanding the] Problem
