@@ -108,19 +108,19 @@ Step 2: Use helper method from above to determine century:
 
 year_str = year.to_s # 1052 => '1052'
 
-- if year.size.between?(1, 3) || year == 1000
+- if year_str.size.between?(1, 3) || year == 1000
   find_century(year)
-- elsif year_str.size == 4 && !year_str.end_with('00')
+- elsif year_str.size == 4 && !year_str.end_with?('00')
   year_substring = year_str.slice(0, 2).to_i
   year_substring += 1
   year_substring.to_s
-- elsif year_str.size == 4 && year_str.end_with('00')
+- elsif year_str.size == 4 && year_str.end_with?('00')
   year_str.slice(0, 2)
-- elsif year_str.size == 5 && !year_str.end_with('00')
+- elsif year_str.size == 5 && !year_str.end_with?('00')
   year_substring = year_str.slice(0, 3).to_i
   year_substring += 1
   year_substring.to_s
-- elsif year_str.size == 5 && year_str.end_with('00')
+- elsif year_str.size == 5 && year_str.end_with?('00')
   year_str.slice(0, 3)
 end
 
@@ -158,5 +158,32 @@ end
 
 def century(year)
   year_str = year.to_s # 1052 => '1052'
+
+  if year_str.size.between?(1, 3) || year == 1000
+    find_century(year)
+  elsif year_str.size == 4 && !year_str.end_with?('00')
+    year_substring = year_str.slice(0, 2).to_i
+    year_substring += 1
+    year_substring.to_s
+  elsif year_str.size == 4 && year_str.end_with?('00')
+    year_str.slice(0, 2)
+  elsif year_str.size == 5 && !year_str.end_with?('00')
+    year_substring = year_str.slice(0, 3).to_i
+    year_substring += 1
+    year_substring.to_s
+  elsif year_str.size == 5 && year_str.end_with?('00')
+    year_str.slice(0, 3)
+  end
   
 end
+
+
+p century(2000) == '20'
+p century(2001) == '21'
+p century(1965) == '20'
+p century(256) == '3'
+p century(5) == '1'
+p century(10103) == '102'
+p century(1052) == '11'
+p century(1127) == '12'
+p century(11201) == '113'
