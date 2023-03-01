@@ -191,16 +191,29 @@ def century(year)
   elsif year_str.size == 5 && year_str.end_with?('00')
     year_str.slice(0, 3)
   end
-  
+
 end
 
+def superscript_ordinals(year)
+  if year.end_with?('1') && !year.end_with?('11')
+    ordinal = 'st'
+  elsif year.end_with?('2') && !year.end_with?('12')
+    ordinal = 'nd'
+  elsif year.end_with?('3') && !year.end_with?('13')
+    ordinal = 'rd'
+  elsif year.end_with?('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+    ordinal = 'th'
+  end
+end
 
-p century(2000) == '20'
-p century(2001) == '21'
-p century(1965) == '20'
-p century(256) == '3'
-p century(5) == '1'
-p century(10103) == '102'
-p century(1052) == '11'
-p century(1127) == '12'
-p century(11201) == '113'
+# Testing:
+p superscript_ordinals('20') == 'th'
+p superscript_ordinals('21') == 'st'
+p superscript_ordinals('20') == 'th'
+p superscript_ordinals('3') == 'rd'
+p superscript_ordinals('1') == 'st'
+p superscript_ordinals('102') == 'nd'
+p superscript_ordinals('11') == 'th'
+p superscript_ordinals('12') == 'th'
+p superscript_ordinals('113') == 'th'
+
