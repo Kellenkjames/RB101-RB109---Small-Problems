@@ -5,7 +5,7 @@
 Problem: Write a method that takes a year as input and returns the century. The return value should be a string that begins with the century number, and ends with st, nd, rd, or th as appropriate for that number. New centuries begin in years that end with `01`. So, the years 1901-2000 comprise the 20th century.
 
 input: Integer
-output: String
+result: String
 rules:
         - Explicit Requirements:
           - Method takes a year as input and returns the century
@@ -173,27 +173,6 @@ def find_century(year)
   end
 end
 
-def century(year)
-  year_str = year.to_s # 1052 => '1052'
-
-  if year_str.size.between?(1, 3) || year == 1000
-    find_century(year)
-  elsif year_str.size == 4 && !year_str.end_with?('00')
-    year_substring = year_str.slice(0, 2).to_i
-    year_substring += 1
-    year_substring.to_s
-  elsif year_str.size == 4 && year_str.end_with?('00')
-    year_str.slice(0, 2)
-  elsif year_str.size == 5 && !year_str.end_with?('00')
-    year_substring = year_str.slice(0, 3).to_i
-    year_substring += 1
-    year_substring.to_s
-  elsif year_str.size == 5 && year_str.end_with?('00')
-    year_str.slice(0, 3)
-  end
-
-end
-
 def superscript_ordinals(year)
   if year.end_with?('1') && !year.end_with?('11')
     ordinal = 'st'
@@ -206,14 +185,40 @@ def superscript_ordinals(year)
   end
 end
 
-# Testing:
-p superscript_ordinals('20') == 'th'
-p superscript_ordinals('21') == 'st'
-p superscript_ordinals('20') == 'th'
-p superscript_ordinals('3') == 'rd'
-p superscript_ordinals('1') == 'st'
-p superscript_ordinals('102') == 'nd'
-p superscript_ordinals('11') == 'th'
-p superscript_ordinals('12') == 'th'
-p superscript_ordinals('113') == 'th'
+def century(year)
+  year_str = year.to_s # 1052 => '1052'
+
+  if year_str.size.between?(1, 3) || year == 1000
+    result = find_century(year)
+    result += superscript_ordinals(result)
+  elsif year_str.size == 4 && !year_str.end_with?('00')
+    year_substring = year_str.slice(0, 2).to_i
+    year_substring += 1
+    result = year_substring.to_s
+    result += superscript_ordinals(result)
+  elsif year_str.size == 4 && year_str.end_with?('00')
+    result = year_str.slice(0, 2) 
+    result += superscript_ordinals(result)
+  elsif year_str.size == 5 && !year_str.end_with?('00')
+    year_substring = year_str.slice(0, 3).to_i
+    year_substring += 1
+    result = year_substring.to_s
+    result += superscript_ordinals(result)
+  elsif year_str.size == 5 && year_str.end_with?('00')
+    result = year_str.slice(0, 3)
+    result += superscript_ordinals(result)
+  end
+
+end
+
+# Examples / Test Cases:
+puts century(2000) == '20th'
+puts century(2001) == '21st'
+puts century(1965) == '20th'
+puts century(256) == '3rd'
+puts century(5) == '1st'
+puts century(10103) == '102nd'
+puts century(1052) == '11th'
+puts century(1127) == '12th'
+puts century(11201) == '113th'
 
