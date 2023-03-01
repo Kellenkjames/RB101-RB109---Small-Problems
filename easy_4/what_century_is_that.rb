@@ -106,22 +106,23 @@ end
 
 Step 2: Use helper method from above to determine century:
 
-year_str = year.to_s
+year_str = year.to_s # 1052 => '1052'
 
-#* if year.size == 1, 2, or 3: evaluate all digits:
-if year <= 1000
+- if year.size.between?(1, 3) || year == 1000
   find_century(year)
-#* if year.size == 4, evaluate the first 3 digits (need to consider digits that ends in '01'):
-elsif year >= 1001
-  year_digits = year_str[1, 3].to_i
-  new_str = find_century(year_digits)
-  year_str[0] << new_str 
-#* if year.size >= 5, look at the last 3 digits (need to consider digits that ends in '01'):
-elsif `year_str`.size >= 5
-  new_str = find_century(year[2, 3])
-  `year_str[0, 2]` << new_str
+- elsif year_str.size == 4 && !year_str.end_with('00')
+  year_substring = year_str.slice(0, 2).to_i
+  year_substring += 1
+  year_substring.to_s
+- elsif year_str.size == 4 && year_str.end_with('00')
+  year_str.slice(0, 2)
+- elsif year_str.size == 5 && !year_str.end_with('00')
+  year_substring = year_str.slice(0, 3).to_i
+  year_substring += 1
+  year_substring.to_s
+- elsif year_str.size == 5 && year_str.end_with('00')
+  year_str.slice(0, 3)
 end
-
 
 __________________________________________________
 
@@ -158,24 +159,4 @@ end
 def century(year)
   year_str = year.to_s # 1052 => '1052'
   
-  if year <= 1000
-    find_century(year)
-  elsif year >= 1001
-    year_digits = year_str[1, 3].to_i
-    new_str = find_century(year_digits)
-    year_str[0] << new_str
-  end
 end
-
-# Test cases for years between 1-3 digits:
-p century(1) == '1'
-p century(5) == '1'
-p century(100) == '1'
-
-# Test cases for years with 4 digits:
-p century(1000) == '10'
-p century(1052) == '11'
-p century(1127) == '12'
-
-p century(1001) == '11'
-p century(1100) == '11'
