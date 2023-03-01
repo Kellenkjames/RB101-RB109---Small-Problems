@@ -18,11 +18,10 @@ rules:
           - New centuries begin in years that end with `01`
 
         - Implicit Requirements:
-          - The input doesn't necessarily determine the century year (with no other actions).
-      
+          - The input doesn't determine the century year by default.
+            
         - Clarifying Questions:
-          - Are we saying that any year ending with `01` is a new century?
-          - What is a century?
+          - Century defines the stat and end years as inclusive?
 
 __________________________________________________
 
@@ -46,39 +45,51 @@ N / A
 
 __________________________________________________
 
-* A - Algorithm
+* A - Algorithm:
 
-# Mini-Problem: Determine the century number, i.e., 1
+# Mini-Problem: Determine the century number first (without the ordinals: 1st, 2nd, 3rd, and 4th):
 
-- Initialize a local variable called century and assign to`nil`
-- Initialize a local variable called year_to_str and assign to return value of year.to_s
+Base:
+  001 - 100:   1
+  101 - 200:   2
+  201 - 300:  3
+  301 - 400:  4
+  401 - 500:  5
+  501 - 600:  6
+  601 - 700:  7
+  701 - 800:  8
+  801 - 900:  9
+  901 - 1000: 10
 
-# 1st - 10th century
-if `year_to_str`.size.between?(1, 3)
-  century = year + 99
-  century[0] 
-end
+  1001 - 1100: 11
+  1101 - 1200: 12
+  1201 - 1300: 13
+  1301 - 1400: 14
+  1401 - 1500: 15
+  1501 - 1600: 16
+  1601 - 1700: 17
+  1701 - 1800: 18
+  1801 - 1900: 19
+  
+  1901 - 2000: 20
+  2001 - 2100: 21
+  2101 - 2200: 22
+  .....
 
-#* Can we see any sequence patterns? 
-- With the exception of the first century, every new century ends with `01`
+Step 1: We need to determine the century number based on the input:
 
-1st century:
-Input size between 1 and 3 
-century(1) == 1
-century(33) == 1
-century(100) == 1
+Get the base values first: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-2nd century:
-Input size 3
-century(101) == 2
-century(136) == 2
-century(200) == 2
+#* if year.size == 1, look at all the digits:
 
-3rd century
-Input size 3
-century(201) == 3
-century(244) == 3
-century(300) == 3
+#* if year.size == 2, look at all the digits:
+
+#* if year.size == 3, look at all the digits:
+
+#* if year.size == 4, look at the first 3 digits:
+
+#* if year.size >= 5, look at the last 3 digits:
+
 
 __________________________________________________
 
@@ -87,4 +98,3 @@ __________________________________________________
 #_________________________________________________
 
 #* C - Code
-
