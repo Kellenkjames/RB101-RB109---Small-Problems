@@ -78,7 +78,31 @@ Base:
 
 Step 1: We need to determine the century number based on the input:
 
-Get the base values first: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+#* Create helper method: Get the base values first: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+def find_century(year)
+  if year.between?(1, 100)
+    century = '1'
+  elsif year.between?(101, 200)
+    century = '2'
+  elsif year.between?(201, 300)
+    century = '3'
+  elsif year.between?(301, 400)
+    century = '4'
+  elsif year.between?(401, 500)
+    century = '5'
+  elsif year.between?(501, 600)
+    century = '6'
+  elsif year.between?(601, 700)
+    century = '7'
+  elsif year.between?(701, 800)
+    century = '8'
+  elsif year.between?(801, 900)
+    century = '9'
+  elsif year.between?(901, 1000)
+    century = '10'
+  end
+end
 
 #* if year.size == 1, look at all the digits:
 
