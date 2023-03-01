@@ -190,7 +190,7 @@ def century(year)
 
   # Design Pattern: 
     # When year ends in '00' slice and return range of elements depending on the size of input. 
-    # When year doesn't end in '00' , slice and return range of elements --> convert to integer --> add 1, depending on size of input.
+    # When year doesn't end in '00' , slice and return range of elements --> convert to integer --> add 1 to the leading integer (depending on the size of the input).
 
   # Example Years: 5, 256, 1000, etc.
   if year_str.size.between?(1, 3) || year == 1000
@@ -221,13 +221,12 @@ def century(year)
 end
 
 # Examples / Test Cases:
-puts century(2000) == '20th'
-puts century(2001) == '21st'
-puts century(1965) == '20th'
-puts century(256) == '3rd'
-puts century(5) == '1st'
-puts century(10103) == '102nd'
-puts century(1052) == '11th'
-puts century(1127) == '12th'
-puts century(11201) == '113th'
-
+century(2000) == '20th'
+century(2001) == '21st'
+century(1965) == '20th'
+century(256) == '3rd'
+century(5) == '1st'
+century(10103) == '102nd'
+century(1052) == '11th'
+century(1127) == '12th'
+century(11201) == '113th'
