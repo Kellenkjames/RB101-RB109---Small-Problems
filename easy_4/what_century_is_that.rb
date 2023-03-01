@@ -188,22 +188,31 @@ end
 def century(year)
   year_str = year.to_s # 1052 => '1052'
 
+  # Design Pattern: 
+    # When year ends in '00' slice and return range of elements depending on the size of input. 
+    # When year doesn't end in '00' , slice and return range of elements --> convert to integer --> add 1, depending on size of input.
+
+  # Example Years: 5, 256, 1000, etc.
   if year_str.size.between?(1, 3) || year == 1000
     result = find_century(year)
     result += superscript_ordinals(result)
+  # Example Years: 1052, 1805, etc.
   elsif year_str.size == 4 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 2).to_i
     year_substring += 1
     result = year_substring.to_s
     result += superscript_ordinals(result)
+  # Example Years: 2000, 3000, etc.
   elsif year_str.size == 4 && year_str.end_with?('00')
     result = year_str.slice(0, 2) 
     result += superscript_ordinals(result)
+  # Example Years: 10103, 31253, etc. 
   elsif year_str.size == 5 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 3).to_i
     year_substring += 1
     result = year_substring.to_s
     result += superscript_ordinals(result)
+  # Example Years: 40100, 61200, etc.
   elsif year_str.size == 5 && year_str.end_with?('00')
     result = year_str.slice(0, 3)
     result += superscript_ordinals(result)
