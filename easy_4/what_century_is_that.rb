@@ -104,15 +104,22 @@ def find_century(year)
   end
 end
 
-#* if year.size == 1, look at all the digits:
+Step 2: Use helper method from above to determine century:
 
-#* if year.size == 2, look at all the digits:
+year_str = year.to_s
 
-#* if year.size == 3, look at all the digits:
-
-#* if year.size == 4, look at the first 3 digits:
-
-#* if year.size >= 5, look at the last 3 digits:
+#* if year.size == 1, 2, or 3: evaluate all digits:
+if `year_str`.size == 1 || `year_str`.size == 2 || `year_str`.size == 3
+  find_century(year)
+#* if year.size == 4, evaluate the first 3 digits (need to consider digits that ends in '01'):
+elsif `year_str`.size == 4
+  new_str = find_century(year[0, 3])
+  new_str += `year_str[0]`
+#* if year.size >= 5, look at the last 3 digits (need to consider digits that ends in '01'):
+elsif `year_str`.size >= 5
+  new_str = find_century(year[2, 3])
+  new_str += `year_str[0, 2]`
+end
 
 
 __________________________________________________
@@ -122,3 +129,40 @@ __________________________________________________
 #_________________________________________________
 
 #* C - Code
+
+def find_century(year)
+  if year.between?(1, 100)
+    century = '1'
+  elsif year.between?(101, 200)
+    century = '2'
+  elsif year.between?(201, 300)
+    century = '3'
+  elsif year.between?(301, 400)
+    century = '4'
+  elsif year.between?(401, 500)
+    century = '5'
+  elsif year.between?(501, 600)
+    century = '6'
+  elsif year.between?(601, 700)
+    century = '7'
+  elsif year.between?(701, 800)
+    century = '8'
+  elsif year.between?(801, 900)
+    century = '9'
+  elsif year.between?(901, 1000)
+    century = '10'
+  end
+end
+
+def century(year)
+  year_str = year.to_s # 256 => '256'
+
+  if (year_str.size == 1) || (year_str.size == 2) || (year_str.size == 3)
+    find_century(year)
+  end
+end
+
+# Test cases for years between 1-3 digits:
+puts century(1) == '1'
+puts century(5) == '1'
+puts century(100) == '1'
