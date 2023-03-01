@@ -124,6 +124,23 @@ year_str = year.to_s # 1052 => '1052'
   year_str.slice(0, 3)
 end
 
+Step 3: Determine the ordinal numbers
+
+Possible Values: st, nd, rd, or th
+Numbers ending in: 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+def superscript_ordinals(century)
+  if century(year).start_with?('1') && !century(year).end_with?('1')
+    str = 'st'
+  elsif century(year).end_with?('02')
+    str = 'nd'
+  elsif century(year).start_with?('3')
+    str = 'rd'
+  elsif century(year).end_with?('1', '2', '3', '4', '5', '6', '7', '8', '9')
+    str = 'th'
+  end
+
+end
 __________________________________________________
 
 =end
