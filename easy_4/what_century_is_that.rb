@@ -80,7 +80,7 @@ Step 1: We need to determine the century number based on the input:
 
 #* Create helper method: Get the base values first: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
-def find_century(year)
+def base_10(year)
   if year.between?(1, 100)
     century = '1'
   elsif year.between?(101, 200)
@@ -109,7 +109,7 @@ Step 2: Use helper method from above to determine century:
 year_str = year.to_s # 1052 => '1052'
 
 - if year_str.size.between?(1, 3) || year == 1000
-  find_century(year)
+  base_10(year)
 - elsif year_str.size == 4 && !year_str.end_with?('00')
   year_substring = year_str.slice(0, 2).to_i
   year_substring += 1
@@ -149,7 +149,7 @@ __________________________________________________
 
 #* C - Code
 
-def find_century(year)
+def base_10(year)
   if year.between?(1, 100)
     century = '1'
   elsif year.between?(101, 200)
@@ -188,31 +188,31 @@ end
 def century(year)
   year_str = year.to_s # 1052 => '1052'
 
-  # Design Pattern: 
-    # When year ends in '00' slice and return range of elements depending on the size of input. 
-    # When year doesn't end in '00' , slice and return range of elements --> convert to integer --> add 1 to the leading integer (depending on the size of the input).
+  # Configurations: 
+  # Years 1-1000: 1st millennium
 
-  # Example Years: 5, 256, 1000, etc.
+  # After 1st millennium:
+  # Years with 4 digits and don't end with '00', i.e., 1052
+  # Years with 4 digits and end with '00', i.e., 2000
+  # Years with 5 digits and don't end with '00', i.e., 10103
+  # Years with 5 digits and end with '00', i.e., 40100
+
   if year_str.size.between?(1, 3) || year == 1000
-    result = find_century(year)
+    result = base_10(year)
     result += superscript_ordinals(result)
-  # Example Years: 1052, 1805, etc.
   elsif year_str.size == 4 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 2).to_i
     year_substring += 1
     result = year_substring.to_s
     result += superscript_ordinals(result)
-  # Example Years: 2000, 3000, etc.
   elsif year_str.size == 4 && year_str.end_with?('00')
     result = year_str.slice(0, 2) 
     result += superscript_ordinals(result)
-  # Example Years: 10103, 31253, etc. 
   elsif year_str.size == 5 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 3).to_i
     year_substring += 1
     result = year_substring.to_s
     result += superscript_ordinals(result)
-  # Example Years: 40100, 61200, etc.
   elsif year_str.size == 5 && year_str.end_with?('00')
     result = year_str.slice(0, 3)
     result += superscript_ordinals(result)
@@ -220,7 +220,6 @@ def century(year)
 
 end
 
-# Examples / Test Cases:
 century(2000) == '20th'
 century(2001) == '21st'
 century(1965) == '20th'
