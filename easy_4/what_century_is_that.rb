@@ -188,12 +188,13 @@ end
 def century(year)
   year_str = year.to_s # 1052 => '1052'
 
-  # Configurations: 
-  # Years 1-1000: 1st millennium
-
-  # After 1st millennium:
+  # 1st millennium: Years 1-1000
+  
+  # 2nd - 10th millennium:
   # Years with 4 digits and don't end with '00', i.e., 1052
   # Years with 4 digits and end with '00', i.e., 2000
+
+  #  >= 10th millennium:
   # Years with 5 digits and don't end with '00', i.e., 10103
   # Years with 5 digits and end with '00', i.e., 40100
 
