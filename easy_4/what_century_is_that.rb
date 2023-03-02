@@ -1,6 +1,6 @@
 =begin
 
-* P - [Understanding the] Problem
+* - [Understanding the] Problem
 
 Problem: Write a method that takes a year as input and returns the century. The return value should be a string that begins with the century number, and ends with st, nd, rd, or th as appropriate for that number. New centuries begin in years that end with `01`. So, the years 1901-2000 comprise the 20th century.
 
@@ -76,7 +76,7 @@ Base:
   2101 - 2200: 22
   .....
 
-Step 1: We need to determine the century number based on the input:
+Ste1: We need to determine the century number based on the input:
 
 #* Create helper method: Get the base values first: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
@@ -104,7 +104,7 @@ def base_10(year)
   end
 end
 
-Step 2: Use helper method from above to determine century:
+Ste2: Use helper method from above to determine century:
 
 year_str = year.to_s # 1052 => '1052'
 
@@ -124,21 +124,22 @@ year_str = year.to_s # 1052 => '1052'
   year_str.slice(0, 3)
 end
 
-Step 3: Determine the ordinal numbers
+Ste3: Determine the ordinal numbers
 
 Possible Values: st, nd, rd, or th
 Numbers ending in: 1, 2, 3, 4, 5, 6, 7, 8, 9
 
-def superscript_ordinals(century)
-  if century(year).start_with?('1') && !century(year).end_with?('1')
-    str = 'st'
-  elsif century(year).end_with?('02')
-    str = 'nd'
-  elsif century(year).start_with?('3')
-    str = 'rd'
-  elsif century(year).end_with?('1', '2', '3', '4', '5', '6', '7', '8', '9')
-    str = 'th'
+def century_suffix(century)
+  if century.end_with?('1') && !century.end_with?('11')
+    ordinal = 'st'
+  elsif century.end_with?('2') && !century.end_with?('12')
+    ordinal = 'nd'
+  elsif century.end_with?('3') && !century.end_with?('13')
+    ordinal = 'rd'
+  elsif century.end_with?('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+    ordinal = 'th'
   end
+end
 
 end
 __________________________________________________
@@ -173,14 +174,14 @@ def base_10(year)
   end
 end
 
-def superscript_ordinals(year)
-  if year.end_with?('1') && !year.end_with?('11')
+def century_suffix(century)
+  if century.end_with?('1') && !century.end_with?('11')
     ordinal = 'st'
-  elsif year.end_with?('2') && !year.end_with?('12')
+  elsif century.end_with?('2') && !century.end_with?('12')
     ordinal = 'nd'
-  elsif year.end_with?('3') && !year.end_with?('13')
+  elsif century.end_with?('3') && !century.end_with?('13')
     ordinal = 'rd'
-  elsif year.end_with?('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+  elsif century.end_with?('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
     ordinal = 'th'
   end
 end
@@ -200,23 +201,23 @@ def century(year)
 
   if year_str.size.between?(1, 3) || year == 1000
     result = base_10(year)
-    result += superscript_ordinals(result)
+    result += century_suffix(result)
   elsif year_str.size == 4 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 2).to_i
     year_substring += 1
     result = year_substring.to_s
-    result += superscript_ordinals(result)
+    result += century_suffix(result)
   elsif year_str.size == 4 && year_str.end_with?('00')
-    result = year_str.slice(0, 2) 
-    result += superscript_ordinals(result)
+    result = year_str.slice(0, 2)
+    result += century_suffix(result)
   elsif year_str.size == 5 && !year_str.end_with?('00')
     year_substring = year_str.slice(0, 3).to_i
     year_substring += 1
     result = year_substring.to_s
-    result += superscript_ordinals(result)
+    result += century_suffix(result)
   elsif year_str.size == 5 && year_str.end_with?('00')
     result = year_str.slice(0, 3)
-    result += superscript_ordinals(result)
+    result += century_suffix(result)
   end
 
 end
