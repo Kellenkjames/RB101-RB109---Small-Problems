@@ -46,7 +46,7 @@ __________________________________________________
 * A - Algorithm
 
 Initialize a local variable called string and assign to empty String literal ' '
-Initialize a local variable called arr and assign to the return value of digits reversed being called on arr
+Initialize a local variable called arr and assign to the return value of digits reversed invoked on `number`
 
 Iterate over the length of `arr` and define`digit` as a block parameter
   Iterate over the length of `STRINGS` and define key and value as block parameters:
