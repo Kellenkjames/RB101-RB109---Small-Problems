@@ -48,7 +48,7 @@ Iterate over `arr`
   - Use accumulator and iterator to concatenate each element in the collection
   - Return value
 
-Test Case / Example: 
+Test Case / Example:
 
 The value of the accumulator `a` after each element in the array is evalauted
 Respectively, is:
@@ -69,7 +69,7 @@ __________________________________________________
 
 def string_to_integer(string)
   arr = string.chars.map { |substring| substring.oct }
-  arr.inject{ |a, i| (a * 10 + i) }
+  arr.inject{ |accumulator, digit| (accumulator * 10) + digit }
 end
 
 string_to_integer('4321') == 4321
