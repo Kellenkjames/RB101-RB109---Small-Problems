@@ -45,7 +45,7 @@ __________________________________________________
 * A - Algorithm
 
 Initialize a constant variable called HOURS_PER_DAY and assign to the Integer 24
-Initialize a constant variable called MINUTES_PER_HOUR and assign to the Integer 24
+Initialize a constant variable called MINUTES_PER_HOUR and assign to the Integer 60
 
 Initialize a local variable called hours and assign to nil
 Initialize a local variable called mins and assign to nil
