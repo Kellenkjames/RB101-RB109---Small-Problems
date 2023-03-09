@@ -44,8 +44,8 @@ __________________________________________________
 
 * A - Algorithm
 
-Initialize a constant variable called TWENTY_FOUR and assign to the Integer 24
-Initialize a constant variable called SIXTY and assign to the Integer 24
+Initialize a constant variable called HOURS_PER_DAY and assign to the Integer 24
+Initialize a constant variable called MINUTES_PER_HOUR and assign to the Integer 24
 
 Initialize a local variable called hours and assign to nil
 Initialize a local variable called mins and assign to nil
@@ -57,19 +57,19 @@ Divide the input (minutes) by `60` and return 2 elements (quotient, remainder):
 
 #* Minutes before midnight
   if hours.abs == 1 && mins > 0
-    hours += TWENTY_FOUR
+    hours += HOURS_PER_DAY
     result += "#{hours}:#{mins}"
-  elsif hours.abs == TWENTY_FOUR && mins > 0
+  elsif hours.abs == HOURS_PER_DAY && mins > 0
     result += "00:0#{mins}"
   elsif hours < 0 && mins > 0
-    hours = hours.abs / SIXTY
+    hours = hours.abs / MINUTES_PER_HOUR
     result +="0#{hours}:#{mins}"
   
   #* Minutes after midnight
   elsif hours == 0 && mins > 0
     result += "00:#{mins}"
   elsif hours > 0 && mins == 0
-    hours /= TWENTY_FOUR
+    hours /= HOURS_PER_DAY
     result += "0#{hours}:00"
   elsif hours > 0 && mins > 0
     result += "#{hours}:#{mins}"
@@ -88,33 +88,33 @@ __________________________________________________
 
 #* C - Code
 
-TWENTY_FOUR = 24
-SIXTY = 60
+HOURS_PER_DAY = 24
+MINUTES_PER_HOUR = 60
 
 def time_of_day(number)
   hours = nil
   mins = nil
   result = ""
 
-  numbers_arr = number.divmod(SIXTY)
+  numbers_arr = number.divmod(MINUTES_PER_HOUR)
   hours = numbers_arr[0]
   mins = numbers_arr[1]
 
   #* Minutes before midnight
   if hours.abs == 1 && mins > 0
-    hours += TWENTY_FOUR
+    hours += HOURS_PER_DAY
     result += "#{hours}:#{mins}"
-  elsif hours.abs == TWENTY_FOUR && mins > 0
+  elsif hours.abs == HOURS_PER_DAY && mins > 0
     result += "00:0#{mins}"
   elsif hours < 0 && mins > 0
-    hours = hours.abs / SIXTY
+    hours = hours.abs / MINUTES_PER_HOUR
     result +="0#{hours}:#{mins}"
   
   #* Minutes after midnight
   elsif hours == 0 && mins > 0
     result += "00:#{mins}"
   elsif hours > 0 && mins == 0
-    hours /= TWENTY_FOUR
+    hours /= HOURS_PER_DAY
     result += "0#{hours}:00"
   elsif hours > 0 && mins > 0
     result += "#{hours}:#{mins}"
