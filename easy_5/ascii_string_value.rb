@@ -54,7 +54,7 @@ __________________________________________________
 
 def ascii_value(string)
   sum = 0  
-  string.chars.each { |char| sum += char.ord }
+  string.each_char { |char| sum += char.ord }
   sum
 end
 
