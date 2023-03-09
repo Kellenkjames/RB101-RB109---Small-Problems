@@ -39,7 +39,7 @@ __________________________________________________
 - Initialize a local variable called sum and assign to 0
 - Split string into chars
 - Iterate over chars:
-  - Reassign `sum` to the return value of each ASCII value `char`
+  - Reassign `sum` to the return value of each ASCII value
 - Repeat until end of string collection is reached
 
 return sum
@@ -53,7 +53,7 @@ __________________________________________________
 #* C - Code
 
 def ascii_value(string)
-  sum = 0  
+  sum = 0
   string.each_char { |char| sum += char.ord }
   sum
 end
