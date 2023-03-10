@@ -44,6 +44,9 @@ __________________________________________________
 
 * A - Algorithm
 
+HOURS_PER_DAY = 24
+MINUTES_PER_HOUR = 60
+
 Initialize a constant variable called HOURS_PER_DAY and assign to the Integer 24
 Initialize a constant variable called MINUTES_PER_HOUR and assign to the Integer 60
 
