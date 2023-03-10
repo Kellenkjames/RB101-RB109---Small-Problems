@@ -62,13 +62,13 @@ def swap(string)
   words = string.split(' ')
   
   words.each do |substring|
-      substring.split.map do |letter|
-        substring[0] = letter[-1]
-        substring[-1] = letter[0]
-      end
+    substring.split.map do |letter|
+      substring[0] = letter[-1]
+      substring[-1] = letter[0]
     end
+  end
     
-    words.join(' ')
+  words.join(' ')
 end
 
 swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
