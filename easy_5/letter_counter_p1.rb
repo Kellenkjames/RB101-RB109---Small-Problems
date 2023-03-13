@@ -51,7 +51,7 @@ Initialize a local variable called words_arr and assign to the return value of s
     - Reassign the local variable `value` to the count of each substring:
       - Call the block for each element and return a truthy value if element size is equal to `key`
     - Set `key` as the index of `words_hsh` and assign to `value`
-  - Repeat this step until Hash has all unique keys and values
+  - Repeat this step until the Hash has the size of the word as the key and the count as the value for each substring
 
   - Sort hash --> returns a nested Array
   - Return the sorted Hash in hash format
