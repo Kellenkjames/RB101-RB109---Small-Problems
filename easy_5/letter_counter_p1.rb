@@ -47,9 +47,10 @@ Initialize a local variable called words_arr and assign to the return value of s
 
 - Iterate over each substring in Array:
   - For each iteration:
-    - Reassign the local variable`size` to the size of each substring
-    - Reassign the local variable `number_of_occurences` to the count of each substring
-    - Set `size` as the key to `words_hsh` and assign`number_of_occurences` as the value
+    - Reassign the local variable`key` to the size of each substring
+    - Reassign the local variable `value` to the count of each substring:
+      - Call the block for each element and return a truthy value if element size is equal to `key`
+    - Set `key` as the index of `words_hsh` and assign to `value`
   - Repeat this step until Hash has all unique keys and values
 
   - Sort hash --> returns a nested Array
@@ -68,9 +69,9 @@ def word_sizes(string)
   words_arr = string.split(' ')
   
   words_arr.each do |substring|
-    size = substring.size
-    number_of_occurences = words_arr.count { |element| element.size == size }
-    words_hsh[size] = number_of_occurences
+    key = substring.size
+    value = words_arr.count { |element| element.size == key }
+    words_hsh[key] = value
   end
 
   words_hsh.sort.to_h
