@@ -38,10 +38,6 @@ __________________________________________________
 
 * A - Algorithm
 
-In a Hash, every Key is unique (there will be no duplicates)
-
-Write a list of instructions of how to solve the problem:
-
 Initialize a local variable called words_hsh and assign to an empty Hash literal `{}`
 Initialize a local variable called words_arr and assign to the return value of splitting String into an array of substrings
 
