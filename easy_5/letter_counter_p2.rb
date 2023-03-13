@@ -11,7 +11,7 @@ rules:
           - Exclude non-letters when determining word size
 
         - Implicit Requirements:
-          - N / A
+          - Whitespace should be preserved after excluding non-letters
 
         - Clarifying Questions:
           - N / A
@@ -37,11 +37,9 @@ __________________________________________________
 
 Exclude non-letters when determining word size:
 
-- Substitute String with new pattern to ignore non-letters while preserving whitespace
+- Substitute String with Regexp pattern that ignores non-letters and preserves whitespace
 
-- Return new_arr
-
-Continue with remaining sub-routines...
+Continue with remaining sub-routines from previous problem...
 
 __________________________________________________
 
@@ -54,12 +52,19 @@ __________________________________________________
 def word_sizes(string)
   words_hsh = {}
   
-  # Replace non-letters with "nothing"
   string = string.gsub(/[^\w\s]/, '')
+  words_arr = string.split(' ')
+
+  words_arr.each do |substring|
+    key = substring.size
+    value = words_arr.count { |element| element.size == key }
+    words_hsh[key] = value
+  end
   
+  words_hsh.sort.to_h
 end
 
-p word_sizes('Four score and seven.') # == { 3 => 1, 4 => 1, 5 => 2 }
-p word_sizes('Hey diddle diddle, the cat and the fiddle!') # == { 3 => 5, 6 => 3 }
-p word_sizes("What's up doc?") # == { 5 => 1, 2 => 1, 3 => 1 }
-p word_sizes('') # == {}
+word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 2 }
+word_sizes('Hey diddle diddle, the cat and the fiddle!') == { 3 => 5, 6 => 3 }
+word_sizes("What's up doc?") == { 5 => 1, 2 => 1, 3 => 1 }
+word_sizes('') == {}
