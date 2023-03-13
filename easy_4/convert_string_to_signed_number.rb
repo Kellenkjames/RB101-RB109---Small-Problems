@@ -67,6 +67,6 @@ def string_to_signed_integer(string)
   end
 end
 
-p string_to_signed_integer('+ 4321') == 4321
-p string_to_signed_integer('-570') == -570
-p string_to_signed_integer('+100') == 100
+string_to_signed_integer('+ 4321') == 4321
+string_to_signed_integer('-570') == -570
+string_to_signed_integer('+100') == 100

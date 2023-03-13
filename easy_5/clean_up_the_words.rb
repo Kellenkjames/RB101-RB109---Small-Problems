@@ -7,7 +7,7 @@ Given a string that consists of some words (all lowercased) and an assortment of
 If one or more non-alphabetic characters occurs in a row, you should only have one space in the result (the result should never have consecutive spaces).
 
 input: String
-output: String (original object)
+output: New String object
 rules:
         - Explicit Requirements:
           - Method will return a String with all of the non-alphabetic characters replaced by spaces
