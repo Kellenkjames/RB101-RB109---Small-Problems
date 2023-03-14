@@ -40,20 +40,15 @@ __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called chars_arr and assign to the return value of calling chars on String input
+Initialize a local variable called index and assign to the Integer 0
+Initialize a local variable called crunch_text and assign to an empty String
 
-Initialize a local variable called counter and assign to the Integer 0
-Initialize a local variable called crunch_arr and assign to an empty Array literal
+Iterate over elements in `text`:
+  - Append the current element to `crunch_text` unless the current element is equal to the next element
+  - Iterate `index` by 1
+  - Break from loop if `index` is equal to the size of `text`
 
-Iterate over elements in `chars_arr`:
-  - If the current element is NOT equal to the next element
-    - append the current element to `crunch_arr`
-    - increment counter by 1
-  - Otherwise
-    - increment counter by 1
-  - Repeat this step until counter is equal to the size of `chars_arr`
-
-- Join `crunch_arr` to String
+- Return`crunch_text`
 
 __________________________________________________
 
@@ -63,23 +58,17 @@ __________________________________________________
 
 #* C - Code
 
-def crunch(string)
-  chars_arr = string.chars.map { |chars| chars }
-  counter = 0
-  crunch_arr = []
+def crunch(text)
+  index = 0
+  crunch_text = ''
   
   loop do
-    if chars_arr[counter] != chars_arr[counter + 1]
-      crunch_arr << chars_arr[counter]
-      counter += 1
-    else
-      counter += 1
-    end
-    
-    break if counter == chars_arr.size
+    crunch_text << text[index] unless text[index] == text[index + 1]
+    index += 1
+    break if index == text.size
   end
 
-  crunch_arr.join
+  crunch_text
 end
 
 crunch('ddaaiillyy ddoouubbllee') == 'daily double'
