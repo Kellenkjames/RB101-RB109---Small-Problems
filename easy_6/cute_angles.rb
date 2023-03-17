@@ -69,32 +69,23 @@ def dms(number)
   number_str = number.to_s
   result = ''
 
-  # '76.73'
-
   if number_str.include?(".")
-    degrees = number_str.slice(0..(number_str.index(".") - 1)).to_i
-    decimal_units = number_str.slice(number_str.index(".") + 1..
-    (number_str.index(number_str[-1]))).to_i * 0.01
+    degrees = number_str.slice(0..(number_str.index(".") - 1)).to_i               # 76
+    decimal_units = number_str.slice(number_str.index(".")..
+    (number_str.index(number_str[-1]))).to_f                                                  # 0.73
+
+    minutes = (decimal_units * 60).floor.to_s
+    p seconds = (decimal_units.to_s[0..2].to_f) * 60
+    
+    # result += "%(#{degrees.to_s + DEGREE}#{minutes}\'#{seconds})"
+    #* Helper method for leading zeros when formatting minutes and seconds
+
   else
-    degrees = number_str.to_i
+    minutes = '00'
+    seconds = '00'
+    result += "%(#{degrees.to_s + DEGREE}#{minutes}\'#{seconds})"
   end
 
-  # degrees: 76
-  # decimal_units: .73
-
-  #* Conversion
-  degrees = degrees.to_s
-  minutes = (decimal_units * 60).round.to_s
-  seconds = (((decimal_units.to_s[2].to_i) * 0.10) * 60).round.to_s
-  
-  #* Output
-  result += "%(#{degrees + DEGREE}#{minutes}\'#{seconds})"
 end
 
-
-p dms(30) == %(30°00'00")
-# p dms(76.73) == %(76°43'48")
-# p dms(254.6) == %(254°36'00")
-# p dms(93.034773) == %(93°02'05")
-# p dms(0) == %(0°00'00")
-# p dms(360) == %(360°00'00") || dms(360) == %(0°00'00")
+dms(76.73) # == %(76°43'48")
