@@ -65,47 +65,33 @@ __________________________________________________
 
 DEGREE = "\xC2\xB0"
 
-def leading_zeros(number)
-  number_str = number.to_s
-  decimal_units = ''
-  
-  if number_str.include?('.') && number_str.include?('0')
-    decimal_units = number_str.slice(number_str.index(".")..
-    (number_str.index(number_str[-2]))).to_f
-
-    minutes = (decimal_units * 60).round
-  end
-
+def calc_mins(decimal_units)
+  minutes = (decimal_units * 60).round
 end
 
-p leading_zeros(93.034773)
+def calc_seconds(decimal_units)
+  seconds = (decimal_units * 60).to_s
+  seconds = seconds.slice(seconds.index('.')..seconds.index(seconds[-1])).to_f
+  seconds = (seconds * 60).round
+end
+
+def handle_leading_zeros(number)
+  number_str = number.to_s
+  number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
+end
 
 def dms(number)
   number_str = number.to_s
   result = ''
 
-  if number_str.include?('.')
-    degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i                 # 76
-    decimal_units = number_str.slice(number_str.index('.')..
-    (number_str.index(number_str[-1]))).to_f                                                  # 0.73
-
-    minutes = (decimal_units * 60)
-    
-    seconds = (decimal_units * 60).to_s
-    seconds = seconds.slice(seconds.index('.')..seconds.index(seconds[-1])).to_f
-    seconds = (seconds * 60).round
-    
-    # Helper method to handle leading zeros when formatting minutes and seconds
-    # result += "%(#{degrees.to_s + DEGREE}#{minutes}\'#{seconds})"
-
-  else
-    degrees = number.to_s
-    minutes = '00'
-    seconds = '00'
-    result += "%(#{degrees.to_s + DEGREE}#{minutes}\'#{seconds}\')"
+  degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
+  
+  # 93.034773
+  if number_str.include?('.') && number_str.include?('0')
+    handle_leading_zeros(number)
+    result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(handle_leading_zeros(number))}\'0#{calc_seconds(handle_leading_zeros(number))}\')"
   end
-
+  
 end
 
-# dms(76.73)
-# dms(93.034773)
+p dms(93.034773)
