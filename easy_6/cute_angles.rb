@@ -75,21 +75,16 @@ def calc_seconds(decimal_units)
   seconds = (seconds * 60).round
 end
 
-def handle_leading_zeros(number)
-  number_str = number.to_s
-  number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
-end
-
 def dms(number)
   number_str = number.to_s
   result = ''
 
   degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
   
-  # 93.034773
-  if number_str.include?('.') && number_str.include?('0')
-    handle_leading_zeros(number)
-    result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(handle_leading_zeros(number))}\'0#{calc_seconds(handle_leading_zeros(number))}\')"
+  # Leading Zeros - 93.034773
+  if number_str.index('.') + 1 == number_str.index('0')
+    number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
+    result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(number)}\'0#{calc_seconds(number)}\')"
   end
   
 end
