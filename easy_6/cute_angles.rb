@@ -76,20 +76,29 @@ def dms(number)
   number_str = number.to_s
   result = ''
 
-  # Whole Numbers
+  # i.e., 360
   return "%(#{number_str + DEGREE}00\'00\')" if !number_str.include?('.')
 
   degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
   number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-1]))).to_f
 
-  # Leading Zeros - 93.034773
+  # i.e., 93.034773
   if number_str.index('.') + 1 == number_str.index('0')
     number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
     result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(number)}\'0#{calc_seconds(number)}\')"
-  else
+  # i.e., 254.6
+  elsif number_str.include?('.') && calc_seconds(number) == 0
+    result += "%(#{degrees.to_s + DEGREE}#{calc_mins(number)}\'0#{calc_seconds(number)}\')"
+  # i.e., 76.73
+  elsif number_str.include?('.') && calc_seconds(number) != 0
     result += "%(#{degrees.to_s + DEGREE}#{calc_mins(number)}\'#{calc_seconds(number)}\')"
   end
+
 end
 
+p dms(30)
+p dms(76.73)
 p dms(254.6)
 p dms(93.034773)
+p dms(0)
+p dms(360)
