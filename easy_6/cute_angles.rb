@@ -42,9 +42,6 @@ __________________________________________________
 * A - Algorithm
 
 Initialize a constant called DEGREE and assign to the String literal `"\xC2\xB0"`
-Initialize a local variable called strings_arr and assign to an empty Array literal `[]`
-Initialize a local variable called index and assign to the Integer 0
-
 
 * Convert from decimal degrees to degrees, minutes, and seconds:
 
@@ -86,14 +83,13 @@ def dms(number)
   number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-1]))).to_f
 
   # Leading Zeros - 93.034773
-  if number_str.index('.') + 1 == 0
+  if number_str.index('.') + 1 == number_str.index('0')
     number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
     result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(number)}\'0#{calc_seconds(number)}\')"
-  elsif number_str.index('.') + 1 > 0
+  else
     result += "%(#{degrees.to_s + DEGREE}#{calc_mins(number)}\'#{calc_seconds(number)}\')"
   end
 end
 
-p dms(30)
-p dms(0)
-p dms(360)
+p dms(254.6)
+p dms(93.034773)
