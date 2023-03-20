@@ -66,7 +66,7 @@ __________________________________________________
 DEGREE = "\xC2\xB0"
 
 def calc_mins(decimal_units)
-  minutes = (decimal_units * 60).round
+  minutes = (decimal_units * 60).floor
 end
 
 def calc_seconds(decimal_units)
@@ -79,14 +79,21 @@ def dms(number)
   number_str = number.to_s
   result = ''
 
+  # Whole Numbers
+  return "%(#{number_str + DEGREE}00\'00\')" if !number_str.include?('.')
+
   degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
-  
+  number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-1]))).to_f
+
   # Leading Zeros - 93.034773
-  if number_str.index('.') + 1 == number_str.index('0')
+  if number_str.index('.') + 1 == 0
     number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
     result += "%(#{degrees.to_s + DEGREE}0#{calc_mins(number)}\'0#{calc_seconds(number)}\')"
+  elsif number_str.index('.') + 1 > 0
+    result += "%(#{degrees.to_s + DEGREE}#{calc_mins(number)}\'#{calc_seconds(number)}\')"
   end
-  
 end
 
-p dms(93.034773)
+p dms(30)
+p dms(0)
+p dms(360)
