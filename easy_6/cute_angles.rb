@@ -77,7 +77,7 @@ def dms(number)
   result = ''
 
   # i.e., 360
-  return %(#{number_str + DEGREE}00\'00\') if !number_str.include?('.')
+  return %(#{number_str + DEGREE}00\'00\") if !number_str.include?('.')
 
   degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
   number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-1]))).to_f
@@ -96,4 +96,9 @@ def dms(number)
 
 end
 
-p dms(76.73) == %(76°43'48")
+dms(30) == %(30°00'00")
+dms(76.73) == %(76°43'48")
+dms(254.6) == %(254°36'00")
+dms(93.034773) == %(93°02'05")
+dms(0) == %(0°00'00")
+dms(360) == %(360°00'00") || dms(360) == %(0°00'00")
