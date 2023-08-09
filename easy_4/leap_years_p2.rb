@@ -2,22 +2,22 @@
 
 * P - [Understanding the] Problem
 
-Problem: A continuation of the previous exercise. The British Empire adopted the Gregorian Calendar in 1752, which was a leayear. Prior to 1752, the Julian Calendar was used. Under the Julian Calendar, leayears occur in any year that is evenly divisible by 4.
+Problem: A continuation of the previous exercise. The British Empire adopted the Gregorian Calendar in 1752, which was a leap year. Prior to 1752, the Julian Calendar was used. Under the Julian Calendar, leap years occur in any year that is evenly divisible by 4.
 
-Using this information, update the method from the previous exercise to determine leayears both before and after 1752.
+Using this information, update the method from the previous exercise to determine leap years both before and after 1752.
 
-input: Integer
-output: Boolean
+input: integer
+output: boolean
 rules:
         - Explicit Requirements:
-          - Before the year 1752, leayear occurs in any year that is evenly divisible by 4
-          - After the year 1752, leayear follows the rules of the Gregorian Calendar in 1752
+          - Under the Julian Calendar, leap years occur in any year that is evenly divisible by 4
+          - Update the previous method to determine leap years both before and after 1752
 
         - Implicit Requirements:
-          - Input will always be greater than 1
+          - Extend the previous method
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -41,20 +41,18 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- if year <= 1752 && year % 4 == 0
-  return true
--elsif (year % 4 == 0) && (year % 100 != 0)
-  return true
-- elsif (year % 100 == 0) && (year % 400 == 0)
-  return true
-- else
-  return false
+- Define a single method parameter: year
+
+- If `year` is before `1752` AND year is divisible by `4`
+  -  `true`
+- Else...
+  - carry over logic from previous method
 end
 
 __________________________________________________
@@ -66,14 +64,10 @@ __________________________________________________
 #* C - Code
 
 def leap_year?(year)
-  if year <= 1752 && year % 4 == 0
-    return true
-  elsif (year % 4 == 0) && (year % 100 != 0)
-    return true
-  elsif (year % 100 == 0) && (year % 400 == 0)
-    return true
+  if year < 1752 && year % 4 == 0 # Julian Calendar
+    true
   else
-    return false
+    (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) # Gregorian Calendar
   end
 end
 

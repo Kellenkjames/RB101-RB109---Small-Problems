@@ -6,19 +6,18 @@ Problem: Given a string of words separated by spaces, write a method that takes 
 
 You may assume that every word contains at least one letter, and that the string will always contain at least one word. You may also assume that each string contains nothing but words and spaces.
 
-input: String
-output: String (new object)
+input: string
+output: new string
 rules:
         - Explicit Requirements:
-          - Method that takes string input and returns a new string in which the first and last letters of every word are swapped
-          
+          - Return a new string in which the first and last letters of every word are swapped
+
         - Implicit Requirements:
-          - Every word contains at least one letter
-          - The string will always contain at least one word
-          - Each string contains nothing but words and spaces
+          - You may assume that every word contains at least one letter, and that the string will always contain at least one word
+          - You may also assume that each string contains nothing but words and spaces
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -32,23 +31,21 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize a local variable called words and assign to the String input
+Define a single method parameter: string_of_words
 
-- Return an array of substrings of `words` that are the result of splitting `words` at each occurence of a space
-- Iterate over each array of substrings:
-  - Split substring to letters and iterate over each letter within substring:
-    - Swap the first and last letters:
-      - Assign the first index of substring to the last letter
-      - Assign the last index of substring to the first letter
-    - Repeat until the first and last letters of every word are swapped
-
-  - Join array back to a new String object
+- Split `string_of_words` into an array of words and iterate over each word:
+  - initialize a local variable called first_letter and assign to the first letter in current `word`
+  - initialize a local variable called last_letter and assign to the last letter in current `word`
+  - reassign the first letter in `word` to the letter assigned to `last_letter`
+  - reassign the last letter in `word` to the letter assigned to `first_letter`
+  - return `word`
+- join words to string separated by whitespace
 
 __________________________________________________
 
@@ -58,22 +55,14 @@ __________________________________________________
 
 #* C - Code
 
-def swap(string)
-  words = string.split(' ')
-  
-  words.each do |substring|
-    substring.split.map do |letter|
-      substring[0] = letter[-1]
-      substring[-1] = letter[0]
-    end
-  end
-    
-  words.join(' ')
+def swap(string_of_words)
+  string_of_words.split.map do |word|
+    first_letter, last_letter = word[0], word[-1]
+    word[0], word[-1] = last_letter, first_letter
+    word
+  end.join(' ')
 end
 
 swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
 swap('Abcde') == 'ebcdA'
 swap('a') == 'a'
-
-
-

@@ -2,21 +2,20 @@
 
 * P - [Understanding the] Problem
 
-Problem: In the previous exercise, you developed a method that converts non-negative numbers to strings. In this exercise, you're going to extend that method by adding the ability to represent negative numbers as well.
+Problem: Given a method that takes an integer, conver it to a string representation.
 
-Write a method that takes an integer, and converts it to a string representation.
-
-input: Integer
-output: String
+input: integer
+output: string
 rules:
         - Explicit Requirements:
-          - Cannot use any of the standard conversion methods in Ruby, i.e.,`Integer#to_s`, `String()`, `Kernel#format`, etc.
+          - Extend the method from the previous exercise by adding the ability to represent negative numbers as well
 
         - Implicit Requirements:
-          - No floating point numbers
+          - You cannot use any of the standard conversion method available in Ruby such as `Integer#to_s`, `String()`, `Kernel#format`, etc.
+          - You can use the integer_to_string from the previous exercise
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -30,40 +29,25 @@ __________________________________________________
 
 * D - Data Structure
 
-STRINGS = { 
-  0 => '0', 
-  1 => '1', 
-  2 => '2', 
-  3 => '3', 
-  4 => '4', 
-  5 => '5', 
-  6 => '6', 
-  7 => '7', 
-  8 => '8',
-  9 => '9'
-}
+DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called string and assign to empty String literal ' '
-Initialize a local variable called abs_value and assign to the absolute value of `number`
-Initialize a local variable called arr and assign to the return value of digits reversed invoked on`abs_value`
+Extend functionality from previous method integer_to_string:
 
-Iterate over the length of `arr` and define`digit` as a block parameter
-  Iterate over the length of `STRINGS` and define key and value as block parameters:
-    - If `digit` is equal to`key`
-      - Reassign `string` to the return value of `string` + `value`
-    - Repeat until outer loop is finished looping over elements
-end
+Define a single method parameter: number
 
-if number < 0
-  "-" << string
-elsif number > 0
-  "+" << string
-else
-  string
+- Initialize a local variable named num_absolute and assign to the absolute value of `number`
+
+If `number` is less than `0`
+  - call the `integer_to_string` method while passing in `num_absolute` as an an argument, prepend '-' to the return value of the method
+Elsif `number` is greater than `0`
+  - call the `integer_to_string` method while passing in `num_absolute` as an an argument, prepend 
+  '+' to the return value of the method
+Else
+  - call the `integer_to_string` method
 end
 
 __________________________________________________
@@ -74,40 +58,28 @@ __________________________________________________
 
 #* C - Code
 
-STRINGS = { 
-  0 => '0', 
-  1 => '1', 
-  2 => '2', 
-  3 => '3', 
-  4 => '4', 
-  5 => '5', 
-  6 => '6', 
-  7 => '7', 
-  8 => '8',
-  9 => '9'
-}
+DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+def integer_to_string(number)
+  result = ''
+  loop do
+    number, remainder = number.divmod(10) # => [432, 1]
+    result.prepend(DIGITS[remainder])
+    break if number == 0
+  end
+  result
+end
 
 def signed_integer_to_string(number)
-  string = ''
-  abs_value = number.abs                   # -123 --> 123
-  arr = abs_value.digits.reverse          # [4, 3, 2, 1]
-  
-  arr.each do |digit|
-    STRINGS.each do |key, value|
-      if digit == key
-        string += value
-      end
-    end
-  end
-
+  number_absolute = number.abs
+  number_as_string = integer_to_string(number_absolute)
   if number < 0
-    '-' << string
+    number_as_string.prepend('-')
   elsif number > 0
-    '+' << string
+    number_as_string.prepend('+')
   else
-    string
+    number_as_string
   end
-
 end
 
 signed_integer_to_string(4321) == '+4321'

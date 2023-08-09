@@ -2,55 +2,44 @@
 
 * P - [Understanding the] Problem
 
-Problem: Given a method that takes one argument (a positive integer) - return a list of the digits in the number.
+Problem: Given a method that takes one argument, a positive integer, return a list of the digits in the number
 
-input: Integer
-output: Array
+input: integer
+output: array of integers
 rules:
         - Explicit Requirements:
-          - Method takes a single argument (a positive integer)
-          - Return a list of digits in the number
+          - Method takes one argument, a positive integer, and returns a list of the digits in the number
 
         - Implicit Requirements:
-          - Don't use any built in methods, i.e., digits
+          - Argument must be a positive integer
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
 * E - Examples / Test Cases
 
-digit_list(12345) == [1, 2, 3, 4, 5]
-digit_list(7) == [7]
-digit_list(375290) == [3, 7, 5, 2, 9, 0]
-digit_list(444) == [4, 4, 4]
+puts digit_list(12345) == [1, 2, 3, 4, 5]                 # => true
+puts digit_list(7) == [7]                                          # => true
+puts digit_list(375290) == [3, 7, 5, 2, 9, 0]          # => true
+puts digit_list(444) == [4, 4, 4]                            # => true
 
 __________________________________________________
 
 * D - Data Structure
 
-=> Array[]
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called digits_arr and assign to an empty Array literal `[]`
-Initialize a local variable called index and assign to the Integer 0
+Define a single method parameter: number
 
-- Reassign `number` to the return value of converting `number` to string
-
-- Iterate over `number` which is now a string:
-  - For each iteration:
-    - Slice the current String`index` and append value to`digits_arr`
-    - Incement index by 1
-  - Repeat this step until `index` is less than`number`
-
-- Iterate over `digits_arr`:
-  - For each iteration:
-    - Transform each String to Integer
-  - Repeat this step until all strings have been transformed to integers
+1. Convert `number` to string
+  2. (method chain previous return value) split the string into an array of characters
+  3. (method chain previous return value) tranform characters back to integers
 
 __________________________________________________
 
@@ -61,21 +50,10 @@ __________________________________________________
 #* C - Code
 
 def digit_list(number)
-  digits_arr = []
-  index = 0
-
-  number = number.to_s
-  
-  while index < number.size
-    digits_arr << number.slice(index)
-    index += 1
-  end
-  
-  digits_arr.map(&:to_i)
+  number.to_s.chars.map(&:to_i)
 end
 
-digit_list(12345) == [1, 2, 3, 4, 5]
-digit_list(7) == [7]
-digit_list(375290) == [3, 7, 5, 2, 9, 0]
-digit_list(444) == [4, 4, 4]
-
+puts digit_list(12345) == [1, 2, 3, 4, 5]           # => true
+puts digit_list(7) == [7]                                     # => true
+puts digit_list(375290) == [3, 7, 5, 2, 9, 0]     # => true
+puts digit_list(444) == [4, 4, 4]                        # => true

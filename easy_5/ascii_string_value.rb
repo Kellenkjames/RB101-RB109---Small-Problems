@@ -2,20 +2,22 @@
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that determines and returns the ASCII string value of a string that is passed in as an argument. The ASCII string value is the sum of the ASCII values of every character in the string. (You may use String#ord to determine the ASCII value of a character.)
+Problem: Given a method, determine and return the ASCII string value of a string that is passed in as an argument. The ASCII string value is the sum of the ASCII values of every character in the string.
 
-input: String
-output: Integer
+You may use String#ord to determine the ASCII value of a character.
+
+input: string
+output: integer
 rules:
         - Explicit Requirements:
-          - Determine and return the ASCII string value of a string that is passed in as an argument
-          - ASCII string value is the sum of the ASCII values of every character in the string
+          -  Method will determine and return the ASCII string value of a string that is passed in as an argument
+          - The ASCII string value is the sum of the ASCII values of every character in the string
 
         - Implicit Requirements:
-          - Empty strings should return 0
+          - You may use String#ord to determine the ASCII value of a character
 
         - Clarifying Questions:
-          - Is whitespace considered an ASCII character
+          - N/A
 
 __________________________________________________
 
@@ -30,19 +32,22 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize a local variable called sum and assign to 0
-- Split string into chars
-- Iterate over chars:
-  - Reassign `sum` to the return value of each ASCII value
-- Repeat until end of string collection is reached
+Define a single method parameter: string
 
-return sum
+Initialize a local variable called sum and assign to the integer `0`
+
+- Convert `string` to an array of characters
+  - Iterate over the array of characters and for each iteration:
+    - add the integer ordinal of the current `char` to `sum`
+end
+
+return `sum`
 
 __________________________________________________
 
@@ -63,3 +68,16 @@ ascii_value('Launch School') == 1251
 ascii_value('a') == 97
 ascii_value('') == 0
 
+# Further Exploration: There is an Integer method such that:
+
+# char.ord.mystery == char
+
+# Where `mystery` is our mystery method. Can you determine what method name should be used in place of `mystery`? 
+
+char = 'd'
+char.ord.chr == char # true
+
+# What happens if you try this with a longer string instead of a single character?
+
+string = 'abc'
+string.ord.chr == string # false

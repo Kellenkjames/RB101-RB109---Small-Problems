@@ -2,19 +2,19 @@
 
 * P - [Understanding the] Problem
 
-Problem: Modify the word_sizes method from the previous exercise to exclude non-letters when determining word size. For instance, the length of "it's" is 3, not 4.
+Problem: Modify the `words_sizes` method from the previous exercise to exclude non-letters when determining word size. For instance, the length of "it's" is 3, not 4.
 
-input: String
-output: Hash
+input: string
+output: hash
 rules:
         - Explicit Requirements:
-          - Exclude non-letters when determining word size
+          - Modify the `words_sizes` method from the previous exercise to exclude non-letters when determining word size
 
         - Implicit Requirements:
-          - Whitespace should be preserved after excluding non-letters
+          - Ignore non-alphabetic characters when counting words size
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -35,11 +35,19 @@ __________________________________________________
 
 * A - Algorithm
 
-Exclude non-letters when determining word size:
+The hash will contain all unique word sizes as keys, with their counts as the corresponding values
 
-- Substitute String with Regexp pattern that ignores non-letters and preserves whitespace
+Define a single method parameter called string_of_words:
 
-Continue with remaining sub-routines from previous problem...
+Initialize a local variable called word_counts and assign to a new Hash with a default value of `0`
+
+- Split `string_of_words` to an array of substrings and iterate over each word:
+  - Inside the block:
+    - Initialize a local variable called clean_word and assign to `word` with non-alphabetic chars removed
+    - access the current element in `words_counts` by size if it exists or create a new key-value pair if it doesn't
+    - if the current element doesn't exist, increase the value associated with the `clean_word_size` key in `word_counts` by `1`
+  end
+end
 
 __________________________________________________
 
@@ -49,19 +57,13 @@ __________________________________________________
 
 #* C - Code
 
-def word_sizes(string)
-  words_hsh = {}
-  
-  string = string.gsub(/[^\w\s]/, '')
-  words_arr = string.split(' ')
-
-  words_arr.each do |substring|
-    key = substring.size
-    value = words_arr.count { |element| element.size == key }
-    words_hsh[key] = value
+def word_sizes(string_of_words)
+  word_counts = Hash.new(0)
+  string_of_words.split.each do |word|
+    clean_word = word.delete('^a-zA-z')
+    word_counts[clean_word.size] += 1
   end
-  
-  words_hsh.sort.to_h
+  word_counts
 end
 
 word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 2 }

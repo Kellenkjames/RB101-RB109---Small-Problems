@@ -1,24 +1,21 @@
-# Exclusive Or
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Write a method named `xor` that takes two arguments, and returns `true` if exactly one of its arguments is truthy, `false` otherwise.
+Problem: Given a method called `xor`, which takes two arguments, return `true` if exactly one of its arguments is truthy, `false` otherwise.
 
-input: two booleans
+input: two integers
 output: boolean
 rules:
         - Explicit Requirements:
-          - Method will take two arguments
-          - Returns `true` if exactly one of its arguments is truthy
-          - False otherwise
+          - Method takes two arguments
+          - Returns true if exactly one of its arguments is truthy, `false` otherwise
 
         - Implicit Requirements:
-          - Return a boolean result (not a truthy/falsey value)
+          - We are looking for a boolean result instead of a truthy/falsy value as returned by `||` and `&&`
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -33,17 +30,15 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Define a method that accepts two arguments (value1, value2):
-  - return true if value1 && !value2
-  - return true if value2 && !value1
-  - false
-- end 
+Define two method parameters: arg1, arg2
+
+`arg1` is truthy and `arg2` is falsy OR `arg2` is truthy and `arg1` is falsy
 
 __________________________________________________
 
@@ -53,10 +48,8 @@ __________________________________________________
 
 #* C - Code
 
-def xor?(value1, value2)
-  return true if value1 && !value2
-  return true if value2 && !value1
-  false
+def xor?(arg1, arg2)
+  (arg1 && !arg2 || arg2 && !arg1)
 end
 
 xor?(5.even?, 4.even?) == true
@@ -64,3 +57,4 @@ xor?(5.odd?, 4.odd?) == true
 xor?(5.odd?, 4.even?) == false
 xor?(5.even?, 4.odd?) == false
 
+# `xor` does not and cannot have short-circuit behavior

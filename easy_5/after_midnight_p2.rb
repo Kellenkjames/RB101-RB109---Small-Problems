@@ -2,80 +2,70 @@
 
 * P - [Understanding the] Problem
 
-Problem: As seen in the previous exercise, the time of day can be represented as the number of minutes before or after midnight. If the number of minutes is positive, the time is after midnight. If the number of minutes is negative, the time is before midnight.
+Problem: Write two methods that each take a time of day in 24 hour format, and return the number of minutes before and after midnight, respectively.
 
-Write two methods that each take a time of day in 24 hour format, and return the number of minutes before and after midnight, respectively. Both methods should return a value in the range 0..1439.
+Both methods should return a value in the range `0..1439`
 
-input: String
-output: Integer
+input: string
+output: integer
 rules:
         - Explicit Requirements:
-          - Write two methods that each take a time of day in 24 hour format
-            - Return the number of minutes before and after midnight, respectively
-            - Both methods should return a value in the range 0..1439
+          - First method will handle minutes before midnight
+          - Second method will handle minutes after midnight
+          - Both methods should return a value in the range `0..1439`
 
         - Implicit Requirements:
-          - You may not use ruby's Date and Time methods
+          - You may not use Ruby's Date and Time methods
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
 * E - Examples / Test Cases
 
-after_midnight('00:00') == 0
-before_midnight('00:00') == 0
-after_midnight('12:34') == 754
-before_midnight('12:34') == 686
-after_midnight('24:00') == 0
-before_midnight('24:00') == 0
+mins_after_midnight('00:00') == 0
+mins_before_midnight('00:00') == 0
+mins_after_midnight('12:34') == 754
+mins_before_midnight('12:34') == 686
+mins_after_midnight('24:00') == 0
+mins_before_midnight('24:00') == 0
 
 __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-HOURS_PER_DAY = 24
-MINS_PER_HOUR = 60
+* Return the number of minutes before and after midnight
 
-Max number of mins in a 24-hr period: 23 * (MINS_PER_HOUR) + 59 = 1439
+1) mins_after_midnight
 
-Return value should be in the range of 0..1439
+Define a single method parameter: `time`
 
-* After midnight method:
+- Initialize a local variable called mins_per_hour and assign to the integer `60`
+- Using parallel assignment, assign hours and mins to the 2-element array [quotient, remainder] after converting `time` to a valid integer and dividing by `100`
 
-Formula: 12 x 60 (mins) = 720 + Remainder (34) = 754
-
-Initialize a local variable called hours and assign to the first two substrings in String:
-  - Convert to Integer
-Initialize a local variable mins hours and assign to the last two substrings in String:
-  - Convert to Integer
-
-If hours < HOURS_PER_DAY
-  (hours * MINS_PER_HOUR) + mins
-else
-  0
+- If `time` is equal to '00:00' OR `time` is equal to '24:00'
+  - return `0`
+- Else
+  - multiply `hours` by `mins_per_hour` - `mins`
 end
 
-* Before midnight method:
+2) mins_before_midnight
 
-Formula: 12 x 60 (mins) = 720 - Remainder (34) = 754
+Same steps as above except the following changes:
 
-Initialize a local variable called hours and assign to the first two substrings in String:
-  - Convert to Integer
-Initialize a local variable mins hours and assign to the last two substrings in String:
-  - Convert to Integer
+- Initialize a local variable called mins_per_day and assign to the integer `1440`
 
-If hours < HOURS_PER_DAY
-  (hours * MINS_PER_HOUR) - mins
-else
-  0
+- If `time` is equal to '00:00' OR `time` is equal to '24:00'
+  - return `0`
+- Else
+  - mins_per_day - multiply `hours` by `mins_per_hour` + `mins`
 end
 
 __________________________________________________
@@ -86,26 +76,27 @@ __________________________________________________
 
 #* C - Code
 
-HOURS_PER_DAY = 24
-MINS_PER_HOUR = 60
-
-def after_midnight(string)
-  hours = string[0, 2].to_i
-  mins = string[3, 4].to_i
-  hours < HOURS_PER_DAY ? (hours * MINS_PER_HOUR) + mins : 0
+def mins_after_midnight(time)
+  mins_per_hour = 60
+  hours, mins = time.delete(':').to_i.divmod(100)
+  
+  time == '00:00' || time == '24:00' ? 0 : (hours * mins_per_hour) + mins
 end
 
-def before_midnight(string)
-  hours = string[0, 2].to_i
-  mins = string[3, 4].to_i
-  hours < HOURS_PER_DAY ? (hours * MINS_PER_HOUR) - mins : 0
+mins_after_midnight('00:00') == 0
+mins_after_midnight('12:34') == 754
+mins_after_midnight('24:00') == 0
+
+#_________________________________________________
+
+def mins_before_midnight(time)
+  mins_per_day = 1440
+  mins_per_hour = 60
+  hours, mins = time.delete(':').to_i.divmod(100)
+  
+  time == '00:00' || time == '24:00' ? 0 : mins_per_day - ((hours * mins_per_hour) + mins)
 end
 
-after_midnight('00:00') == 0
-before_midnight('00:00') == 0
-after_midnight('12:34') == 754
-before_midnight('12:34') == 686
-after_midnight('24:00') == 0
-before_midnight('24:00') == 0
-
-
+mins_before_midnight('00:00') == 0
+mins_before_midnight('12:34') == 686
+mins_before_midnight('24:00') == 0

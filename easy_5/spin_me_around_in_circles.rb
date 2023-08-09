@@ -2,13 +2,43 @@
 
 * P - [Understanding the] Problem
 
-Problem: You are given a method named spin_me that takes a string as an argument and returns a string that contains the same words, but with each word's characters reversed.
+Problem: You are given a method named `spin_me` that takes a string as an argument and returns a string that contains the same words, but with each word's characters reversed. Given the method's implementation, will the returned string be the same object as the one passed in as an argument or a different object?
 
-Given the method's implementation, will the returned string be the same object as the one passed in as an argument or a different object?
+input: string
+output: TBD
+rules:
+        - Explicit Requirements:
+          - Method takes a string as an argument and returns a string that contains the same words, but with each word's characters reversed.
+
+        - Implicit Requirements:
+          - Determine if the returned string will be the same object as the one passed in as an argument
+
+        - Clarifying Questions:
+          - N/A
+
+__________________________________________________
+
+* E - Examples / Test Cases
+
+spin_me("hello world") # "olleh dlrow"
+
+__________________________________________________
+
+* D - Data Structure
+
+N/A
+
+__________________________________________________
+
+* A - Algorithm
+
+Code is provided. See below for written response.
+
+__________________________________________________
 
 =end
 
-#__________________________________________
+#_________________________________________________
 
 #* C - Code
 
@@ -20,36 +50,12 @@ end
 
 spin_me("hello world") # "olleh dlrow"
 
-str = 'hello world'
-puts str.object_id                      # 60
-puts spin_me(str).object_id     # 80
-
 =begin
 
-* Solution:
+Written Response:
 
-The method will return a #* different object.
+The returned string will be a new string object. When `split` is called on `str` it creates a new array where each word from the string is a separate object in that array.
 
-`split` returns an array (new object) and mutating methods, i.e., reverse! only affect the substrings within the array - not the original string object passed in as an argument.
-
-We have mutated the array that we got by splitting the string, but when we join this array back into a string, a completely new string is returned.
-
-In this case, we can say Ruby acts like pass by value since the original object outside of the method was left unchanged.
+Even though `reverse!` is a mutating method, it's not mutating the original string, but rather the separate string objects in the array.
 
 =end
-
-#______________________________________
-
-#* Further Exploration:
-
-# However, if we rework this method to use an array argument instead of a string and we reversed each word in it by calling the same methods, then the array that was passed in as an argument and the array that was returned from the method would be the #* same object.
-
-def spin_me(arr)
-  arr.each do |word|
-    word.reverse!
-  end
-end
-
-arr = ['hello', 'world']
-puts arr.object_id                      # 100
-puts spin_me(arr).object_id     # 100

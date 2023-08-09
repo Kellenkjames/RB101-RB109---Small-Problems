@@ -1,5 +1,3 @@
-# How old is Teddy?
-
 =begin
 
 * P - [Understanding the] Problem
@@ -10,10 +8,14 @@ input: n/a
 output: string
 rules:
         - Explicit Requirements:
-          - Generate a random number between 20 and 200
+          - Randomly generate and print Teddy's age.
+          - Random number must be between 20 and 200.
 
         - Implicit Requirements:
-          - Method doesn't need to return a value (only needs to print)
+          - N/A
+
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
@@ -25,17 +27,16 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called age and assign to rand(20..200)
-- puts "Teddy is #{age} years old!"
+- Initialize a local variable called age and assign to a random number between 20 and 200
+- Output a new string using interpolation to inject `age` into a complete sentence
 
 __________________________________________________
-
 
 =end
 
@@ -44,9 +45,10 @@ __________________________________________________
 #* C - Code
 
 age = rand(20..200)
+puts "Teddy is #{age} old!"
+
+# Further Exploration - Modify this program to ask for a name, and then print the age for that person. For an extra challenge, use "Teddy" as the name if no name is entered.
+
 puts 'What is your name?'
 name = gets.chomp
-
-name.empty? ? name = 'Teddy' : name
-puts "#{name} is #{age} years old!"
-
+puts name.empty? ? "Teddy is #{age} old!" : "#{name} is #{age} old!"

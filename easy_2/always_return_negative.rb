@@ -1,24 +1,22 @@
-# Always Return Negative
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes a number as an argument. If the argument is a positive number, return the negative of that number. If the number is 0 or negative, return the original number.
+Problem: Given a method that takes a number as an argument, return the negative of that number if the argument is positive. If the number is 0 or negative, return the original number.
 
 input: integer
 output: integer
 rules:
         - Explicit Requirements:
-          - Method takes a number as an argument
+          - Method will take a single argument (number)
           - If the argument is a positive number, return the negative of that number
           - If the number is 0 or negative, return the original number
 
         - Implicit Requirements:
-          - No floating point numbers
+          - Argument must be a valid integer
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -32,17 +30,19 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- If number is greater than 0
-  - return negative version of that number
+Define a single method parameter: number
+
+- If `number` is greater than `0`
+  - return negative version of `number`
 - Else
-  - return the orginal number
--end
+  - return `number`
+end
 
 __________________________________________________
 
@@ -58,4 +58,4 @@ end
 
 negative(5) == -5
 negative(-3) == -3
-negative(0) == 0      # There's no such thing as -0 in ruby
+negative(0) == 0

@@ -1,24 +1,26 @@
-# Get Middle Character
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes a non-empty string argument, and returns the middle character or characters of the argument. If the argument has an odd length, you should return exactly one character. If the argument has an even length, you should return exactly two characters.
+Problem: Given a method that takes a non-empty string argument, return the middle character or middle characters of the argument.
+
+If the argument has an odd length, you should return exactly one character. If the argument has an even length, you should return exactly two characters.
 
 input: string
-output: string
+output: new string
 rules:
         - Explicit Requirements:
-          - Method takes a non-empty string argument
-          - Returns the middle characters of the argument
-          - If the argument has an odd length
-            - Return exactly one character
-          - Otherwise, argument has an even length
-            - Return exactly two characters
+          - Return the middle or middle characters of the argument
+          - If the argument has an odd length:
+            - return exactly one character
+          - Else
+            - return exactly two characters
 
         - Implicit Requirements:
-            - Argument must be a non-empty string
+          - New string object will be returned
+
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
@@ -34,19 +36,25 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize variable named middle_char_index_one and assign to string.length / 2 
-- Initialize variable named middle_char_index_two and assign to (string.length / 2) - 1
-- If string has an odd length:
-  - string[middle_char_index_one]
+Define a single method parameter: string
+
+In Ruby, using / for division with two integers performs floor division therefore, for an odd-length string, middle_index will point to the middle character (since indices are 0-based) and for an even-length string, middle_index will point to the second character of the middle pair
+
+Initialize a local variable named `middle_index` to `string` length divided by `2`
+
+- If `string` length is odd:
+  - return substring of `string` using `middle_index` as an argument passed to the method
 - Else
-  - string[middle_char_index_two] + string[middle_char_index one]
-  end
+  - return 2 characters from `middle_index` minus 1
+end
+
+
 
 __________________________________________________
 
@@ -57,15 +65,8 @@ __________________________________________________
 #* C - Code
 
 def center_of(string)
-  middle_char_index_one = string.length / 2
-  middle_char_index_two = (string.length / 2) - 1
-  
-  if string.length.odd?
-    string[middle_char_index_one]
-  else
-    string[middle_char_index_two] + string[middle_char_index_one]
-  end
-
+  middle_index = string.length / 2
+  string.length.odd? ? string[middle_index] : string[(middle_index - 1), 2]
 end
 
 center_of('I love ruby') == 'e'

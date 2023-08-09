@@ -1,27 +1,27 @@
-# Arithmetic Integer
-
 =begin
 
 * P - [Understanding the] Problem
 
 Problem: Write a program that prompts the user for two positive integers, and then prints the results of the following operations on those two numbers: addition, subtraction, product, quotient, remainder, and power. Do not worry about validating the input.
 
-input(s): two positive integers
-output: integer
+input: two positive integers
+output: string
 rules:
         - Explicit Requirements:
-          - Prompt the user for two positive integers
+          - Ask the user for two positive integers
           - Print the results of the following operations on those two numbers:
-            - addition
-            - subtraction
-            - product
-            - quotient
+            - Addition
+            - Subtraction
+            - Product
+            - Quotient
+            - Remainder
+            - Power
 
         - Implicit Requirements:
-          - Do not worry about validating the input
+          - Input (string) needs to be converted to an integer
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -42,28 +42,28 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Create a helper method to handle the prompt message:
-  - Method will accept one argument (msg)
-  - puts "==> #{msg}"
-- end
+- Build a simple helper method that accepts a single argument (to handle prompt messages):
 
-- Prompt the user to enter the first number:
-  - first_number = gets.chomp.to_i
-- Prompt the user to enter the second number:
-  - second_number = gets.chomp.to_i
+- Ask the user to enter the first number:
+  - initialize a local variable called first_num and assign to the user input
+  - convert `first_num` to integer
 
-prompt("#{first_number} + #{second_number} = #{first_number + second_number}")
-prompt("#{first_number} - #{second_number} = #{first_number - second_number}")
-prompt("#{first_number} * #{second_number} = #{first_number * second_number}")
-prompt("#{first_number} / #{second_number} = #{first_number / second_number}")
-prompt("#{first_number} % #{second_number} = #{first_number % second_number}")
-prompt("#{first_number} ** #{second_number} = #{first_number**second_number}")
+- Ask the user to enter the second number:
+  - initialize a local variable called second_num and assign to the user input
+  - convert `second_num` to integer
+
+- Addition: output a custom string that adds `first_num` and `second_num` and returns the sum
+- Subtraction: output a custom string that subtracts `first_num` and `second_num` and returns the difference
+- Product: output a custom string that multiplies both `first_num` and `second_num` and returns the product
+- Quotient: output a custom string that divides `first_num` by `second_num` and returns the quotient
+- Remainder: output a custom string that divides `first_num` by `second_num` and returns the remainder
+- Power: output a custom string that returns the power of `first_num` as the base and `second_num` as the exponent
 
 __________________________________________________
 
@@ -73,19 +73,19 @@ __________________________________________________
 
 #* C - Code
 
-def prompt(msg)
-  puts "==> #{msg}"
+def prompt(message)
+  puts "==> #{message}"
 end
 
-prompt("Enter the first number:")
-first_number = gets.chomp.to_i
+prompt('Enter the first number:')
+first_num = gets.chomp.to_i
 
-prompt("Enter the second number:")
-second_number = gets.chomp.to_i
+prompt('Enter the second number:')
+second_num = gets.chomp.to_i
 
-prompt("#{first_number} + #{second_number} = #{first_number + second_number}")
-prompt("#{first_number} - #{second_number} = #{first_number - second_number}")
-prompt("#{first_number} * #{second_number} = #{first_number * second_number}")
-prompt("#{first_number} / #{second_number} = #{first_number / second_number}")
-prompt("#{first_number} % #{second_number} = #{first_number % second_number}")
-prompt("#{first_number} ** #{second_number} = #{first_number**second_number}")
+prompt("#{first_num} + #{second_num} = #{first_num + second_num}")
+prompt("#{first_num} - #{second_num} = #{first_num - second_num}")
+prompt("#{first_num} * #{second_num} = #{first_num * second_num}")
+prompt("#{first_num} / #{second_num} = #{first_num / second_num}")
+prompt("#{first_num} % #{second_num} = #{first_num % second_num}")
+prompt("#{first_num} ** #{second_num} = #{first_num ** second_num}")

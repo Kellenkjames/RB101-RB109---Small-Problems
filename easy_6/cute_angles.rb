@@ -2,23 +2,23 @@
 
 * P - [Understanding the] Problem
 
-Problem: Given a method that takes a floating point number_str as an argument. The floating point number_str will represent an angle between 0 and 360 degrees. Return a String that represents that angle in degrees, minutes and seconds.
+Problem: Given a method that takes a floating point number_angle which represents an angle between 0 and 360 degrees, return a String that represents that angle in degrees, minutes, and seconds.
 
-You should use a degree symbol (°) to represent degrees, a single quote (') to represent minutes, and a double quote (") to represent seconds. A degree has 60 minutes, while a minute has 60 seconds.
+- Use a degree symbol `(°)` to represent degrees
+- Use a single quote `(')` to represent minutes
+- Use a double quote `("")` to represent seconds
 
-input: Float (number_str that contains a decimal)
-output: String
+input: integer (float)
+output: string
 rules:
         - Explicit Requirements:
-          - Input will be a floating point number_str
-          - Floating point number_str will represent an angle between 0 and 360 degrees
-          - Return a String that represents the angle in degrees, minutes, and seconds
+          - Method takes a floating point number_angle and returns a String that represents an angle between 0 and 360 degrees
 
         - Implicit Requirements:
-          - If the input is a whole number_str, minutes and seconds will be represented by 00
+          - A degree has 60 minutes, while a minute has 60 seconds
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -35,22 +35,25 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a constant called DEGREE and assign to the String literal `"\xC2\xB0"`
+Define a single method parameter: number_angle
 
-* Convert from decimal degrees to degrees, minutes, and seconds:
+Initialize a local variable called degree and assign to `number_angle` rounded down to the nearest integer.
 
-- Start with the whole units of degrees, i.e., if the input is 76.73, start with 76
-- Multiply the decimal portion of the figure by 60 (i.e., 73 * 60)
-  - The whole number_str becomes the minutes, i.e., 4380
-- Take the remaining decimal and multiply it by 60
-  - The resulting number_str becomes seconds (can remain as a decimal if needed)
-- Take the three sets of number_strs and put them together, (i.e., 76°43'48")
+Initialize a local variable called minutes and assign to decimal portion of `number_angle` times `60` rounded down to the nearest integer.
+
+Initialize a local variable called minutes_remainder and assign to the remainder of the decimal portion of `minutes`.
+
+Initialize a local variable seconds and assign to `minutes_remainder` times `60` rounded down to the nearest integer.
+
+* Use two digit numbers with leading zeros when formatting the minutes and seconds, e.g., 321°03'07"
+
+- format the final string output
 
 __________________________________________________
 
@@ -60,36 +63,12 @@ __________________________________________________
 
 #* C - Code
 
-DEGREE = "\xC2\xB0"
-
-def calc_mins(decimal_units)
-  minutes = (decimal_units * 60).floor
-end
-
-def calc_seconds(decimal_units)
-  seconds = (decimal_units * 60).to_s
-  seconds = seconds.slice(seconds.index('.')..seconds.index(seconds[-1])).to_f
-  seconds = (seconds * 60).round
-end
-
-def dms(number)
-  number_str = number.to_s
-  result = ''
-
-  return %(#{number_str + DEGREE}00\'00\") if !number_str.include?('.')
-
-  degrees = number_str.slice(0..(number_str.index('.') - 1)).to_i
-  number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-1]))).to_f
-
-  if number_str.index('.') + 1 == number_str.index('0')
-    number = number_str.slice(number_str.index(".")..(number_str.index(number_str[-2]))).to_f
-    result += %(#{degrees.to_s}#{DEGREE}0#{calc_mins(number)}\'0#{calc_seconds(number)}\")
-  elsif number_str.include?('.') && calc_seconds(number) == 0
-    result += %(#{degrees.to_s}#{DEGREE}#{calc_mins(number)}\'0#{calc_seconds(number)}\")
-  elsif number_str.include?('.') && calc_seconds(number) != 0
-    result += %(#{degrees.to_s}#{DEGREE}#{calc_mins(number)}\'#{calc_seconds(number)}\")
-  end
-
+def dms(number_angle)
+  degree = number_angle.floor
+  minutes = ((number_angle % 1) * 60).floor
+  minutes_remainder = ((number_angle % 1) * 60) % 1
+  seconds = (minutes_remainder * 60).floor
+  format(%(%d°%02d'%02d"), degree, minutes, seconds)
 end
 
 dms(30) == %(30°00'00")
@@ -98,3 +77,18 @@ dms(254.6) == %(254°36'00")
 dms(93.034773) == %(93°02'05")
 dms(0) == %(0°00'00")
 dms(360) == %(360°00'00") || dms(360) == %(0°00'00")
+
+# Further Exploration: Since degrees are normally restricted to the range 0-360, can you modify the code so it returns a value in the appropriate range when the input is less than 0 or greater than 360?
+
+def dms_v2(number_angle)
+  number_angle %= 360
+  degree = number_angle.floor
+  minutes = ((number_angle % 1) * 60).floor
+  minutes_remainder = ((number_angle % 1) * 60) % 1
+  seconds = (minutes_remainder * 60).floor
+  format(%(%d°%02d'%02d"), degree, minutes, seconds)
+end
+
+dms_v2(400) == %(40°00'00")
+dms_v2(-40) == %(320°00'00")
+dms_v2(-420) == %(300°00'00")

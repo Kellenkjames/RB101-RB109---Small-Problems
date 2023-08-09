@@ -2,22 +2,21 @@
 
 * P - [Understanding the] Problem
 
-Problem: Given a method that takes a string (with one or more space separated words) - return a hash that shows the word size as the Key and the number of occurences as the Value. 
+Problem: Given a method that takes a string with one or more space separated words, return a hash that shows the number of words of different sizes. 
 
-input: String
-output: Hash
+Words consist of any string of characters that do not include a space.
+
+input: string
+output: hash
 rules:
         - Explicit Requirements:
           - Return a hash that shows the number of words of different sizes
 
         - Implicit Requirements:
-          - Key represents number of words
-          - Value represents the number of times the word appears in the String
           - Words consist of any string of characters that do not include a space
-          - Empty String will return an empty Hash
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -38,19 +37,22 @@ __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called words_hsh and assign to an empty Hash literal `{}`
-Initialize a local variable called words_arr and assign to the return value of splitting String into an array of substrings
+The hash will contain all unique word sizes as keys, with their counts as the corresponding values
 
-- Iterate over each substring in Array:
-  - For each iteration:
-    - Reassign the local variable`key` to the size of each substring
-    - Reassign the local variable `value` to the count of each substring:
-      - Call the block for each element and return a truthy value if element size is equal to `key`
-    - Set `key` as the index of `words_hsh` and assign to `value`
-  - Repeat this step until the Hash has the size of the word as the key and the count as the value for each substring
+Define a single method parameter called string_of_words:
 
-  - Sort hash --> returns a nested Array
-  - Return the sorted Hash in hash format
+Initialize a local variable called word_counts and assign to a new Hash with a default value of `0`
+
+- Split `string_of_words` to an array of substrings and iterate over each word:
+  - Inside the block:
+    - access the current element in `words_counts` by size if it exists or create a new key-value pair if it doesn't
+    - if the current element doesn't exist, increase the value associated with the `word_size` key in `word_counts` by `1`
+  end
+end
+
+return word_counts
+
+* Incrementing the count each time a word of that size is encountered
 
 __________________________________________________
 
@@ -60,17 +62,12 @@ __________________________________________________
 
 #* C - Code
 
-def word_sizes(string)
-  words_hsh = {}
-  words_arr = string.split(' ')
-  
-  words_arr.each do |substring|
-    key = substring.size
-    value = words_arr.count { |element| element.size == key }
-    words_hsh[key] = value
+def word_sizes(string_of_words)
+  word_counts = Hash.new(0)
+  string_of_words.split.each do |word|
+    word_counts[word.size] += 1
   end
-
-  words_hsh.sort.to_h
+  word_counts
 end
 
 word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }

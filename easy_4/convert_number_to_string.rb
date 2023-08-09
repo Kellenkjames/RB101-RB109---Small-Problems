@@ -2,18 +2,18 @@
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes a positive integer or zero, and converts it to a string representation.
+Problem: Given a method that takes a positive integer or zero, convert it to a string representation.
 
-input: Integer
-output: String
-rules =>
+input: integer
+output: string
+rules:
         - Explicit Requirements:
-          - Do not use any of the standard conversion methods available in Ruby, i.e., `Integer#to_s`, `String#()`, `Kernel#format`, etc. 
-
+          - Method takes a positive integer or zero and converts it to a string representation
+          
         - Implicit Requirements:
-          - No leading characters, i.e., `+`, or `-`
+          - You cannot use any of the standard conversion methods available in Ruby, such as `Integer#to_s`, `String()`, `Kerneal#format`, etc.
 
-        - Clarifying Questions =>
+        - Clarifying Questions:
           - N/A
 
 __________________________________________________
@@ -28,34 +28,24 @@ __________________________________________________
 
 * D - Data Structure
 
-STRINGS = { 
-  0 => '0', 
-  1 => '1', 
-  2 => '2', 
-  3 => '3', 
-  4 => '4', 
-  5 => '5', 
-  6 => '6', 
-  7 => '7', 
-  8 => '8',
-  9 => '9'
-}
+DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called string and assign to empty String literal ' '
-Initialize a local variable called arr and assign to the return value of digits reversed invoked on `number`
+Define a single method parameter: number
 
-Iterate over the length of `arr` and define`digit` as a block parameter
-  Iterate over the length of `STRINGS` and define key and value as block parameters:
-    - If `digit` is equal to`key`
-      - Reassign `string` to the return value of `string` + `value`
-    - Repeat until outer loop is finished looping over elements
-end
+- Initialize a local variable called result and assign to an empty string literal ''
 
-return string
+- Initialize a loop method and for each iteration:
+  - Use parallel assignment to initialize the local variables number and remainder to the following:
+    - `number` is assigned to the `number` / 10
+    - `remainder` is assigned the remainder of the division operation
+    -  prepend the `remainder` to `result`
+  - repeat these steps until `number` is equal to `0`
+
+  return `result`
 
 __________________________________________________
 
@@ -65,32 +55,16 @@ __________________________________________________
 
 #* C - Code
 
-STRINGS = {
-  0 => '0',
-  1 => '1', 
-  2 => '2', 
-  3 => '3', 
-  4 => '4', 
-  5 => '5', 
-  6 => '6', 
-  7 => '7', 
-  8 => '8', 
-  9 => '9'
-}
+DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 def integer_to_string(number)
-  string = ''
-  arr = number.digits.reverse # [4, 3, 2, 1]
-  
-  arr.each do |digit|
-    STRINGS.each do |key, value|
-      if digit == key
-        string += value
-      end
-    end
+  result = ''
+  loop do
+    number, remainder = number.divmod(10) # => [432, 1]
+    result.prepend(DIGITS[remainder])
+    break if number == 0
   end
-
-  string
+  result
 end
 
 integer_to_string(4321) == '4321'

@@ -1,5 +1,3 @@
-# Searching 101
-
 =begin
 
 * P - [Understanding the] Problem
@@ -10,14 +8,14 @@ input: integers (6)
 output: string
 rules:
         - Explicit Requirements:
-          - Ask the user to enter 6 numbers
+          - Prompt the user to input 6 numbers
           - Print a message that describes whether or not the 6th number appears amongst the first 5 numbers
 
         - Implicit Requirements:
-          - User input (string) needs to be converted to integer object
+          - Input (string) must be converted to integer
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -37,6 +35,22 @@ __________________________________________________
 17
 The number 17 appears in [25, 15, 20, 17, 23].
 
+
+==> Enter the 1st number:
+25
+==> Enter the 2nd number:
+15
+==> Enter the 3rd number:
+20
+==> Enter the 4th number:
+17
+==> Enter the 5th number:
+23
+==> Enter the last number:
+18
+The number 18 does not appear in [25, 15, 20, 17, 23].
+
+
 __________________________________________________
 
 * D - Data Structure
@@ -47,26 +61,26 @@ __________________________________________________
 
 * A - Algorithm
 
-- Initialize a variable called `numbers` and assign to an empty numbersay []
+- Initialize a local variable called numbers_arr and assign to an empty Array literal
 
 - Ask the user to enter the 1st number:
-  - numbers << gets.chomp.to_i
-- Ask the user to enter the 2nd number:
-  - numbers << gets.chomp.to_i
-- Ask the user to enter the 3rd number:
-  - numbers << gets.chomp.to_i
-- Ask the user to enter the 4th number:
-  - numbers << gets.chomp.to_i
-- Ask the user to enter the 5th number:
-  - numbers << gets.chomp.to_i
-- Ask the user to enter the last number:
-  - last_number = gets.chomp.to_i
+  - Initialize a local variable called first_num
+  - convert `first_num` to an integer
 
-- If `numbers` includes `last_number`
-  print The number `last_number` appears in `numbers`
-- Else
-  print The number `last_number` does not appear in `numbers`
+- Repeat the above sub-process for the 2nd, 3rd, 4th, and 5th number...
+
+- Push `first_num`, `second_num`, `third_num`, `fourth_num`, and `fifth_num` to `numbers_arr`
+
+- Ask the user to enter the last number:
+  - Initialize a local variable called last_num
+  - convert `last_num` to an integer
+  
+If `numbers_arr` includes `last_num`
+  - Output custom message
+Else
+  - Output custom message
 end
+
 __________________________________________________
 
 =end
@@ -75,28 +89,30 @@ __________________________________________________
 
 #* C - Code
 
-numbers = []
+numbers_arr = []
 
-puts "==> Enter the 1st number:"
-numbers << gets.chomp.to_i
+puts '==> Enter the 1st number:'
+first_num = gets.chomp.to_i
 
-puts "==> Enter the 2nd number:"
-numbers << gets.chomp.to_i
+puts '==> Enter the 2nd number:'
+second_num = gets.chomp.to_i
 
-puts "==> Enter the 3rd number:"
-numbers << gets.chomp.to_i
+puts '==> Enter the 3rd number:'
+third_num = gets.chomp.to_i
 
-puts "==> Enter the 4th number:"
-numbers << gets.chomp.to_i
+puts '==> Enter the 4th number:'
+fourth_num = gets.chomp.to_i
 
-puts "==> Enter the 5th number:"
-numbers << gets.chomp.to_i
+puts '==> Enter the 5th number:'
+fifth_num = gets.chomp.to_i
 
-puts "==> Enter the last number:"
-last_number = gets.chomp.to_i
+numbers_arr.push(first_num, second_num, third_num, fourth_num, fifth_num)
 
-if numbers.include?(last_number)
-  puts "The number #{last_number} appears in #{numbers}."
+puts '==> Enter the last number:'
+last_num = gets.chomp.to_i
+
+if numbers_arr.include?(last_num)
+  puts "The number #{last_num} appears in #{numbers_arr}."
 else
-  puts "The number #{last_number} does not appear in #{numbers}."
+  puts "The number #{last_num} does not appear in #{numbers_arr}."
 end

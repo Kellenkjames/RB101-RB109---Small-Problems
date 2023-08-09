@@ -1,24 +1,20 @@
-# Multiplying Two Numbers
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Create a method that takes two arguments, multiplies them together, and returns the result.
+Problem: Given a method that takes two arguments, multiply them together, and return the result.
 
 input: two integers
-output: integer
+output: one integer
 rules:
         - Explicit Requirements:
-          - Method will take two arguments
-            -  Multiplies them together
-              - Returns the result
+          - Method will take two arguments, multiply them together, and return the result
 
         - Implicit Requirements:
-          - Both arguments must be valid integers
+          - N/A
 
         - Clarifying Questions:
-          - N / A 
+          - N/A
 
 __________________________________________________
 
@@ -30,15 +26,15 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Define a method that accepts input for two arguments:
-  - num_one * num_two
-end
+Define two method parameters: n1, n2
+
+- Multiply n1 * n2
 
 __________________________________________________
 
@@ -48,8 +44,11 @@ __________________________________________________
 
 #* C - Code
 
-def multiply(num_one, num_two)
-  num_one * num_two
+def multiply(n1, n2)
+  n1 * n2
 end
 
 multiply(5, 3) == 15
+multiply(8, 5) == 40
+multiply(6, 3) == 18
+multiply(12, 4) == 48

@@ -2,87 +2,60 @@
 
 * P - [Understanding the] Problem
 
-Problem: The time of day can be represented as the number of minutes before or after midnight. If the number of minutes is positive, the time is after midnight. If the number of minutes is negative, the time is before midnight.
+Problem: Given a method that takes a mins using the minute-based format, return the mins of day in 24 hour format (hh::mm). The method should work with any integer input.
 
-Write a method that takes a time using this minute-based format and returns the time of day in 24 hour format (hh:mm). Your method should work with any integer input.
+You may not use Ruby's Date and mins classes.
 
-You may not use ruby's Date and Time classes.
-
-input: Integer
-output: String
+input: integer
+output: string
 rules:
         - Explicit Requirements:
-          - Method will take a time as input and return the time of day in 24 hour format (hh::mm)
+          - Method will take a mins using the minute-based format:
+            - If the number of minutes is positive, the mins is after midnight
+            - If the number of minutes is negative, the mins is before midnight
           - Method should work with any integer input
 
         - Implicit Requirements:
-          - 0 as input is equal to midnight
-          - Disregard Daylight Savings and Standard Time and other complications
-
+          - You may not use Ruby's Date and mins classes
+          - Disregard Daylight Savings and Standard mins and other complications
+        
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
 * E - Examples / Test Cases
 
-time_of_day(0) == "00:00"
-time_of_day(-3) == "23:57"
-time_of_day(35) == "00:35"
-time_of_day(-1437) == "00:03"
-time_of_day(3000) == "02:00"
-time_of_day(800) == "13:20"
-time_of_day(-4231) == "01:29"
+mins_of_day(0) == "00:00"
+mins_of_day(-3) == "23:57"
+mins_of_day(35) == "00:35"
+mins_of_day(-1437) == "00:03"
+mins_of_day(3000) == "02:00"
+mins_of_day(800) == "13:20"
+mins_of_day(-4231) == "01:29"
 
 __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-HOURS_PER_DAY = 24
-MINUTES_PER_HOUR = 60
+Define a single method parameter: time
 
-Initialize a constant variable called HOURS_PER_DAY and assign to the Integer 24
-Initialize a constant variable called MINUTES_PER_HOUR and assign to the Integer 60
+1. Start with the number of minutes (time) as input.
 
-Initialize a local variable called hours and assign to nil
-Initialize a local variable called mins and assign to nil
-Initialize a local variable called result and assign to empty result " "
+2. Calculate the total number of minutes within one day (`one_day_in_mins`) which equals to 1440 (60 minutes/hour * 24 hours).
 
-Divide the input (minutes) by `60` and return 2 elements (quotient, remainder):
-  - Reassign `hours` to first index of the returned Array
-  - Reassign `mins` to the second index of the returned Array
+3. Use the modulo operation (`%`) to convert the input time to an equivalent time within a single day (from 0 to 1439 minutes). Assign the result back to `time`.
 
-#* Minutes before midnight
-  if hours.abs == 1 && mins > 0
-    hours += HOURS_PER_DAY
-    result += "#{hours}:#{mins}"
-  elsif hours.abs == HOURS_PER_DAY && mins > 0
-    result += "00:0#{mins}"
-  elsif hours < 0 && mins > 0
-    hours = hours.abs / MINUTES_PER_HOUR
-    result +="0#{hours}:#{mins}"
-  
-  #* Minutes after midnight
-  elsif hours == 0 && mins > 0
-    result += "00:#{mins}"
-  elsif hours > 0 && mins == 0
-    hours /= HOURS_PER_DAY
-    result += "0#{hours}:00"
-  elsif hours > 0 && mins > 0
-    result += "#{hours}:#{mins}"
-  
-  else
-    result += "00:00"
-  end
+4. Divide `time` by 60 to get the number of hours and the remaining minutes. Use the `divmod` method which returns the quotient and the remainder as a two-item array. Assign the results to `hours` and `mins` respectively.
 
+5. Use `format` to convert `hours` and `mins` into a string, ensuring they're each two digits long (e.g., "05:03" instead of "5:3").
 
-return result
 __________________________________________________
 
 =end
@@ -91,40 +64,12 @@ __________________________________________________
 
 #* C - Code
 
-HOURS_PER_DAY = 24
-MINUTES_PER_HOUR = 60
+def time_of_day(time)
+  one_day_in_mins = 1440
+  time = time % one_day_in_mins
+  hours, mins = time.divmod(60)
 
-def time_of_day(number)
-  hours = nil
-  mins = nil
-  result = ""
-
-  numbers_arr = number.divmod(MINUTES_PER_HOUR)
-  hours = numbers_arr[0]
-  mins = numbers_arr[1]
-
-  #* Minutes before midnight
-  if hours.abs == 1 && mins > 0
-    hours += HOURS_PER_DAY
-    result += "#{hours}:#{mins}"
-  elsif hours.abs == HOURS_PER_DAY && mins > 0
-    result += "00:0#{mins}"
-  elsif hours < 0 && mins > 0
-    hours = hours.abs / MINUTES_PER_HOUR
-    result +="0#{hours}:#{mins}"
-  
-  #* Minutes after midnight
-  elsif hours == 0 && mins > 0
-    result += "00:#{mins}"
-  elsif hours > 0 && mins == 0
-    hours /= HOURS_PER_DAY
-    result += "0#{hours}:00"
-  elsif hours > 0 && mins > 0
-    result += "#{hours}:#{mins}"
-  
-  else
-    result += "00:00"
-  end
+  format("%02d:%02d", hours, mins)
 end
 
 time_of_day(0) == "00:00"

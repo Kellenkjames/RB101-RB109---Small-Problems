@@ -4,17 +4,17 @@
 
 Problem: Given a method that takes an array of strings, return an array of the same string values, except with the vowels (a, e, i, o, u) removed.
 
-input: Array of Strings
-output: Array of Strings (original object)
+input: array of strings
+output: new array of strings
 rules:
         - Explicit Requirements:
-          - Return an array of strings of the same string values (except with vowels removed)
+          - Return an array of the same string values, except with the (a, e, i, o, u) removed
 
         - Implicit Requirements:
-          - Strings with vowels should preserve case sensitivity
+          - Vowels should include uppercase and lowercase versions
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -28,30 +28,21 @@ __________________________________________________
 
 * D - Data Structure
 
-# Array []
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a constant variable called VOWELS and assign to an array of vowels %w(a e i o u A E I O U)
+Define a constant variable called VOWELS and assign to the vowels in the alphabet (upper and lowecase)
 
-If arr size is equal to 1:
-- Join the arr elements and convert to String
-- Split the arr to an array of substrings
-- Iterate over the array of substrings
-  - For each iteration:
-    - Select and return elements that are not included in `VOWELS`
-  - Repeat this step until all elements are returned that are not included in `VOWELS`
-- Join arr of substrings to a new string
-- Split new string to an array
-Else
-- Iterate over the subarrays in arr
-  - For each iteration:
-    - Return chars of each subarray
-      - Select and returns elements that are not included in `VOWELS`
-      - Join each subarray to String
-    - Repeat this step until all elements are returned that are not included in `VOWELS`
+Define a single method parameter: strings
+
+Iterate over each string in `strings` and for each iteration:
+  - delete vowels from the current string
+end
+
+- return new array of strings (with vowels removed)
 
 __________________________________________________
 
@@ -61,21 +52,12 @@ __________________________________________________
 
 #* C - Code
 
-VOWELS = %w(a e i o u A E I O U)
+VOWELS = "aeiouAEIOU"
 
-def remove_vowels(arr)
-  if arr.size == 1
-    arr.join.split('').select { |string| string if !VOWELS.include?(string) }.join.split
-  else
-    arr.map do |subarray|
-      subarray.chars.select { |string| string if !VOWELS.include?(string) }.join
-    end
-  end
+def remove_vowels(strings)
+  strings.map { |string| string.delete VOWELS }
 end
 
 remove_vowels(%w(abcdefghijklmnopqrstuvwxyz)) == %w(bcdfghjklmnpqrstvwxyz)
 remove_vowels(%w(green YELLOW black white)) == %w(grn YLLW blck wht)
 remove_vowels(%w(ABC AEIOU XYZ)) == ['BC', '', 'XYZ']
-
-
-

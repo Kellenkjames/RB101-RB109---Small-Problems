@@ -1,21 +1,21 @@
-# Tip calculator
-
 =begin
 
 * P - [Understanding the] Problem
 
 Problem: Create a simple tip calculator. The program should prompt for a bill amount and a tip rate. The program must compute the tip and then display both the tip and the total amount of the bill.
 
-input: string, string
-output: string, string
+input: string
+output: string
 rules:
         - Explicit Requirements:
-          - Prompt for a bill amount and a tip rate
-          - Must compute the tip
-          - Must display both the tip and the total amount of the bill
+          - Prompt user for a bill amount and a tip rate
+          - The program must compute the tip and then display both the tip and the toral amount of the bill.
 
         - Implicit Requirements:
-          - User input (strings) need to be converted to integers
+          - User input needs to be converted to an integer
+
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
@@ -31,41 +31,39 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Prompt user for the bill amount
-- bill = gets.chomp.to_f
+- Ask the user what is the bill amount:
+  - initialize a local variable called bill and assign to the user input (converted to float)
+- Ask the user what is the tip percentage:
+  - initialize a local variable called tip_percentage and assign to the user input (converted to float)
 
-- Prompt user for the tip percentage
-- percentage = gets.chomp.to_f
+- Initialize a local variable called tip_amount and assign to the calculated value tip percentage
+- Initialize a local variable called total and assign to the value of `bill` + `tip_amount`
 
-- tip = ((bill * percentage) / 100).round(2)
-- total = (bill + tip).round(2)
-
-puts "The tip is $#{tip}"
-puts "The total is $#{total}"
+- Output the tip amount
+- Output the total amount
 
 __________________________________________________
-
 
 =end
 
 #_________________________________________________
 
-#* - Code 
+#* C - Code
 
-puts 'What is the bill?'
+print '==> What is the bill? '
 bill = gets.chomp.to_f
 
-puts 'What is the tip percentage?'
-percentage = gets.chomp.to_f
+print '==> What is the tip percentage? '
+tip_percentage = gets.chomp.to_f
 
-tip = ((bill * percentage) / 100).round(2)
-total = (bill + tip).round(2)
+tip_amount = (bill * (tip_percentage / 100)).round(2)
+total = (bill + tip_amount).round(2)
 
-puts "==> The tip is $#{tip}"
-puts "==> The total is $#{total}"
+puts "The tip is $#{format("%.2f", tip_amount)}"
+puts "The total is $#{format("%.2f", total)}"

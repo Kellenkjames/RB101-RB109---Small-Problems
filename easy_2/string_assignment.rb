@@ -1,4 +1,52 @@
-# String Assignment
+=begin
+
+* P - [Understanding the] Problem
+
+Problem: Determine what the following code outputs:
+
+input: N/A
+output: N/A
+rules:
+        - Explicit Requirements:
+          - N/A
+
+        - Implicit Requirements:
+          - N/A
+
+        - Clarifying Questions:
+          - N/A
+
+__________________________________________________
+
+* E - Examples / Test Cases
+
+name = 'Bob'
+save_name = name
+name = 'Alice'
+puts name, save_name
+
+Alice
+Bob
+
+__________________________________________________
+
+* D - Data Structure
+
+N/A
+
+__________________________________________________
+
+* A - Algorithm
+
+N/A
+
+__________________________________________________
+
+=end
+
+#_________________________________________________
+
+#* C - Code
 
 name = 'Bob'
 save_name = name
@@ -7,10 +55,7 @@ puts name, save_name
 
 # What does this print out? Can you explain these results?
 
-# BOB
-# BOB
+name             # 'BOB'
+save_name   # 'BOB'
 
-# Answer: The upcase! method mutates the calling object as well as any reference to the calling object. In this case, the variable save_name is binded to the object 'Bob'; therefore, the value is mutated the same way as the calling object.
-
-
-#* Takeaway: Assignment in Ruby assigns a reference to a variable, both name and save_name refer to the same string, Bob. 
+# String#upcase! is a mutating method. Since both variables`name` and `save_name` both reference the the same object, the string `'Bob'`, using either varaible to mutate the object is reflected in the other variable.

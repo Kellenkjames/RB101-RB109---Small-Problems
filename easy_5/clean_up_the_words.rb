@@ -2,24 +2,22 @@
 
 * P - [Understanding the] Problem
 
-Given a string that consists of some words (all lowercased) and an assortment of non-alphabetical characters, write a method that returns that string with all of the non-alphabetic characters replaced by spaces.
+Problem: Given a string that consists of some words (all lowercased) and an assortment of non-alphabetic characters, write a method that returns that string with all of the non-alphabetic characters replaced by spaces.
 
-If one or more non-alphabetic characters occurs in a row, you should only have one space in the result (the result should never have consecutive spaces).
+If one or more non-alphabetic characters occur in a row, you should only have one space in the result (the result should never have consecutive spaces).
 
-input: String
-output: New String object
+input: string
+output: string
 rules:
         - Explicit Requirements:
-          - Method will return a String with all of the non-alphabetic characters replaced by spaces
-          - If one or more non-alphabetic characters occur in a row - you should only have "one" space in the result
-          
+          - Return a new string with all of the non-alphabetic characters replaced by spaces
+          - If one or more non-alphabetic characters occur in a row, you should only have one space in the result
+
         - Implicit Requirements:
           - The result should never have consecutive spaces
-          - String is case insensitive
-          - non-alphabetic characters are the other characters on your keyboard that aren't letters or numbers, e.g. commas, brackets, space, asterisk and so on
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -31,27 +29,27 @@ __________________________________________________
 
 * D - Data Structure
 
-# => Array []
+Array []
 
 __________________________________________________
 
 * A - Algorithm
 
-Initialize a local variable called `arr` and assign to an empty Array literal []
+Initialize a constant variable called ALPHABET and assign to an array of alphabetical letters (lowercased)
 
-- Iterate over each char in String:
-  - For each iteration:
-    - If `char` is a non-alphabetic character:
-      - Reassign `char` to an empty string and push to `arr`
-    - Else
-      - push `char` to `arr`
-    end
-  - Repeat this step until all non-alphabetic characters have been replaced with empty spaces and pushed to `arr`
+Define a single method parameter: words
 
-- Join the Array to a new String
-- Using String substitution - find all instances of one or more empty spaces and replace with a single empty space
+Initialize a local variable called cleaned_chars and assign to an empty array literal
 
-return new String
+- Convert `words` to an array of chars and iterate over each char:
+  - If ALPHABET includes the current `char`
+    - append `char` to `cleaned_chars`
+  - Else
+    - append empty space only if the last character added to `cleaned_chars` was not an empty space
+  end
+end
+
+join `cleaned_chars` to string
 
 __________________________________________________
 
@@ -61,20 +59,30 @@ __________________________________________________
 
 #* C - Code
 
-def cleanup(string)
-  arr = []
-  
-  string.each_char do |char|
-    if !char.match(/[[:alpha:]]/)
-      arr << char = ' '
+ALPHABET = ('a'..'z').to_a
+
+def cleanup(words)
+  cleaned_chars = []
+
+  words.chars.each do |char|
+    if ALPHABET.include?(char)
+      cleaned_chars << char
     else
-      arr << char
+      cleaned_chars << ' ' unless cleaned_chars.last == ' '
     end
   end
   
-  arr.join.gsub(/[[:space:]]{1,}/, ' ')
+  cleaned_chars.join
 end
 
 cleanup("---what's my +*& line?") == ' what s my line '
 
+#_________________________________________________
 
+# Version 2
+
+def cleanup_v2(words)
+  words.gsub(/[^a-z]/, ' ').squeeze(' ')
+end
+
+cleanup_v2("---what's my +*& line?") == ' what s my line '

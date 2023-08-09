@@ -1,56 +1,60 @@
-# Repeat Yourself
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes two arguments, a string and a positive integer, and prints the string as many times as the integer indicates.
+Problem: Given a method that takes two arguments, a string and a positive integer, output the string as many times as the integer indicates.
 
-- input(s): string, integer
-- output: string
-- rules:
-        Explicit Requirements:
-        - Integer must be positive
-        - String must be printed as many times as the integer indicates
+input: string, positive integer
+output: string
+rules:
+        - Explicit Requirements:
+          - One argument must be a string
+          - One argument must be a positive integer
 
-        Implicit Requirements:
-        - Integer cannot be negative or a floating point
-        - String will be printed (not returned)
+        - Implicit Requirements:
+          - Each output will be on it's own separate line
+        
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
 * E - Examples / Test Cases
 
 repeat('Hello', 3)
+
 Hello
 Hello
 Hello
-# => nil 
 
 __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Iterate over string as many times as the integer:
-  - for each iteration, print out the string
-end
+Define two method parameters: string, number
 
+- Call a method on `number` that repeats`number` times
+- Pass a block in as an argument to the above method:
+  - Inside the block, output `string` each time the block is called
+end
 __________________________________________________
 
 =end
 
-# _________________________________________________
+#_________________________________________________
 
 #* C - Code
 
 def repeat(string, number)
-  number.times { |n| puts "#{string}" }
+  number.times do
+    puts string
+  end
 end
 
 repeat('Hello', 3)

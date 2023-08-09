@@ -2,19 +2,16 @@
 
 * P - [Understanding the] Problem
 
-Problem: 
+Problem:
 
-input: 
-output: 
+input:
+output:
 rules:
         - Explicit Requirements:
-          -
 
         - Implicit Requirements:
-          - 
 
         - Clarifying Questions:
-          -
 
 __________________________________________________
 
@@ -35,4 +32,3 @@ __________________________________________________
 #_________________________________________________
 
 #* C - Code
-

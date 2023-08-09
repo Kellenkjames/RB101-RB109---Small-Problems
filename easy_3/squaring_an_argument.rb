@@ -1,5 +1,3 @@
-# Squaring an Argument
-
 =begin
 
 * P - [Understanding the] Problem
@@ -10,13 +8,13 @@ input: integer
 output: integer
 rules:
         - Explicit Requirements:
-          - Compute the square of the argument using the multiply method
+          - Write a method that computes the square of its argument
 
         - Implicit Requirements:
-          - Must use the multiply method
+          - Use the multiply method from the "Multiplying Two Numbers" problem (previous)
 
         - Clarifying Questions:
-          - N / A 
+          - N/A
 
 __________________________________________________
 
@@ -29,15 +27,15 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Define a method that accepts input for one argument:
-  - multiply(number, number)
-end
+Define a single method parameter: number
+
+- Invoke `multiply` and pass in `number` as the first and second argument
 
 __________________________________________________
 
@@ -47,8 +45,8 @@ __________________________________________________
 
 #* C - Code
 
-def multiply(num_one, num_two)
-  num_one * num_two
+def multiply(n1, n2)
+  n1 * n2
 end
 
 def square(number)
@@ -57,3 +55,17 @@ end
 
 square(5) == 25
 square(-8) == 64
+
+# Further Exploration: What if we wanted to generalize this method to a "power to the n" type method: cubed, to the 4th power, to the 5th, etc. How would we go about doing so while still using the method?
+
+def multiply_v2(n1, n2)
+  n1 ** n2
+end
+
+def square_v2(number, power)
+  multiply_v2(number, power)
+end
+
+
+square_v2(5, 2) == 25
+square_v2(5, 3) == 125

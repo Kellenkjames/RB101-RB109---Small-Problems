@@ -1,24 +1,24 @@
-# Right Triangles
-
 =begin
 
-* P - [Understanding the Problem]
+* P - [Understanding the] Problem
 
-Problem: Write a method that takes a positive integer, n, as an argument, and displays a right triangle whose rows each have n stars. The hypotenuse of the triangle (the diagonal side in the images below)should have one end at the lower-left of the triangle, and the other end at the upper-right.
+Problem: Given a method, take a positive integer `n` as an argument, and display a right triangle whose sides each have `n` stars. 
 
-- input: integer
-- output: string
-- rules:
-        Explicit Requirements:
-        - Method takes a positive integer, n, as an argument
-        - Displays a right triangle whose "rows" each have "n" stars
-        - Hypotenuse of the triangle (diagonal side) should have:
-          - One end at the lower-left of the triangle
-          - Other end at the upper-right
+The hypotenuse of the triangle (the diagonal side) should have one end at the lower-left of the triangle, and the other end at the upper-right.
 
-        Implicit Requirements:
-        - Integer must be positive
-        - Integer represents total row count
+input: integer
+output: string
+rules:
+        - Explicit Requirements:
+          - Method takes a positive integer `n` as an argument, and displays a right triangle whose sides each have `n` stars.
+          - The hypotenuse of the triangle (the diagonal side) should have one end at the lower-left of the triangle, and the other at the upper-right.
+
+        - Implicit Requirements:
+          - Given input will always produce a right triangle
+          - Row number corresponds to `n` stars
+
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
@@ -44,47 +44,29 @@ triangle(9)
  ********
 *********
 
+
 __________________________________________________
 
 * D - Data Structure
 
-Array(5)
-
-["", "", "", "", *]          4 spaces,    1 star
-["", "", "", *, *]           3 spaces,    2 stars
-["", "", *, *, *]            2 spaces,    3 stars
-["", *, *, *, *]             1 space,     4 stars
-[*, *, *, *, *]              0 spaces,    5 stars
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Initially, we will generate the left-sided triangle (default) with the first loop and then convert it to a right-side triangle with the help of the second loop.  
+Define a single method parameter: size
 
-- Initialize empty array and assign to variable named arr
-- Initialize variable named counter_one and set equal to 0
-- Initialize a loop method:
-  - for each iteration:
-    - counter_one += 1
-    - sides = '*' * counter_one
-    - arr << sides
-    - break if counter_one == number
+- Initialize a loop:
+  - For each iteration:
+    - assign `spaces` to the return value of ' ' multiplied by the size of the input minus `iterator` minus `1`
+    - assign `stars` to the return value of `*` multiplied by the `iterator` added to `1`
+  - output `spaces` + `stars`
 end
 
-- Initialize variable named counter_two and set equal to 0
-- Initialize variable named empty_spaces and assign to the number (input)
-- Initialize a loop method:
-  - for each iteration:
-    - empty_spaces -= 1
-    - diagonals = ' ' * empty_spaces
-    - arr[counter_two].prepend(diagonals)
-    - counter_two += 1
-    - break if counter_two == number
-end 
-
-return arr
-end 
+Pattern: On each iteration; 
+  `spaces` reduces by `1`
+  `stars` increases by `1`
 
 __________________________________________________
 
@@ -94,30 +76,28 @@ __________________________________________________
 
 #* C - Code
 
-def triangle(number)
-  arr = []
-  
-  counter_one = 0
-  loop do
-    counter_one += 1
-    sides = '*' * counter_one
-    arr << sides
-    break if counter_one == number
+def triangle(size)
+  size.times do |i|
+    spaces = ' ' * (size - i - 1)
+    stars = '*' * (i + 1)
+    puts spaces + stars
   end
-
-  counter_two = 0
-  empty_spaces = number
-  loop do
-    empty_spaces -= 1
-    diagonals = ' ' * empty_spaces
-    
-    arr[counter_two].prepend(diagonals)
-    counter_two += 1
-    
-    break if counter_two == number
-  end
-
-arr
 end
 
-triangle(5)
+# triangle(5)
+# triangle(9)
+
+#_________________________________________________
+
+# Further Exploration: Try modifying your solution so it prints the triangle upside down from its current orientation. Try modifying your solution again so that you can display the triangle with the right angle at any corner of the grid.
+
+def triangle_invert(size)
+  size.times do |i|
+    spaces = ' ' * (i + 1)
+    stars = '*' * (size - i - 1)
+    puts spaces + stars
+  end
+end
+
+triangle_invert(9)
+

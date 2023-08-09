@@ -2,21 +2,22 @@
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes two strings as arguments, determines the longest of the two strings, and then returns the result of concatenating the shorter string, the longer string, and the shorter string once again. You may assume that the strings are of different lengths.
+Problem: Given a method that takes two strings as arguments, determine the longest of the two strings, and then return the result of concatenating the shorter string, the longer string, and the shorter once again.
 
-input: Two strings
-output: New String object
+You may assume that the strings are of different lengths.
+
+input: string(s)
+output: new string
 rules:
         - Explicit Requirements:
           - Method will take two strings as arguments
-          - Determines the longest of the two strings
-          - Returns the result of concatenating the shorter string, the longer string, and the shorter string once again
-
+          - Determine the longest of the two strings and then return the result of concatenating the shorter string, the longer string, and the shorter string once again
+          
         - Implicit Requirements:
-          - Both string arguments will have different lengths
+          - You may assume that the strings are of different lengths
 
         - Clarifying Questions:
-          - N / A
+          - N/A
 
 __________________________________________________
 
@@ -30,21 +31,27 @@ __________________________________________________
 
 * D - Data Structure
 
-N / A
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-Determine which string is the longest of two strings:
+Define two method parameters: string_one, string_two
 
-def short_long_short(str_one, str_two)
-  - if str_one.size > str_two.size
-    str_two + str_one + str_two
-  - else
-    str_one + str_two + str_one
-  end
+Initialize a local variable called shorter_string and assign to an empty string literal
+Initialize a local variable called longer_string and assign to an empty string literal
+
+- If `string_one` size is less then `string_two` size
+  - `shorter_string` = `string_one`
+  - `longer_string` = `string_two`
+- Else
+  - `shorter_string` = `string_two`
+  - `longer_string` = `string_one`
 end
+
+shorter_string + longer_string + shorter_string
+
 __________________________________________________
 
 =end
@@ -53,14 +60,26 @@ __________________________________________________
 
 #* C - Code
 
-def short_long_short(str_one, str_two)
-  if str_one.size > str_two.size
-    str_two + str_one + str_two
+def short_long_short(string_one, string_two)
+  shorter_string = ''
+  longer_string = ''
+
+  if string_one.size < string_two.size
+    shorter_string = string_one
+    longer_string = string_two
   else
-    str_one + str_two + str_one
+    shorter_string = string_two
+    longer_string = string_one
   end
+
+  shorter_string + longer_string + shorter_string
 end
 
 short_long_short('abc', 'defgh') == "abcdefghabc"
 short_long_short('abcde', 'fgh') == "fghabcdefgh"
 short_long_short('', 'xyz') == "xyz"
+
+# More Optimized Version
+def short_long_short(string1, string2)
+  string1.length < string2.length ? string1 + string2 + string1 : string2 + string1 + string2
+end

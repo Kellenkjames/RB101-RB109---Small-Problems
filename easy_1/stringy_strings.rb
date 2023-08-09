@@ -1,21 +1,22 @@
-# Stringy Strings
-
 =begin
 
 * P - [Understanding the] Problem
 
-Problem: Write a method that takes one argument, a positive integer, and returns a string of alternating 1s and 0s, always starting with 1. The length of the string should match the given integer.
+Problem: Given a method that takes one argument, a positive integer - return a string of alternating 1s and 0s, always starting with 1. The length of the string should match the given integer.
 
-- input: integer
-- output: string
-- rules:
-          - Explicit Requirements:
-            - Method takes one argument (a positive integer)
-            - Returns a string of alternating 1s and 0s
-            - String always starts with 1
-          
-          - Implicit Requirements:
-            -  Integer cannot be zero or negative
+input: integer
+output: string
+rules:
+        - Explicit Requirements:
+          - Method takes one argument (a positive integer)
+          - Returns a string of alternating 1s and 0s, always starting with 1
+          - The length of the string should match the given integer
+
+        - Implicit Requirements:
+          - New object is returned from the method (string)
+
+        - Clarifying Questions:
+          - N/A
 
 __________________________________________________
 
@@ -26,29 +27,32 @@ puts stringy(9) == '101010101'
 puts stringy(4) == '1010'
 puts stringy(7) == '1010101'
 
+The tests above should print `true`
+
 __________________________________________________
 
 * D - Data Structure
 
-Array []
+N/A
 
 __________________________________________________
 
 * A - Algorithm
 
-- Initialize an empty array called arr
-- Initialize a counter variable and set equal to 0
-- While counter is less than size:
-  - If counter is even
-    - append '1' to the empty string
-  - Else
-    - append '0' to the empty string
-  -end
-- break if counter > str.size
+Define a single method parameter: number
 
-arr.join
-end
+- Initialize a local variable called string and assign to an empty string `""`
+- Call a method on `number` that repeats `number` times:
+- Pass a block to the method as an argument:
+  - Inside the block:
+    - If the current `index` is even
+      - Append `1` to `string`
+    - Else
+      - Append `0` to `string`
+    end
+  end
 
+  return `string`
 __________________________________________________
 
 =end
@@ -57,19 +61,44 @@ __________________________________________________
 
 #* C - Code
 
-def stringy(size)
-arr = []
-counter = 0
-
-while counter < size
-  counter.even? ? arr << 1 : arr << 0
-  counter += 1
+def stringy(number)
+  string = ""
+  
+  number.times do |index|
+    index.even? ? string << '1' : string << '0'
+  end
+  
+  string
 end
 
-arr.join
+puts stringy(6) == '101010'                   # true
+puts stringy(9) == '101010101'             # true
+puts stringy(4) == '1010'                       # true 
+puts stringy(7) == '1010101'                 # true
+
+#_________________________________________________
+
+# Further Exploration
+
+# Modify `stringy` so it takes an additional optional argument that defaults to `1`. If the method is called with this argument set to `0`, the method should return a String of alternating 0s and 1s, but starting with `0` instead of `1`.
+
+def stringy(number, starting_digit = 1)
+  string = ""
+  
+  if starting_digit == 1
+    start_char = '1'
+    alternate_char = '0'
+  else
+    start_char = '0'
+    alternate_char = '1'
+  end
+
+  number.times do |index|
+    index.even? ? string << start_char : string << alternate_char
+  end
+
+  string
 end
 
+stringy(6, 0) == '010101'
 stringy(6) == '101010'
-stringy(9) == '101010101'
-stringy(4) == '1010'
-stringy(7) == '1010101'
